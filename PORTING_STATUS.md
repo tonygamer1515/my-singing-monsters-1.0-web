@@ -26,7 +26,11 @@
 - Title remains visible with explicit loading status; PLAY cannot hide it until all required active-island assets are ready.
 - Initial boot loads 19 animation payloads instead of all 33; Cold/Air monster data is lazy-loaded when selected.
 - Numbered sprite-cycle interpolation restores implied in-between mouth, eye and limb frames that were omitted from launch-era BIN keyframes.
+- Boundary-connected white backgrounds are removed from the original Scups/Riff concept art without deleting their internal white details.
 - Exact-clip fallback prevents Air Island Noggin from incorrectly using its dance clip.
+- Grid-snapped collision-aware placement excludes occupied monsters and all four starting structures.
+- Structures and monsters share a Y-depth sort, preventing back-row objects from drawing over front-row monsters.
+- Island labels are no longer drawn over monster graphics; the context panel shows the real animated monster instead of its spore.
 - Web Audio decodes visible stems first, freezes singing animation while loading, then starts every source and animation on one shared clock.
 - Fifteen valid species and original vocal stem on each island.
 - Original animated nursery, breeding mountain and bakery.

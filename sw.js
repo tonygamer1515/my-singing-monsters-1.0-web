@@ -1,5 +1,5 @@
-const CACHE='msm-1.0-port-v5-visible-loader-lazy-real-assets';
-const CORE=['./?build=5','index.html?build=5','styles.css?build=5','game.js?build=5','manifest.webmanifest','assets/images/app-icon.png','assets/data/sprites.json','assets/data/island-tiles.json'];
+const CACHE='msm-1.0-port-v6-layout-depth-parts';
+const CORE=['./?build=6','index.html?build=6','styles.css?build=6','game.js?build=6','manifest.webmanifest','assets/images/app-icon.png','assets/data/sprites.json','assets/data/island-tiles.json'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{

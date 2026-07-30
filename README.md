@@ -47,6 +47,10 @@ The retired native app used SmartFox/SFS2X servers for accounts and economy stat
 - Original island-specific animated monster clips and OGG stems on a shared Web Audio clock
 - Animation pauses during stem decoding, preventing delayed/desynchronized starts
 - Implied numbered sprite cycles restore intermediate mouth, eye and limb parts
+- Launch-era Scups/Riff concept images are edge-masked to transparency instead of rendering white rectangles
+- Isometric placement snaps to free grid cells, excludes structures, and prevents monsters stacking on each other
+- Monsters and structures are depth-sorted by their island Y position; always-on labels were removed
+- Monster information panels use the real animated Store composition rather than an egg icon
 - Responsive island auto-fit prevents cropped oversized worlds while preserving manual pan/zoom
 - A visible title-screen loader prevents entering a blank canvas before native animation data is ready
 - Only the active island's 15 monsters and atlases load initially; Cold/Air assets load on demand
