@@ -43,6 +43,7 @@ The retired native app used SmartFox/SFS2X servers for accounts and economy stat
 - All 107 recoverable revision-1 AEAnim resources converted from native BIN to compact browser data
 - All 27 natural monsters used across the first three islands rendered from their real parented sprite layers and interpolated keyframes
 - Fifteen valid monsters per island, including Entbrat, Deedge and Riff
+- Market cards themselves render the real animated `Store` compositions instead of egg/spore placeholders
 - Original island-specific animated monster clips and OGG stems
 - Original animated nursery, breeding mountain and bakery structures
 - Egg purchase, nursery timer/hurry, hatch/placement, breeding combinations and breeding timers

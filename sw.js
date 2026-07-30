@@ -1,5 +1,11 @@
-const CACHE='msm-1.0-port-v2';
-const CORE=['./','index.html','styles.css?build=2','game.js?build=2','manifest.webmanifest','assets/images/app-icon.png','assets/data/sprites.json','assets/original/gfx/sky01.png','assets/original/gfx/island_overlay/island01_grass.png','assets/original/gfx/structures/structure_castle01.png','assets/original/gfx/structures/structure_nursery.png'];
+const CACHE='msm-1.0-port-v3-real-monsters';
+const CORE=['./?build=3','index.html?build=3','styles.css?build=3','game.js?build=3','manifest.webmanifest','assets/images/app-icon.png','assets/data/sprites.json','assets/data/island-tiles.json'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==location.origin||event.request.url.endsWith('.ipa'))return;event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{if(response.ok)caches.open(CACHE).then(cache=>cache.put(event.request,response.clone()));return response}))) });
+self.addEventListener('fetch',event=>{
+ if(event.request.method!=='GET'||new URL(event.request.url).origin!==location.origin||event.request.url.endsWith('.ipa'))return;
+ const url=new URL(event.request.url),fresh=event.request.mode==='navigate'||url.searchParams.has('build');
+ const save=response=>{if(response.ok)caches.open(CACHE).then(cache=>cache.put(event.request,response.clone()));return response};
+ if(fresh)event.respondWith(fetch(event.request).then(save).catch(()=>caches.match(event.request)));
+ else event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).then(save)));
+});

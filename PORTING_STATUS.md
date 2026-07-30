@@ -21,6 +21,7 @@
 - Real 45-layer island bodies for Plant, Cold and Air Islands.
 - Shared 39×39 native grid decoded into all 950 terrain placements and all three 18-tile atlases.
 - All 27 natural monster species needed across the first three islands, with real animated body parts—not egg placeholders.
+- All market cards render each monster's original animated `Store` composition; eggs appear only during the intentional Nursery phase.
 - Fifteen valid species and original first vocal stem on each island.
 - Original animated nursery, breeding mountain and bakery.
 - Market eggs, nursery incubation/hurry/hatch placement, breeding combinations/timers.
