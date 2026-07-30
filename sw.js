@@ -1,5 +1,5 @@
-const CACHE='msm-1.0-port-v3-real-monsters';
-const CORE=['./?build=3','index.html?build=3','styles.css?build=3','game.js?build=3','manifest.webmanifest','assets/images/app-icon.png','assets/data/sprites.json','assets/data/island-tiles.json'];
+const CACHE='msm-1.0-port-v4-fit-sync-complete-parts';
+const CORE=['./?build=4','index.html?build=4','styles.css?build=4','game.js?build=4','manifest.webmanifest','assets/images/app-icon.png','assets/data/sprites.json','assets/data/island-tiles.json'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{

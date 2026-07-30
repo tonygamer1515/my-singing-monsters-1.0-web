@@ -22,7 +22,11 @@
 - Shared 39×39 native grid decoded into all 950 terrain placements and all three 18-tile atlases.
 - All 27 natural monster species needed across the first three islands, with real animated body parts—not egg placeholders.
 - All market cards render each monster's original animated `Store` composition; eggs appear only during the intentional Nursery phase.
-- Fifteen valid species and original first vocal stem on each island.
+- Responsive auto-fit keeps the full island in view on iPad and short landscape phones before the player manually zooms.
+- Numbered sprite-cycle interpolation restores implied in-between mouth, eye and limb frames that were omitted from launch-era BIN keyframes.
+- Exact-clip fallback prevents Air Island Noggin from incorrectly using its dance clip.
+- Web Audio decodes visible stems first, freezes singing animation while loading, then starts every source and animation on one shared clock.
+- Fifteen valid species and original vocal stem on each island.
 - Original animated nursery, breeding mountain and bakery.
 - Market eggs, nursery incubation/hurry/hatch placement, breeding combinations/timers.
 - Monster feeding/levels, coin collection, move, mute and sell.
