@@ -46,8 +46,10 @@ The retired native app used SmartFox/SFS2X servers for accounts and economy stat
 - Market cards themselves render the real animated `Store` compositions instead of egg/spore placeholders
 - Original island-specific animated monster clips and OGG stems on a shared Web Audio clock
 - Animation pauses during stem decoding, preventing delayed/desynchronized starts
-- Implied numbered sprite cycles restore intermediate mouth, eye and limb parts
-- Launch-era Scups/Riff concept images are edge-masked to transparency instead of rendering white rectangles
+- Correct TexturePacker dimensions for 211 rotated sprites prevent clipped bodies, limbs, mouths and island pieces
+- Launch-era sprite-cycle expansion now follows the native forward-only numbered-frame rule, eliminating backward mouth morphing
+- Island monsters render at a smaller 55% stage scale with responsive world fit
+- Scups/Riff launch concept images are edge-masked to transparency instead of rendering white rectangles
 - Isometric placement snaps to free grid cells, excludes structures, and prevents monsters stacking on each other
 - Monsters and structures are depth-sorted by their island Y position; always-on labels were removed
 - Monster information panels use the real animated Store composition rather than an egg icon

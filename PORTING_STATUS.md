@@ -25,7 +25,10 @@
 - Responsive auto-fit keeps the full island in view on iPad and short landscape phones before the player manually zooms.
 - Title remains visible with explicit loading status; PLAY cannot hide it until all required active-island assets are ready.
 - Initial boot loads 19 animation payloads instead of all 33; Cold/Air monster data is lazy-loaded when selected.
-- Numbered sprite-cycle interpolation restores implied in-between mouth, eye and limb frames that were omitted from launch-era BIN keyframes.
+- TexturePacker conversion now swaps default original width/height for rotated entries; 211 affected sprites were regenerated.
+- This restores previously cropped Toe Jammer, Noggin, Mammott, Deedge and island ear/nose components.
+- Sprite-cycle interpolation follows the native launch parser: forward numbered runs only, with no invented reverse mouth sequence.
+- All island monsters use a reduced 0.55 stage scale; market/context previews retain normalized Store scale.
 - Boundary-connected white backgrounds are removed from the original Scups/Riff concept art without deleting their internal white details.
 - Exact-clip fallback prevents Air Island Noggin from incorrectly using its dance clip.
 - Grid-snapped collision-aware placement excludes occupied monsters and all four starting structures.
