@@ -35,20 +35,22 @@ Version 1.0.0 was the iOS launch line; Android began later, so an Android `1.0.0
 
 The retired native app used SmartFox/SFS2X servers for accounts and economy state. The web port replaces that dependency with an offline local save while preserving original client assets and mechanics.
 
-## Playable first milestone
+## Current playable build
 
-- Original 1.0 title artwork and icon
-- Offline local profile/save
-- Plant Island camera pan and zoom
-- Original grass, sky, castle, nursery and breeding art
-- Initial Potbelly, Noggin, Toe Jammer and Mammott market/placement loop
-- Original synchronized Plant Island bass and monster OGG stems
-- Monster coin generation/collection
-- Bakery, breeding-development, goals and island panels
-- Five-page tutorial
-- Touch, mouse, pinch and wheel controls
+- Original 1.0 title artwork and offline local profile/save
+- The real 45-layer animated Plant, Cold and Air Island bodies decoded from the IPA
+- Exact 39×39 isometric surface built from all 950 authored tiles (no synthetic ellipse)
+- All 107 recoverable revision-1 AEAnim resources converted from native BIN to compact browser data
+- All 27 natural monsters used across the first three islands rendered from their real parented sprite layers and interpolated keyframes
+- Fifteen valid monsters per island, including Entbrat, Deedge and Riff
+- Original island-specific animated monster clips and OGG stems
+- Original animated nursery, breeding mountain and bakery structures
+- Egg purchase, nursery timer/hurry, hatch/placement, breeding combinations and breeding timers
+- Monster coin generation/collection, feeding, levels, happiness state, move, mute and sell
+- Plant, Cold and Air Island selection with original island buttons, skies, terrain and music
+- Bakery, goals, tutorial, touch/mouse pan, pinch and wheel zoom
 
-This is the first development milestone, not yet a complete native-mechanics reproduction.
+The remaining work is exact server-era economy tables, the complete original menu event scripts, advanced decoration/happiness interactions and final timing refinements—not replacement graphics.
 
 ## Run locally
 
