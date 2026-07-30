@@ -48,6 +48,8 @@ The retired native app used SmartFox/SFS2X servers for accounts and economy stat
 - Animation pauses during stem decoding, preventing delayed/desynchronized starts
 - Implied numbered sprite cycles restore intermediate mouth, eye and limb parts
 - Responsive island auto-fit prevents cropped oversized worlds while preserving manual pan/zoom
+- A visible title-screen loader prevents entering a blank canvas before native animation data is ready
+- Only the active island's 15 monsters and atlases load initially; Cold/Air assets load on demand
 - Original animated nursery, breeding mountain and bakery structures
 - Egg purchase, nursery timer/hurry, hatch/placement, breeding combinations and breeding timers
 - Monster coin generation/collection, feeding, levels, happiness state, move, mute and sell

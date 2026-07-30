@@ -23,6 +23,8 @@
 - All 27 natural monster species needed across the first three islands, with real animated body parts—not egg placeholders.
 - All market cards render each monster's original animated `Store` composition; eggs appear only during the intentional Nursery phase.
 - Responsive auto-fit keeps the full island in view on iPad and short landscape phones before the player manually zooms.
+- Title remains visible with explicit loading status; PLAY cannot hide it until all required active-island assets are ready.
+- Initial boot loads 19 animation payloads instead of all 33; Cold/Air monster data is lazy-loaded when selected.
 - Numbered sprite-cycle interpolation restores implied in-between mouth, eye and limb frames that were omitted from launch-era BIN keyframes.
 - Exact-clip fallback prevents Air Island Noggin from incorrectly using its dance clip.
 - Web Audio decodes visible stems first, freezes singing animation while loading, then starts every source and animation on one shared clock.
