@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:73a0e98b7d28c792db5b570fb39455e2$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/decoration_metal_sheet.png" width="256" height="512">
+    <sprite n="birdbath01" x="127" y="287" w="98" h="172" oX="1" oY="0" oW="100" oH="172"/>
+    <sprite n="metalstuff01" x="2" y="2" w="250" h="283" oX="1" oY="0" oW="285" oH="250" r="y"/>
+    <sprite n="metalstuff06" x="2" y="287" w="123" h="175" oX="0" oY="1" oW="175" oH="125" r="y"/>
+</TextureAtlas>

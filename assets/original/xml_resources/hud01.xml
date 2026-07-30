@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:4f0acb830dc04fef4cf43e57f30d4e21$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/hud01.png" width="512" height="1024">
+    <sprite n="arrow01" x="362" y="2" w="106" h="92" oX="2" oY="0" oW="96" oH="108" r="y"/>
+    <sprite n="coin" x="450" y="328" w="56" h="64" oX="1" oY="1" oW="58" oH="66"/>
+    <sprite n="collect_breeding" x="104" y="809" w="77" h="91" oX="2" oY="4" oW="81" oH="99"/>
+    <sprite n="collect_coins" x="233" y="753" w="77" h="91" oX="2" oY="4" oW="81" oH="99"/>
+    <sprite n="collect_diamonds" x="422" y="687" w="77" h="91" oX="2" oY="4" oW="81" oH="99"/>
+    <sprite n="collect_food" x="104" y="716" w="77" h="91" oX="2" oY="4" oW="81" oH="99"/>
+    <sprite n="collect_hatch" x="235" y="660" w="77" h="91" oX="2" oY="4" oW="81" oH="99"/>
+    <sprite n="collect_xp" x="425" y="594" w="77" h="91" oX="2" oY="4" oW="81" oH="99"/>
+    <sprite n="diamond" x="310" y="852" w="64" h="66" oX="0" oY="0" oW="68" oH="66" r="y"/>
+    <sprite n="divider" x="508" y="146" w="2" h="286" oX="3" oY="0" oW="300" oH="2" r="y"/>
+    <sprite n="emote01" x="104" y="902" w="75" h="73" oX="0" oY="2" oW="75" oH="75"/>
+    <sprite n="emote02" x="233" y="846" w="75" h="73" oX="0" oY="2" oW="75" oH="75"/>
+    <sprite n="emote03" x="252" y="351" w="75" h="73" oX="0" oY="2" oW="75" oH="75"/>
+    <sprite n="emote04" x="252" y="276" w="75" h="73" oX="0" oY="2" oW="75" oH="75"/>
+    <sprite n="food" x="200" y="954" w="64" h="68" oX="0" oY="4" oW="68" oH="68" r="y"/>
+    <sprite n="food_01" x="104" y="492" w="82" h="78" oX="19" oY="18" oW="120" oH="120" r="y"/>
+    <sprite n="food_02" x="266" y="921" w="66" h="66" oX="31" oY="19" oW="120" oH="120"/>
+    <sprite n="food_03" x="104" y="430" w="84" h="60" oX="18" oY="29" oW="120" oH="120"/>
+    <sprite n="food_04" x="334" y="920" w="58" h="66" oX="27" oY="30" oW="120" oH="120" r="y"/>
+    <sprite n="food_05" x="202" y="320" w="48" h="94" oX="36" oY="12" oW="120" oH="120"/>
+    <sprite n="food_06" x="416" y="780" w="92" h="70" oX="13" oY="22" oW="120" oH="120"/>
+    <sprite n="food_07" x="2" y="940" w="96" h="68" oX="11" oY="26" oW="120" oH="120"/>
+    <sprite n="food_08" x="348" y="172" w="102" h="62" oX="10" oY="21" oW="120" oH="120"/>
+    <sprite n="food_09" x="362" y="96" w="106" h="74" oX="25" oY="5" oW="120" oH="120" r="y"/>
+    <sprite n="food_amount_base" x="452" y="232" w="52" h="94" oX="1" oY="0" oW="98" oH="52" r="y"/>
+    <sprite n="gene_air" x="104" y="572" w="79" h="78" oX="1" oY="0" oW="80" oH="81" r="y"/>
+    <sprite n="gene_cold" x="242" y="506" w="79" h="78" oX="1" oY="0" oW="80" oH="81" r="y"/>
+    <sprite n="gene_earth" x="431" y="514" w="79" h="78" oX="1" oY="0" oW="80" oH="81" r="y"/>
+    <sprite n="gene_plant" x="248" y="426" w="79" h="78" oX="1" oY="0" oW="80" oH="81" r="y"/>
+    <sprite n="gene_water" x="431" y="434" w="79" h="78" oX="1" oY="0" oW="80" oH="81" r="y"/>
+    <sprite n="goal_blank" x="181" y="920" w="32" h="32"/>
+    <sprite n="goal_exclaim" x="166" y="977" w="32" h="32"/>
+    <sprite n="goal_icon_breed" x="2" y="838" w="100" h="100"/>
+    <sprite n="goal_icon_castle" x="314" y="746" w="100" h="100"/>
+    <sprite n="goal_icon_coins" x="2" y="736" w="100" h="100"/>
+    <sprite n="goal_icon_food" x="320" y="644" w="100" h="100"/>
+    <sprite n="goal_icon_island" x="323" y="542" w="100" h="100"/>
+    <sprite n="goal_icon_level_up" x="2" y="634" w="100" h="100"/>
+    <sprite n="goal_icon_monster" x="2" y="532" w="100" h="100"/>
+    <sprite n="goal_icons_decorations" x="2" y="430" w="100" h="100"/>
+    <sprite n="goal_icons_friends" x="329" y="440" w="100" h="100"/>
+    <sprite n="goal_icons_mine" x="329" y="338" w="100" h="100"/>
+    <sprite n="goal_icons_obstacle" x="348" y="236" w="100" h="100"/>
+    <sprite n="goal_swirl" x="330" y="168" w="16" h="158" oX="2" oY="5" oW="162" oH="26" r="y"/>
+    <sprite n="green_0" x="183" y="816" w="48" h="34" oX="13" oY="8" oW="60" oH="60" r="y"/>
+    <sprite n="green_10" x="330" y="118" w="30" h="48" oX="16" oY="8" oW="60" oH="60"/>
+    <sprite n="green_2" x="185" y="596" w="50" h="34" oX="14" oY="6" oW="60" oH="60" r="y"/>
+    <sprite n="green_3" x="188" y="560" w="50" h="34" oX="14" oY="7" oW="60" oH="60" r="y"/>
+    <sprite n="green_4" x="470" y="52" w="38" h="48" oX="11" oY="8" oW="60" oH="60"/>
+    <sprite n="green_5" x="183" y="780" w="48" h="34" oX="14" oY="8" oW="60" oH="60" r="y"/>
+    <sprite n="green_6" x="183" y="886" w="48" h="32" oX="14" oY="8" oW="60" oH="60" r="y"/>
+    <sprite n="green_7" x="184" y="670" w="48" h="36" oX="12" oY="8" oW="60" oH="60" r="y"/>
+    <sprite n="green_8" x="431" y="394" w="50" h="36" oX="13" oY="7" oW="60" oH="60" r="y"/>
+    <sprite n="green_9" x="188" y="524" w="50" h="34" oX="14" oY="6" oW="60" oH="60" r="y"/>
+    <sprite n="happiness_bar_empty" x="2" y="144" w="268" h="42" oX="1" oY="0" oW="270" oH="42"/>
+    <sprite n="happiness_bar_full" x="2" y="276" w="248" h="42" oX="10" oY="0" oW="270" oH="42"/>
+    <sprite n="level_bar_empty" x="2" y="2" w="358" h="64" oX="1" oY="0" oW="360" oH="66"/>
+    <sprite n="level_bar_full" x="2" y="106" w="326" h="36" oX="19" oY="11" oW="360" oH="66"/>
+    <sprite n="loading_bar_full" x="2" y="68" w="326" h="36" oX="19" oY="11" oW="360" oH="66"/>
+    <sprite n="menu_flute" x="2" y="384" w="192" h="44" oX="0" oY="1" oW="44" oH="194" r="y"/>
+    <sprite n="menu_leaf" x="470" y="102" w="38" h="42" oX="1" oY="3" oW="44" oH="44" r="y"/>
+    <sprite n="menu_leaves" x="376" y="852" w="58" h="60" oX="0" oY="0" oW="60" oH="60" r="y"/>
+    <sprite n="menu_swirl_01" x="252" y="214" w="76" h="60" oX="1" oY="10" oW="80" oH="80"/>
+    <sprite n="menu_swirl_02" x="240" y="586" w="78" h="72" oX="1" oY="4" oW="80" oH="80"/>
+    <sprite n="monster_bar_empty" x="2" y="144" w="268" h="42" oX="1" oY="0" oW="270" oH="42"/>
+    <sprite n="monster_bar_full" x="2" y="232" w="248" h="42" oX="10" oY="0" oW="270" oH="42"/>
+    <sprite n="orange_0" x="183" y="744" w="48" h="34" oX="13" oY="8" oW="60" oH="60" r="y"/>
+    <sprite n="orange_1" x="330" y="68" w="30" h="48" oX="16" oY="8" oW="60" oH="60"/>
+    <sprite n="orange_2" x="190" y="488" w="50" h="34" oX="14" oY="6" oW="60" oH="60" r="y"/>
+    <sprite n="orange_3" x="190" y="452" w="50" h="34" oX="14" oY="7" oW="60" oH="60" r="y"/>
+    <sprite n="orange_4" x="470" y="2" w="38" h="48" oX="11" oY="8" oW="60" oH="60"/>
+    <sprite n="orange_5" x="184" y="708" w="48" h="34" oX="14" oY="8" oW="60" oH="60" r="y"/>
+    <sprite n="orange_6" x="183" y="852" w="48" h="32" oX="14" oY="8" oW="60" oH="60" r="y"/>
+    <sprite n="orange_7" x="185" y="632" w="48" h="36" oX="12" oY="8" oW="60" oH="60" r="y"/>
+    <sprite n="orange_8" x="470" y="146" w="36" h="50" oX="13" oY="7" oW="60" oH="60"/>
+    <sprite n="orange_9" x="196" y="416" w="50" h="34" oX="14" oY="6" oW="60" oH="60" r="y"/>
+    <sprite n="progress_bar_full" x="2" y="188" w="248" h="42" oX="10" oY="0" oW="270" oH="42"/>
+    <sprite n="small_fork" x="452" y="198" w="54" h="32" oX="1" oY="1" oW="34" oH="56" r="y"/>
+    <sprite n="small_knife" x="100" y="977" w="64" h="32" oX="0" oY="0" oW="34" oH="66" r="y"/>
+    <sprite n="stats_bar" x="2" y="320" w="198" h="62" oX="0" oY="1" oW="200" oH="64"/>
+    <sprite n="swirls" x="104" y="652" w="78" h="62" r="y"/>
+    <sprite n="xp" x="272" y="144" w="56" h="68" oX="0" oY="9" oW="68" oH="68" r="y"/>
+</TextureAtlas>

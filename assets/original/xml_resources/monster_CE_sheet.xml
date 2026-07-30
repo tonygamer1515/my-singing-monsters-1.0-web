@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:0ef2670375052725377e01cc9a124105$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_CE_sheet.png" width="256" height="256">
+    <sprite n="CE_belly" x="55" y="134" w="66" h="73" r="y"/>
+    <sprite n="CE_body" x="2" y="2" w="81" h="130"/>
+    <sprite n="CE_eyeback" x="122" y="80" w="16" h="37" r="y"/>
+    <sprite n="CE_eyelid1" x="103" y="119" w="37" h="9" oX="0" oY="8" oW="37" oH="17"/>
+    <sprite n="CE_eyelid2" x="85" y="61" w="37" h="17"/>
+    <sprite n="CE_eyelid3" x="85" y="42" w="37" h="17"/>
+    <sprite n="CE_eyelid4" x="103" y="80" w="17" h="37" r="y"/>
+    <sprite n="CE_left_arm" x="86" y="209" w="41" h="42" r="y"/>
+    <sprite n="CE_left_foot" x="140" y="75" w="35" h="35"/>
+    <sprite n="CE_left_hand" x="123" y="130" w="31" h="62" r="y"/>
+    <sprite n="CE_left_leg" x="195" y="54" w="34" h="28" r="y"/>
+    <sprite n="CE_mouth1" x="85" y="80" w="16" h="47" r="y"/>
+    <sprite n="CE_mouth2" x="202" y="36" w="47" h="16"/>
+    <sprite n="CE_pupil" x="123" y="2" w="4" h="4" oX="1" oY="1" oW="6" oH="6"/>
+    <sprite n="CE_right_arm" x="202" y="2" w="47" h="32" r="y"/>
+    <sprite n="CE_right_foot" x="85" y="2" w="35" h="38"/>
+    <sprite n="CE_right_hand" x="129" y="2" w="71" h="35"/>
+    <sprite n="CE_right_leg" x="55" y="209" w="29" h="43"/>
+    <sprite n="CE_shadow" x="2" y="134" w="51" h="116" oX="2" oY="0" oW="120" oH="51" r="y"/>
+    <sprite n="CE_tail" x="129" y="39" w="64" h="34"/>
+</TextureAtlas>

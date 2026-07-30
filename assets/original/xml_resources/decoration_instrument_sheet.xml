@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:ab29d494844537a8ecd6f66d98b2c6fd$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/decoration_instrument_sheet.png" width="512" height="512">
+    <sprite n="lamppost01" x="2" y="399" w="225" h="104" r="y"/>
+    <sprite n="lamppost02" x="402" y="222" w="100" h="208" oX="0" oY="1" oW="100" oH="210"/>
+    <sprite n="musical_pipes" x="306" y="2" w="163" h="218" oX="1" oY="0" oW="220" oH="165" r="y"/>
+    <sprite n="musictree01" x="2" y="182" w="220" h="215" r="y"/>
+    <sprite n="musictree02" x="2" y="2" w="302" h="178" oX="1" oY="0" oW="304" oH="180"/>
+    <sprite n="spikey_plant" x="229" y="370" w="150" h="122" r="y"/>
+    <sprite n="stretchedskin" x="224" y="222" w="176" h="146" oX="1" oY="0" oW="148" oH="176" r="y"/>
+</TextureAtlas>

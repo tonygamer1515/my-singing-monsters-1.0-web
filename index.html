@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#50bdd0">
+  <title>My Singing Monsters 1.0 — Web Preservation Port</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/images/app-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app">
+    <canvas id="game" aria-label="My Singing Monsters 1.0"></canvas>
+
+    <section id="title" class="title-screen">
+      <div class="title-card">
+        <img src="assets/images/app-icon.png" alt="My Singing Monsters">
+        <h1>MY SINGING<br>MONSTERS</h1>
+        <p>ORIGINAL 1.0 · 2012 PRESERVATION PORT</p>
+        <button id="playButton">PLAY OFFLINE</button>
+        <small>The retired account server is replaced with a local browser save.</small>
+      </div>
+    </section>
+
+    <section id="hud" hidden>
+      <div class="level-pill"><b>LEVEL <span id="level">1</span></b><i><span id="xpBar"></span></i></div>
+      <div class="currency coins"><span>●</span><b id="coins">500</b></div>
+      <div class="currency diamonds"><span>◆</span><b id="diamonds">20</b></div>
+      <div class="currency food"><span>●</span><b id="food">100</b></div>
+      <button id="soundButton" class="round sound" aria-label="Sound">♫</button>
+      <button id="helpButton" class="round help" aria-label="Tutorial">?</button>
+      <nav class="toolbar">
+        <button data-menu="market"><img src="assets/images/ui/market.png" alt=""><b>MARKET</b></button>
+        <button data-menu="bake"><img src="assets/images/ui/bake.png" alt=""><b>BAKE</b></button>
+        <button data-menu="breed"><img src="assets/images/ui/breed.png" alt=""><b>BREED</b></button>
+        <button data-menu="goals"><img src="assets/images/ui/goals.png" alt=""><b>GOALS</b></button>
+        <button data-menu="islands"><img src="assets/images/ui/islands.png" alt=""><b>ISLANDS</b></button>
+      </nav>
+      <div class="zoom"><button id="zoomIn">＋</button><button id="zoomOut">−</button></div>
+    </section>
+
+    <section id="panel" class="panel" hidden>
+      <div class="panel-card">
+        <button id="closePanel" class="close">×</button>
+        <h2 id="panelTitle">MARKET</h2>
+        <div id="panelBody"></div>
+      </div>
+    </section>
+
+    <div id="toast"></div>
+    <div id="rotate"><b>ROTATE YOUR DEVICE</b><span>Version 1.0 plays in landscape.</span></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

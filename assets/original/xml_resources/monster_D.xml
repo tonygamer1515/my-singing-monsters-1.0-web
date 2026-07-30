@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:695dfc8d2e1ac8dc3d9812b69484cc7a$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_D.png" width="256" height="512">
+    <sprite n="D_body1" x="2" y="101" w="106" h="97"/>
+    <sprite n="D_body2" x="110" y="2" w="106" h="97"/>
+    <sprite n="D_body3" x="2" y="2" w="106" h="97"/>
+    <sprite n="D_bubble" x="78" y="263" w="14" h="14"/>
+    <sprite n="D_left_eyeback" x="78" y="200" w="25" h="21"/>
+    <sprite n="D_left_eyelid1" x="227" y="281" w="25" h="31" r="y"/>
+    <sprite n="D_left_eyelid2" x="227" y="248" w="25" h="31" r="y"/>
+    <sprite n="D_left_eyelid3" x="227" y="215" w="25" h="31" r="y"/>
+    <sprite n="D_left_eyelid4" x="216" y="188" w="31" h="25"/>
+    <sprite n="D_mouth1" x="94" y="268" w="74" h="39"/>
+    <sprite n="D_mouth2" x="103" y="227" w="74" h="39"/>
+    <sprite n="D_mouth3" x="2" y="241" w="74" h="39"/>
+    <sprite n="D_mouth4" x="2" y="200" w="74" h="39"/>
+    <sprite n="D_mouth5" x="186" y="215" w="39" h="74" r="y"/>
+    <sprite n="D_mouth6" x="110" y="186" w="74" h="39"/>
+    <sprite n="D_mouth7" x="110" y="145" w="74" h="39"/>
+    <sprite n="D_pupil" x="78" y="279" w="8" h="8"/>
+    <sprite n="D_right_eyeback" x="186" y="190" w="28" h="23"/>
+    <sprite n="D_right_eyelid1" x="216" y="158" w="34" h="28"/>
+    <sprite n="D_right_eyelid2" x="216" y="128" w="34" h="28"/>
+    <sprite n="D_right_eyelid3" x="218" y="98" w="34" h="28"/>
+    <sprite n="D_right_eyelid4" x="218" y="68" w="34" h="28"/>
+    <sprite n="D_shadow" x="110" y="101" w="74" h="42"/>
+    <sprite n="D_thumb1" x="78" y="243" w="23" h="18"/>
+    <sprite n="D_thumb2" x="186" y="165" w="28" h="23"/>
+    <sprite n="D_thumb3" x="218" y="34" w="35" h="32" r="y"/>
+    <sprite n="D_thumb4" x="186" y="126" w="28" h="37"/>
+    <sprite n="D_thumb5" x="218" y="2" w="36" h="30"/>
+    <sprite n="D_thumb6" x="186" y="101" w="30" h="23"/>
+    <sprite n="D_thumb7" x="78" y="223" w="23" h="18"/>
+</TextureAtlas>

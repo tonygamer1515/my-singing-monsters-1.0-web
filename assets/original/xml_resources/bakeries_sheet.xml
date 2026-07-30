@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:8f1de57bf09a9e57e233ff9485e412f3$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/bakeries_sheet.png" width="1024" height="512">
+    <sprite n="bakery01" x="286" y="266" w="260" h="220" oX="17" oY="86" oW="294" oH="314"/>
+    <sprite n="bakery02" x="286" y="2" w="258" h="262" oX="18" oY="50" oW="294" oH="314"/>
+    <sprite n="bakery03" x="2" y="2" w="282" h="314" oX="3" oY="0" oW="294" oH="314"/>
+    <sprite n="bakery_door_closed" x="84" y="410" w="66" h="90" oX="57" oY="1" oW="150" oH="90" r="y"/>
+    <sprite n="bakery_door_cooking" x="84" y="318" w="66" h="90" oX="57" oY="1" oW="150" oH="90" r="y"/>
+    <sprite n="bakery_door_open" x="2" y="318" w="80" h="138" oX="2" oY="7" oW="150" oH="90" r="y"/>
+</TextureAtlas>

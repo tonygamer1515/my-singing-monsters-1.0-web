@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:3b667bee8db89bd847305dce2143678e$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/obstacle_tree_sheet_snow.png" width="512" height="512">
+    <sprite n="obstacle_tree01_snow" x="2" y="324" w="208" h="118" oX="2" oY="0" oW="122" oH="208" r="y"/>
+    <sprite n="obstacle_tree02_snow" x="200" y="2" w="272" h="136" oX="41" oY="18" oW="214" oH="290" r="y"/>
+    <sprite n="obstacle_tree03_snow" x="2" y="2" w="196" h="320" oX="43" oY="35" oW="282" oH="364"/>
+</TextureAtlas>

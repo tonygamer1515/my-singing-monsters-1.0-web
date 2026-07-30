@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:29324a83b3eb5ffcaed3791839d1dd08$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_ABE_sheet.png" width="256" height="256">
+    <sprite n="ABE_fur_eyeback" x="228" y="126" w="22" h="44" oX="0" oY="1" oW="44" oH="24" r="y"/>
+    <sprite n="ABE_fur_eyelids_1" x="182" y="104" w="44" h="22" oX="0" oY="1" oW="44" oH="24"/>
+    <sprite n="ABE_fur_eyelids_2" x="229" y="80" w="22" h="44" oX="0" oY="1" oW="44" oH="24" r="y"/>
+    <sprite n="ABE_fur_mouth_1" x="165" y="60" w="16" h="19" r="y"/>
+    <sprite n="ABE_fur_mouth_2" x="184" y="24" w="19" h="16"/>
+    <sprite n="ABE_fur_mouth_3" x="165" y="115" w="12" h="19" oX="0" oY="2" oW="19" oH="16" r="y"/>
+    <sprite n="ABE_fur_mouth_4" x="213" y="128" w="12" h="11" oX="4" oY="2" oW="19" oH="16" r="y"/>
+    <sprite n="ABE_fur_nose" x="245" y="34" w="8" h="6"/>
+    <sprite n="ABE_left_mushroom_stalk" x="68" y="80" w="37" h="24" r="y"/>
+    <sprite n="ABE_left_mushroom_top" x="2" y="52" w="64" h="33"/>
+    <sprite n="ABE_pink_eyeback" x="183" y="80" w="44" h="22" oX="0" oY="1" oW="44" oH="24"/>
+    <sprite n="ABE_pink_eyelids_1" x="60" y="106" w="44" h="22" oX="0" oY="1" oW="44" oH="24"/>
+    <sprite n="ABE_pink_eyelids_2" x="205" y="2" w="44" h="22" oX="0" oY="1" oW="44" oH="24"/>
+    <sprite n="ABE_pink_mouth_1" x="165" y="81" w="15" h="32" r="y"/>
+    <sprite n="ABE_pink_mouth_2" x="179" y="128" w="32" h="11" oX="0" oY="1" oW="32" oH="15"/>
+    <sprite n="ABE_pink_mouth_3" x="106" y="118" w="32" h="9" oX="0" oY="1" oW="32" oH="15"/>
+    <sprite n="ABE_pink_mouth_4" x="205" y="26" w="12" h="13" oX="9" oY="1" oW="32" oH="15"/>
+    <sprite n="ABE_pink_nose" x="245" y="26" w="8" h="6"/>
+    <sprite n="ABE_pupil" x="60" y="87" w="6" h="6"/>
+    <sprite n="ABE_right_mushroom_stalk" x="68" y="52" w="37" h="26" r="y"/>
+    <sprite n="ABE_right_mushroom_top" x="184" y="42" w="66" h="36"/>
+    <sprite n="ABE_shadow" x="219" y="26" w="24" h="12"/>
+    <sprite n="ABE_shadow_ground" x="107" y="2" w="96" h="20"/>
+    <sprite n="ABE_thumpie_fur" x="2" y="87" w="56" h="56"/>
+    <sprite n="ABE_thumpie_pink" x="107" y="60" w="56" h="56"/>
+    <sprite n="ABE_treestump" x="2" y="2" w="103" h="48"/>
+    <sprite n="ABE_treestump_top" x="107" y="24" w="75" h="34"/>
+</TextureAtlas>

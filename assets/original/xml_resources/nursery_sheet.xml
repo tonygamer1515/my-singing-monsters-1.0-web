@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:2da29f8b904ef65f7d631bfb986a922a$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/structure_nursery.png" width="512" height="512">
+    <sprite n="nursery_base" x="2" y="2" w="337" h="435" oX="5" oY="0" oW="345" oH="435"/>
+    <sprite n="nursery_glow" x="2" y="439" w="94" h="47"/>
+    <sprite n="nursery_light" x="341" y="2" w="159" h="184" r="y"/>
+    <sprite n="nursery_sparkle" x="2" y="488" w="24" h="20" oX="2" oY="0" oW="24" oH="24" r="y"/>
+</TextureAtlas>

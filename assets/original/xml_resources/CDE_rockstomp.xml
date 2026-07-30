@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:03ade9617399338fe6799d5a34b7412b$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/CDE_rockstomp.png" width="256" height="256">
+    <sprite n="C_behind_jaw_1" x="53" y="156" w="25" h="45" oX="0" oY="1" oW="51" oH="35" r="y"/>
+    <sprite n="C_behind_jaw_2" x="220" y="191" w="29" h="45" oX="2" oY="1" oW="51" oH="35" r="y"/>
+    <sprite n="C_behind_jaw_3" x="90" y="219" w="43" h="33" oX="5" oY="0" oW="51" oH="35"/>
+    <sprite n="C_behind_jaw_4" x="45" y="219" w="43" h="33" oX="8" oY="0" oW="51" oH="35"/>
+    <sprite n="C_behind_jaw_5" x="2" y="219" w="41" h="35" oX="10" oY="0" oW="51" oH="35"/>
+    <sprite n="C_body" x="2" y="2" w="80" h="73"/>
+    <sprite n="C_eyeback" x="101" y="202" w="13" h="13"/>
+    <sprite n="C_eyelid_1" x="69" y="203" w="15" h="14" r="y"/>
+    <sprite n="C_eyelid_2" x="52" y="203" w="15" h="14" r="y"/>
+    <sprite n="C_eyelid_3" x="60" y="140" w="15" h="14" r="y"/>
+    <sprite n="C_eyelid_4" x="60" y="124" w="15" h="14" r="y"/>
+    <sprite n="C_face" x="156" y="2" w="66" h="60"/>
+    <sprite n="C_face_crystal" x="2" y="194" w="48" h="23"/>
+    <sprite n="C_foot_left" x="2" y="112" w="56" h="33"/>
+    <sprite n="C_foot_right" x="2" y="77" w="56" h="33"/>
+    <sprite n="C_jaw_1" x="148" y="64" w="62" h="33" oX="0" oY="0" oW="62" oH="41"/>
+    <sprite n="C_jaw_2" x="84" y="35" w="62" h="35" oX="0" oY="0" oW="62" oH="41"/>
+    <sprite n="C_jaw_3" x="84" y="72" w="58" h="37" oX="4" oY="0" oW="62" oH="41"/>
+    <sprite n="C_jaw_4" x="144" y="99" w="56" h="41" oX="6" oY="0" oW="62" oH="41"/>
+    <sprite n="C_jaw_5" x="202" y="106" w="52" h="41" oX="10" oY="0" oW="62" oH="41"/>
+    <sprite n="C_jaw_6" x="224" y="2" w="29" h="62" oX="0" oY="0" oW="62" oH="41" r="y"/>
+    <sprite n="C_leg1_left" x="135" y="212" w="47" h="40" r="y"/>
+    <sprite n="C_leg1_right" x="2" y="147" w="49" h="45" r="y"/>
+    <sprite n="C_leg2_left" x="212" y="66" w="42" h="38" r="y"/>
+    <sprite n="C_leg2_right" x="80" y="163" w="42" h="37" r="y"/>
+    <sprite n="C_pupil" x="137" y="149" w="8" h="8" oX="1" oY="1" oW="10" oH="10"/>
+    <sprite n="C_shadow" x="84" y="2" w="70" h="31" oX="0" oY="1" oW="70" oH="33"/>
+    <sprite n="C_shoulder_left" x="124" y="163" w="46" h="47"/>
+    <sprite n="C_shoulder_right" x="172" y="149" w="46" h="47" r="y"/>
+    <sprite n="C_tail1" x="80" y="111" w="55" h="50" r="y"/>
+    <sprite n="C_tail1_crystal" x="60" y="77" w="19" h="15" r="y"/>
+    <sprite n="C_tail2" x="220" y="149" w="31" h="40"/>
+    <sprite n="C_tail2_crystal" x="86" y="202" w="13" h="15"/>
+    <sprite n="C_tail3" x="60" y="94" w="18" h="28"/>
+</TextureAtlas>

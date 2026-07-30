@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="utf-16"?>
+<menu>
+
+	<element name="bg">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<spriteComponent name="Sprite">
+			<position relativeTo="PARENT" vAnchor="TOP" hAnchor="LEFT" />
+			<orientation vAnchor="TOP" hAnchor="LEFT" xOffset="0" yOffset="0" priorityOffset="20" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("gfx/menu/menu_background_01")
+				component("layer"):SetString("HUD")
+				lua_sys.playMP3("audio/music/store_music")
+				component:setScale(Vector2(lua_sys.screenWidth()/480.0, lua_sys.screenHeight()/320.0))
+			</event>
+		</spriteComponent>
+	</element>
+	
+	<element name="FadeLayer">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="SCREEN" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="14" />
+		
+		<spriteComponent name="Sprite">
+			<event name="onInit" params="component, element">
+				<![CDATA[
+					component("spriteName"):SetString("gfx/menu/menu_background_01")
+					component:setScale(Vector2(lua_sys.screenWidth()/480.0, lua_sys.screenHeight()/320.0))
+					--[[component("red"):SetFloat(0.0)
+					component("green"):SetFloat(0.0)
+					component("blue"):SetFloat(0.0)]]
+					component("alpha"):SetFloat(0.0)
+					component("layer"):SetString("HUD")
+				]]>
+			</event>
+		</spriteComponent>
+	</element>
+	
+	<element name="XpBarBacking">
+		<hudScale scale="game.hudScale()"/>
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="PARENT" vAnchor="TOP" hAnchor="LEFT" />
+		<orientation vAnchor="TOP" hAnchor="LEFT" xOffset="0" yOffset="0" priorityOffset="10" />
+		<spriteSheetComponent name="Sprite">
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("level_bar_empty")
+				component("sheetName"):SetString("xml_resources/hud01.xml")
+				component("size"):SetFloat(0.5)
+				component("layer"):SetString("HUD")
+			</event>
+		</spriteSheetComponent>
+	</element>
+	
+	<element name="XpBar">
+		<hudScale scale="game.hudScale()"/>
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="XpBarBacking" vAnchor="VCENTER" hAnchor="VCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="VCENTER" xOffset="0" yOffset="-1" priorityOffset="-1" />
+		<spriteSheetComponent name="Sprite">
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("level_bar_full")
+				component("sheetName"):SetString("xml_resources/hud01.xml")
+				component("size"):SetFloat(0.5)
+				component("layer"):SetString("HUD")
+				component("FullMaskH"):SetInt(component("maskHeight"):GetInt())
+				component("FullMaskW"):SetInt(component("maskWidth"):GetInt())
+				
+				local xp = 0; 
+				if(game.playerXpForLevel() ~= 0) then
+					xp = game.playerCurrentXp() / game.playerXpForLevel()
+				end
+				
+				if(component("isSourceRotated"):GetInt() == 1) then
+					component("maskHeight"):SetFloat(component("FullMaskH"):GetInt() * xp)
+				else
+					component("maskWidth"):SetFloat(component("FullMaskW"):GetInt() * xp)
+				end
+			</event>
+		</spriteSheetComponent>
+		<textComponent name="Text">
+			<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-2" />
+			<event name="onInit" params="component, element">
+				component("multiline"):SetInt(0)
+				component("font"):Set(game.getTitleFont())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+				component("size"):SetFloat(0.3)
+				component("text"):SetString(game.getLocalizedText("LEVEL").." "..game.playerLevel())
+				component("red"):SetFloat(0.26)
+				component("green"):SetFloat(0.96)
+				component("blue"):SetFloat(0.26)
+				component("autoScale"):SetInt(1)
+				component("layer"):SetString("HUD")
+			</event>
+		</textComponent>
+		<event name="hide" params="element">
+			element["Sprite"]("visible"):SetInt(0)
+			element["Text"]("visible"):SetInt(0)
+		</event>
+		
+		<event name="show" params="element">
+			element["Sprite"]("visible"):SetInt(1)
+			element["Text"]("visible"):SetInt(1)
+		</event>
+	</element>
+	
+	<element name="StoreTitle">
+		<size dependentOnElement="element:name()" dependentOnComponent="Frame" />
+		<position relativeTo="PARENT" vAnchor="TOP" hAnchor="HCENTER" />
+		<orientation vAnchor="TOP" hAnchor="HCENTER" xOffset="0" yOffset="27*(lua_sys.screenWidth()/480.0)" priorityOffset="11" />
+		<ninesliceComponent name="Frame">
+			<size w="240*game.hudScale()" h="42*game.hudScale()" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+			<event name="onInit" params="component, element">
+				<![CDATA[
+					component("includeBorder"):SetInt(1)
+					
+					component("topHeight"):SetFloat(40.0)
+					component("bottomHeight"):SetFloat(40.0)
+					component("leftWidth"):SetFloat(50.0)
+					component("rightWidth"):SetFloat(50.0)
+					
+					component("size"):SetFloat(0.5*game.hudScale())
+					
+					component("spriteName"):SetString("gfx/menu/GreyTitleFrame")
+					
+					component("layer"):SetString("HUD")
+					
+					if(game.hudScale() > 1) then
+						component("width"):SetInt(component("width"):GetInt() + 35*game.hudScale())
+						component("height"):SetInt(component("height"):GetInt() + 20*game.hudScale())
+					end
+				]]>
+			</event>
+		</ninesliceComponent>
+		<textComponent name="Text">
+			<size dependentOnElement="element:name()" dependentOnComponent="Frame" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("multiline"):SetInt(0)
+				component("font"):Set(game.getTitleFont())
+				if(store:Category() == 4) then
+					component("red"):SetFloat(1.0)
+					component("green"):SetFloat(0.90)
+					component("blue"):SetFloat(0.09)
+				else
+					component("red"):SetFloat(0.43)
+					component("green"):SetFloat(0.98)
+					component("blue"):SetFloat(0.02)
+				end
+				component("size"):SetFloat(0.35*(lua_sys.screenHeight()/320.0))
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+				component("textPadding"):SetInt(6*(lua_sys.screenWidth()/480.0))
+				component("text"):SetString(game.getLocalizedText(store:CategoryTitle()))
+				component("autoScale"):SetInt(1)
+				component("layer"):SetString("HUD")
+			</event>
+		</textComponent>
+		<spriteSheetComponent name="LeftEnd">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="LEFT" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="-15*game.hudScale()" yOffset="0" priorityOffset="1" />
+			<event name="onInit" params="component, element">
+			<![CDATA[
+				local storeCat = store:Category()
+				if(storeCat == 0) then
+					component("spriteName"):SetString("bookend_monsters")
+				elseif(storeCat == 1) then
+					component("spriteName"):SetString("bookend_decorations")
+				elseif(storeCat == 2) then
+					component("spriteName"):SetString("bookend_structures")
+				elseif(storeCat == 3) then
+					component("spriteName"):SetString("bookend_islands")
+				elseif(storeCat == 4) then
+					component("spriteName"):SetString("bookend_currency")
+				end
+				component("sheetName"):SetString("xml_resources/store_elements.xml")
+				component("size"):SetFloat(lua_sys.screenWidth()/1024.0)
+				component("layer"):SetString("HUD")
+			]]>
+			</event>
+		</spriteSheetComponent>
+		<spriteSheetComponent name="RightEnd">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="RIGHT" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="15*game.hudScale()" yOffset="0" priorityOffset="1" />
+			<event name="onInit" params="component, element">
+				<![CDATA[
+				local storeCat = store:Category()
+				if(storeCat == 0) then
+					component("spriteName"):SetString("bookend_monsters")
+				elseif(storeCat == 1) then
+					component("spriteName"):SetString("bookend_decorations")
+				elseif(storeCat == 2) then
+					component("spriteName"):SetString("bookend_structures")
+				elseif(storeCat == 3) then
+					component("spriteName"):SetString("bookend_islands")
+				elseif(storeCat == 4) then
+					component("spriteName"):SetString("bookend_currency")
+				end
+				component("sheetName"):SetString("xml_resources/store_elements.xml")
+				if(component("isSourceRotated"):GetInt() == 1) then
+					component("vFlip"):SetInt(1)
+					component("hFlip"):SetInt(0)
+				else
+					component("vFlip"):SetInt(0)
+					component("hFlip"):SetInt(1)
+				end
+				component("size"):SetFloat(lua_sys.screenWidth()/1024.0)
+				component("layer"):SetString("HUD")
+				]]>
+			</event>
+		</spriteSheetComponent>
+	</element>
+	
+	<!-- Resource Counter -->
+	
+	<element name="CoinCounter">
+		<size dependentOnElement="element:name()" dependentOnComponent="BackingSprite" />
+		<position relativeTo="DiamondCounter" vAnchor="TOP" hAnchor="LEFT" />
+		<orientation vAnchor="TOP" hAnchor="RIGHT" xOffset="0" yOffset="0" priorityOffset="1" />
+		<ninesliceComponent name="BackingSprite">
+			<size w="100*(lua_sys.screenWidth()/480.0)" h="31*game.hudScale()" />
+			<event name="onInit" params="component, element">
+				<![CDATA[
+					component("includeBorder"):SetInt(1)
+					
+					component("topHeight"):SetFloat(30.0)
+					component("bottomHeight"):SetFloat(30.0)
+					component("leftWidth"):SetFloat(50.0)
+					component("rightWidth"):SetFloat(50.0)
+					
+					component("size"):SetFloat(0.25*(lua_sys.screenWidth()/480.0))
+					
+					component("spriteName"):SetString("gfx/menu/BlackTitleFrame")
+					
+					component("layer"):SetString("HUD")
+				]]>
+			</event>
+		</ninesliceComponent>
+		<spriteSheetComponent name="Icon">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="LEFT" />
+			<orientation vAnchor="VCENTER" hAnchor="LEFT" xOffset="0" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("coin")
+				component("sheetName"):SetString("xml_resources/hud01.xml")
+				component("size"):SetFloat(0.5*game.hudScale())
+				component("layer"):SetString("HUD")
+			</event>
+		</spriteSheetComponent>
+		<textComponent name="Text">
+			<size w="65*(lua_sys.screenWidth()/480.0)" h="100" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="10/game.hudScale()" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("multiline"):SetInt(0)
+				component("font"):Set(game.getTextFont())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+				component("size"):SetFloat(0.25*(lua_sys.screenWidth()/480.0))
+				component("text"):SetString(game.commaizeNumber(game.playerCoins()))
+				component("autoScaleFactor"):SetFloat(0.01)
+				component("autoScale"):SetInt(1)
+				component("layer"):SetString("HUD")
+			</event>
+		</textComponent>
+	</element>
+	
+	<element name="DiamondCounter">
+		<size dependentOnElement="element:name()" dependentOnComponent="BackingSprite" />
+		<position relativeTo="FoodCounter" vAnchor="TOP" hAnchor="LEFT" />
+		<orientation vAnchor="TOP" hAnchor="RIGHT" xOffset="3*game.hudScale()" yOffset="0" priorityOffset="1" />
+		<ninesliceComponent name="BackingSprite">
+			<size w="100*(lua_sys.screenWidth()/480.0)" h="31*game.hudScale()" />
+			<event name="onInit" params="component, element">
+				<![CDATA[
+					component("includeBorder"):SetInt(1)
+					
+					component("topHeight"):SetFloat(30.0)
+					component("bottomHeight"):SetFloat(30.0)
+					component("leftWidth"):SetFloat(50.0)
+					component("rightWidth"):SetFloat(50.0)
+					
+					component("size"):SetFloat(0.25*(lua_sys.screenWidth()/480.0))
+					
+					component("spriteName"):SetString("gfx/menu/BlackTitleFrame")
+					
+					component("layer"):SetString("HUD")
+				]]>
+			</event>
+		</ninesliceComponent>
+		<spriteSheetComponent name="Icon">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="LEFT" />
+			<orientation vAnchor="VCENTER" hAnchor="LEFT" xOffset="-4*game.hudScale()" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("diamond")
+				component("sheetName"):SetString("xml_resources/hud01.xml")
+				component("size"):SetFloat(0.5*game.hudScale())
+				component("layer"):SetString("HUD")
+			</event>
+		</spriteSheetComponent>
+		<textComponent name="Text">
+			<size w="65*(lua_sys.screenWidth()/480.0)" h="100" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="10/game.hudScale()" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("multiline"):SetInt(0)
+				component("font"):Set(game.getTextFont())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+				component("size"):SetFloat(0.25*(lua_sys.screenWidth()/480.0))
+				component("text"):SetString(game.commaizeNumber(game.playerDiamonds()))
+				component("autoScaleFactor"):SetFloat(0.01)
+				component("autoScale"):SetInt(1)
+				component("layer"):SetString("HUD")
+			</event>
+		</textComponent>
+	</element>
+	
+	<element name="FoodCounter">
+		<size dependentOnElement="element:name()" dependentOnComponent="BackingSprite" />
+		<position relativeTo="PARENT" vAnchor="TOP" hAnchor="RIGHT" />
+		<orientation vAnchor="TOP" hAnchor="RIGHT" xOffset="0" yOffset="0" priorityOffset="4" />
+		<ninesliceComponent name="BackingSprite">
+			<size w="100*(lua_sys.screenWidth()/480.0)" h="31*game.hudScale()" />
+			<event name="onInit" params="component, element">
+				<![CDATA[
+					component("includeBorder"):SetInt(1)
+					
+					component("topHeight"):SetFloat(30.0)
+					component("bottomHeight"):SetFloat(30.0)
+					component("leftWidth"):SetFloat(50.0)
+					component("rightWidth"):SetFloat(50.0)
+					
+					component("size"):SetFloat(0.25*(lua_sys.screenWidth()/480.0))
+					
+					component("spriteName"):SetString("gfx/menu/BlackTitleFrame")
+					
+					component("layer"):SetString("HUD")
+				]]>
+			</event>
+		</ninesliceComponent>
+		<spriteSheetComponent name="Icon">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="LEFT" />
+			<orientation vAnchor="VCENTER" hAnchor="LEFT" xOffset="-24*game.hudScale()" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("food")
+				component("sheetName"):SetString("xml_resources/hud01.xml")
+				component("size"):SetFloat(0.5*game.hudScale())
+				component("layer"):SetString("HUD")
+				component:setScale(Vector2(0.23, 0.23))
+			</event>
+		</spriteSheetComponent>
+		<textComponent name="Text">
+			<size w="65*(lua_sys.screenWidth()/480.0)" h="100" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="10/game.hudScale()" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("multiline"):SetInt(0)
+				component("font"):Set(game.getTextFont())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+				component("size"):SetFloat(0.25*(lua_sys.screenWidth()/480.0))
+				component("text"):SetString(game.commaizeNumber(game.playerFood()))
+				component("autoScaleFactor"):SetFloat(0.01)
+				component("autoScale"):SetInt(1)
+				component("layer"):SetString("HUD")
+			</event>
+		</textComponent>
+	</element>
+	
+	<!-- End Resource Counters -->
+	
+	<template type="template_storeinfopane" name="InfoPane">
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="80*(lua_sys.screenWidth()/480.0)" yOffset="0" priorityOffset="12" />
+	</template>
+	
+	<template type="template_spritesheetbutton" name="QuitButton">
+		<templateVar name="$spriteScale" equals="0.5*game.hudScale()" />
+		<position relativeTo="PARENT" vAnchor="BOTTOM" hAnchor="RIGHT" />
+		<orientation vAnchor="BOTTOM" hAnchor="RIGHT" xOffset="10*game.hudScale()" yOffset="10*game.hudScale()" priorityOffset="10" />
+		<touchComponent name="Touch">
+			<event name="onTouchUp" params="component, element">
+				onTouchUp(component, element)
+				game.loadWorldContext(false)
+			</event>
+		</touchComponent>
+		<spriteSheetComponent name="Overlay">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("button_no")
+				component("sheetName"):SetString("xml_resources/buttons01.xml")
+				component("size"):SetFloat(0.5*game.hudScale())
+				component("layer"):SetString("HUD")
+			</event>
+		</spriteSheetComponent>
+		<textComponent name="Text">
+			<size w="60*game.hudScale()" h="100" />
+			<position relativeTo="element:name()" vAnchor="BOTTOM" hAnchor="HCENTER" />
+			<orientation vAnchor="TOP" hAnchor="HCENTER" xOffset="0" yOffset="-6*game.hudScale()" priorityOffset="0" />
+			<event name="onInit" params="component, element">
+				component("multiline"):SetInt(0)
+				component("font"):Set(game.getTitleFont())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+				component("text"):SetString("EXIT")
+				component("size"):SetFloat(0.2*game.hudScale())
+				component("autoScale"):SetInt(1)
+				component("layer"):SetString("HUD")
+			</event>
+		</textComponent>
+		<event name="setVisible" params="element">
+			setVisible(element)
+			element["Text"]("visible"):SetInt(1)
+			element["Overlay"]("visible"):SetInt(1)
+		</event>
+		<event name="setInvisible" params="element">
+			setInvisible(element)
+			element["Text"]("visible"):SetInt(0)
+			element["Overlay"]("visible"):SetInt(0)
+		</event>
+		<event name="disable" params="element">
+			disable(element)
+			element["Text"]("red"):SetFloat(0.5)
+			element["Text"]("green"):SetFloat(0.5)
+			element["Text"]("blue"):SetFloat(0.5)
+			element["Overlay"]("alpha"):SetFloat(0.5)
+		</event>
+		<event name="enable" params="element">
+			enable(element)
+			element["Text"]("red"):SetFloat(1.0)
+			element["Text"]("green"):SetFloat(1.0)
+			element["Text"]("blue"):SetFloat(1.0)
+			element["Overlay"]("alpha"):SetFloat(1.0)
+		</event>
+	</template>
+	
+	<template type="template_spritesheetbutton" name="BackButton">
+		<templateVar name="$spriteScale" equals="0.5*game.hudScale()" />
+		<position relativeTo="QuitButton" vAnchor="VCENTER" hAnchor="LEFT" />
+		<orientation vAnchor="VCENTER" hAnchor="RIGHT" xOffset="0" yOffset="0" priorityOffset="0" />
+		<touchComponent name="Touch">
+			<event name="onTouchUp" params="component, element">
+				onTouchUp(component, element)
+
+				if(store:getFilter() ~= "") then
+					store:setFilter("")
+				end
+				
+				if(store:GetMenuState() == 2) then
+					store:DeselectItem()
+				elseif(store:GetMenuState() == 0) then
+					menu:pushPopUp("store_categoryselect")
+					store:SetMenuState(4)
+				end
+			</event>
+		</touchComponent>
+		<spriteSheetComponent name="Overlay">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("button_back")
+				component("sheetName"):SetString("xml_resources/buttons01.xml")
+				component("size"):SetFloat(0.5*game.hudScale())
+				component("layer"):SetString("HUD")
+			</event>
+		</spriteSheetComponent>
+		<textComponent name="Text">
+			<position relativeTo="element:name()" vAnchor="BOTTOM" hAnchor="HCENTER" />
+			<orientation vAnchor="TOP" hAnchor="HCENTER" xOffset="0" yOffset="-6" priorityOffset="0" />
+			<event name="onInit" params="component, element">
+				component("multiline"):SetInt(0)
+				component("font"):Set(game.getTitleFont())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+				component("size"):SetFloat(0.2*game.hudScale())
+				component("text"):SetString("BACK")
+				component("autoScale"):SetInt(1)
+				component("layer"):SetString("HUD")
+			</event>
+		</textComponent>
+	</template>
+	
+	
+	
+	<event name="onInit" params="element">
+		element("selectedCategory"):SetInt(0)
+		
+		element["StoreItems"]:DoStoredScript("populate")		
+	</event>
+	
+	<element name="StoreItems">
+	
+		<size w="lua_sys.screenWidth()" h="lua_sys.screenHeight()" />
+		
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+		
+		<event name="repopulate" params="element">
+			local numItems = element("numItems"):GetInt()
+			for i=0,numItems-1 do
+				element:RemoveElement(element:GetElement("storeItem"..(i)))
+			end
+			
+			if(element:GetElement("currencyExchange") ~= nil) then
+				element:RemoveElement(element:GetElement("currencyExchange"))
+			elseif(element:GetElement("comingSoon") ~= nil) then
+				element:RemoveElement(element:GetElement("comingSoon"))
+			end
+			
+			element:parent()["StoreTitle"]["Text"]("text"):SetString(game.getLocalizedText(store:CategoryTitle()))
+			element:DoStoredScript("populate")
+			
+			element:parent()["StoreTitle"]["LeftEnd"]:DoStoredScript("onInit")
+			element:parent()["StoreTitle"]["RightEnd"]:DoStoredScript("onInit")
+			
+			element:parent()["StoreTitle"]["Text"]:DoStoredScript("onInit")
+			
+		</event>
+	
+		<event name="populate" params="element">
+			<![CDATA[
+				local numItems = store:NumCategoryItems()
+				local numLocked = store:NumLockedItems()
+				local rootItem = nil
+				local previous = nil
+				
+				local lockedIndex = numItems - numLocked
+				
+				element("numItems"):SetInt(numItems)
+				
+				for i = 0, numItems-1 do
+					
+					local storeItem = menu:addTemplateElement("template_storeitem", "Store_" .. i, element)
+					
+					storeItem("SpriteName"):SetString("portrait_frame")
+					storeItem("SheetName"):SetString("xml_resources/hud01.xml")
+					storeItem("ItemTitle"):SetString(store:ItemTitle(i))
+					
+					storeItem("AnimationFile"):SetString(store:AnimationFile(i))
+					storeItem("AnimationName"):SetString(store:AnimationName(i))
+					storeItem("RequiresLevel"):SetInt(store:RequiresLevel(i))
+					storeItem("SaleDesc"):SetString(store:SaleDesc(i))
+					storeItem("ID"):SetInt(i)
+					
+					if((store:Category() == 3) and (game.isIslandOwned(i+1))) then
+						storeItem("Cost"):SetString("OWNED")
+						storeItem("Type"):SetString("none")
+					else
+						storeItem("Cost"):SetString(game.localizeInt(store:ItemCost(i)))
+						storeItem("Type"):SetString(store:PurchaseType(i))
+					end
+					
+					storeItem("LowerLabel"):SetString("")
+					storeItem("LowerSpriteName"):SetString("")
+					storeItem("LowerSheetName"):SetString("")
+					
+					storeItem("CurrencyType"):SetString(store:PurchaseType(i))
+					storeItem("CurrencyGained"):SetString(game.localizeInt(store:CurrencyGained(i)))
+					storeItem("ItemPriceAsStr"):SetString(store:ItemPriceAsStr(i))
+					
+					-- If currency, store additional info
+					if(store:Category() == 4) then
+						storeItem("ItemName"):SetString(store:ItemName(i))
+						storeItem("ItemGroup"):SetString(store:ItemGroup(i))
+					end
+					
+					storeItem:setName("storeItem"..(i))
+					
+					if(previous == nil) then
+						storeItem:relativeTo(element)
+						storeItem:setOrientation(lua_sys.MenuOrientation(13 * (lua_sys.screenWidth()/480.0), 0, 18, lua_sys.LEFT, lua_sys.VCENTER))
+						storeItem:setRelativeObjectAnchors(lua_sys.LEFT, lua_sys.VCENTER)
+						rootItem = storeItem
+						previous = storeItem
+					else
+						storeItem:relativeTo(element)
+						storeItem:setOrientation(lua_sys.MenuOrientation(previous("xOffset"):GetFloat() + previous:absW() + 13 * (lua_sys.screenWidth()/480.0), 0, 18, lua_sys.LEFT, lua_sys.VCENTER))
+						storeItem:setRelativeObjectAnchors(lua_sys.LEFT, lua_sys.VCENTER)
+						previous = storeItem
+					end
+					
+					--storeItem:setPositionBroadcast(true)
+					-- Dirty HAX!
+					storeItem["CoinCost"]["Text"]:init()
+					storeItem:init()
+					storeItem:setPositionBroadcast(true)
+					storeItem:postInit()
+					storeItem:postSolve()
+					
+					if(i >= lockedIndex) then
+						storeItem:DoStoredScript("setLocked")
+					end
+					
+					if(i == numItems-1) then
+						element("width"):SetFloat(storeItem:absX() + storeItem:absW())
+					end
+					
+				end
+				
+				if(store:Category() == 3) then
+				
+					local storeItem = menu:addTemplateElement("template_storeitem", "comingSoon", element)
+					
+					storeItem("SpriteName"):SetString("portrait_frame")
+					storeItem("SheetName"):SetString("xml_resources/hud01.xml")
+					storeItem("ItemTitle"):SetString("CURRENCY_EXCHANGE")
+					storeItem("Cost"):SetString("")
+					storeItem("Type"):SetString("none")
+					storeItem("AnimationFile"):SetString("islands.bin")
+					storeItem("AnimationName"):SetString("island1")
+					storeItem("RequiresLevel"):SetInt(0)
+					storeItem("SaleDesc"):SetString("")
+					storeItem("ID"):SetInt(numItems)
+					
+					storeItem("LowerLabel"):SetString("2,800,000")
+					storeItem("LowerSpriteName"):SetString("coin")
+					storeItem("LowerSheetName"):SetString("xml_resources/hud01.xml")
+					
+					storeItem("CurrencyType"):SetString("coins")
+					storeItem("CurrencyGained"):SetString(game.localizeInt(2800000))
+					storeItem("ItemPriceAsStr"):SetString("0")
+					
+					storeItem("ItemName"):SetString("comingSoon")
+					storeItem("ItemGroup"):SetString("")
+					
+					storeItem:relativeTo(element)
+					storeItem:setOrientation(lua_sys.MenuOrientation(previous("xOffset"):GetFloat() + previous:absW() + 15 * game.hudScale(), 0, 18, lua_sys.LEFT, lua_sys.VCENTER))
+					storeItem:setRelativeObjectAnchors(lua_sys.LEFT, lua_sys.VCENTER)
+					
+					storeItem:init()
+					storeItem["MonsterAnim"]("red"):SetFloat(0.0)
+					storeItem["MonsterAnim"]("green"):SetFloat(0.0)
+					storeItem["MonsterAnim"]("blue"):SetFloat(0.0)
+					storeItem:postInit()
+					storeItem:setPositionBroadcast(true)
+					storeItem:postSolve()
+					
+					storeItem:DoStoredScript("setLocked")
+				
+				elseif(store:Category() == 4) then
+					game.sendFlurryEvent("Entered Currency Store (filter: %s)", store:getFilter());
+					local storeItem = menu:addTemplateElement("template_storeitem", "currencyExchange", element)
+					
+					storeItem("SpriteName"):SetString("portrait_frame")
+					storeItem("SheetName"):SetString("xml_resources/hud01.xml")
+					storeItem("ItemTitle"):SetString("CURRENCY_EXCHANGE")
+					storeItem("Cost"):SetString(50)
+					storeItem("Type"):SetString("diamond")
+					storeItem("AnimationFile"):SetString("currency.bin")
+					storeItem("AnimationName"):SetString("currency_swap")
+					storeItem("RequiresLevel"):SetInt(0)
+					storeItem("SaleDesc"):SetString("")
+					storeItem("ID"):SetInt(-1)
+					
+					storeItem("LowerLabel"):SetString("2,800,000")
+					storeItem("LowerSpriteName"):SetString("coin")
+					storeItem("LowerSheetName"):SetString("xml_resources/hud01.xml")
+					
+					storeItem("CurrencyType"):SetString("coins")
+					storeItem("CurrencyGained"):SetString(game.localizeInt(2800000))
+					storeItem("ItemPriceAsStr"):SetString("0")
+					
+					storeItem("ItemName"):SetString("currencyExchange")
+					storeItem("ItemGroup"):SetString("")
+					
+					storeItem:relativeTo(element)
+					storeItem:setOrientation(lua_sys.MenuOrientation(previous("xOffset"):GetFloat() + previous:absW() + 15 * game.hudScale(), 0, 18, lua_sys.LEFT, lua_sys.VCENTER))
+					storeItem:setRelativeObjectAnchors(lua_sys.LEFT, lua_sys.VCENTER)
+					
+					storeItem:init()
+					storeItem:setPositionBroadcast(true)
+					storeItem:postInit()
+					storeItem:postSolve()
+					
+				end
+				
+				element("xOffset"):SetInt(0)
+				element("yOffset"):SetInt(0)
+				element:setPositionBroadcast(true)
+			]]>
+		</event>
+	
+	</element>
+	
+	<template type="template_spritesheetbutton" name="CoinsFilter">
+		<templateVar name="$upSpriteName" equals="button_rnd_base" />
+		<templateVar name="$sheetName" equals="'xml_resources/currency_sheet.xml'" />
+		<templateVar name="$spriteScale" equals="0.6*(lua_sys.screenWidth()/480.0)" />
+		<templateVar name="$layer" equals="HUD" />
+		<position relativeTo="DiamondFilter" vAnchor="VCENTER" hAnchor="LEFT" />
+		<orientation vAnchor="VCENTER" hAnchor="RIGHT" xOffset="10*game.hudScale()" yOffset="0" priorityOffset="0" />
+		<spriteSheetComponent name="Overlay">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("coins_01_icon")
+				component("sheetName"):SetString("xml_resources/currency_sheet.xml")
+				component("size"):SetFloat(0.3*(lua_sys.screenWidth()/480.0))
+				component("layer"):SetString("HUD")
+			</event>
+		</spriteSheetComponent>
+		<touchComponent name="Touch">
+			<event name="onTouchUp" params="component, element">
+				<![CDATA[
+				onTouchUp(component, element)
+				if(store:getFilter() == "coins") then
+					store:setFilter("")
+					element["UpSprite"]("spriteName"):SetString("button_rnd_base")
+					element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+					element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+					element["UpSprite"]("red"):SetFloat(1.0)
+					element["UpSprite"]("blue"):SetFloat(1.0)
+					element["UpSprite"]("green"):SetFloat(1.0)
+					element["Overlay"]("red"):SetFloat(1.0)
+					element["Overlay"]("blue"):SetFloat(1.0)
+					element["Overlay"]("green"):SetFloat(1.0)
+				else
+					store:setFilter("coins")
+					element["UpSprite"]("spriteName"):SetString("button_rnd_base_gold")
+					element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+					element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+					element["UpSprite"]("red"):SetFloat(0.5)
+					element["UpSprite"]("blue"):SetFloat(0.5)
+					element["UpSprite"]("green"):SetFloat(0.5)
+					element["Overlay"]("red"):SetFloat(0.5)
+					element["Overlay"]("blue"):SetFloat(0.5)
+					element["Overlay"]("green"):SetFloat(0.5)
+				end
+				]]>
+			</event>
+		</touchComponent>
+		<event name="onTick" params="element">
+			<![CDATA[
+			if((store:getFilter() ~= "coins") and (element["UpSprite"]("red"):GetFloat() ~= 1.0)) then
+				element["UpSprite"]("spriteName"):SetString("button_rnd_base")
+				element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+				element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+				element["UpSprite"]("red"):SetFloat(1.0)
+				element["UpSprite"]("blue"):SetFloat(1.0)
+				element["UpSprite"]("green"):SetFloat(1.0)
+				element["Overlay"]("red"):SetFloat(1.0)
+				element["Overlay"]("blue"):SetFloat(1.0)
+				element["Overlay"]("green"):SetFloat(1.0)
+			elseif((store:getFilter() == "coins") and (element["UpSprite"]("red"):GetFloat() ~= 0.5)) then
+				element["UpSprite"]("spriteName"):SetString("button_rnd_base_gold")
+				element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+				element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+				element["UpSprite"]("red"):SetFloat(0.5)
+				element["UpSprite"]("blue"):SetFloat(0.5)
+				element["UpSprite"]("green"):SetFloat(0.5)
+				element["Overlay"]("red"):SetFloat(0.5)
+				element["Overlay"]("blue"):SetFloat(0.5)
+				element["Overlay"]("green"):SetFloat(0.5)
+			end
+		
+			if((store:Category() ~= 4) and (element["UpSprite"]("visible"):GetInt() == 1)) then
+				element:DoStoredScript("setInvisible")
+				element["Overlay"]("visible"):SetInt(0)
+			elseif((store:Category() == 4) and (element["UpSprite"]("visible"):GetInt() == 0)) then
+				element:DoStoredScript("setVisible")
+				element["Overlay"]("visible"):SetInt(1)
+			end
+			]]>
+		</event>
+	</template>
+	
+	<template type="template_spritesheetbutton" name="DiamondFilter">
+		<templateVar name="$upSpriteName" equals="button_rnd_base" />
+		<templateVar name="$sheetName" equals="'xml_resources/currency_sheet.xml'" />
+		<templateVar name="$spriteScale" equals="0.6*(lua_sys.screenWidth()/480.0)" />
+		<templateVar name="$layer" equals="HUD" />
+		<position relativeTo="PARENT" vAnchor="BOTTOM" hAnchor="HCENTER" />
+		<orientation vAnchor="BOTTOM" hAnchor="HCENTER" xOffset="0" yOffset="(5*(game.displayScaleY()/320.0))" priorityOffset="3" />
+		<spriteSheetComponent name="Overlay">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("diamonds_01_icon")
+				component("sheetName"):SetString("xml_resources/currency_sheet.xml")
+				component("size"):SetFloat(0.3*(lua_sys.screenWidth()/480.0))
+				component("layer"):SetString("HUD")
+			</event>
+		</spriteSheetComponent>
+		<touchComponent name="Touch">
+			<event name="onTouchUp" params="component, element">
+				onTouchUp(component, element)
+				if(store:getFilter() == "diamond") then
+					store:setFilter("")
+					element["UpSprite"]("spriteName"):SetString("button_rnd_base")
+					element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+					element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+					element["UpSprite"]("red"):SetFloat(1.0)
+					element["UpSprite"]("blue"):SetFloat(1.0)
+					element["UpSprite"]("green"):SetFloat(1.0)
+					element["Overlay"]("red"):SetFloat(1.0)
+					element["Overlay"]("blue"):SetFloat(1.0)
+					element["Overlay"]("green"):SetFloat(1.0)
+				else
+					store:setFilter("diamond")
+					element["UpSprite"]("spriteName"):SetString("button_rnd_base_green")
+					element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+					element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+					element["UpSprite"]("red"):SetFloat(0.5)
+					element["UpSprite"]("blue"):SetFloat(0.5)
+					element["UpSprite"]("green"):SetFloat(0.5)
+					element["Overlay"]("red"):SetFloat(0.5)
+					element["Overlay"]("blue"):SetFloat(0.5)
+					element["Overlay"]("green"):SetFloat(0.5)
+				end
+			</event>
+		</touchComponent>
+		<event name="onTick" params="element">
+			if((store:getFilter() ~= "diamond") and (element["UpSprite"]("red"):GetFloat() ~= 1.0)) then
+				element["UpSprite"]("spriteName"):SetString("button_rnd_base")
+				element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+				element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+				element["UpSprite"]("red"):SetFloat(1.0)
+				element["UpSprite"]("blue"):SetFloat(1.0)
+				element["UpSprite"]("green"):SetFloat(1.0)
+				element["Overlay"]("red"):SetFloat(1.0)
+				element["Overlay"]("blue"):SetFloat(1.0)
+				element["Overlay"]("green"):SetFloat(1.0)
+			elseif((store:getFilter() == "diamond") and (element["UpSprite"]("red"):GetFloat() ~= 0.5)) then
+				element["UpSprite"]("spriteName"):SetString("button_rnd_base_green")
+				element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+				element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+				element["UpSprite"]("red"):SetFloat(0.5)
+				element["UpSprite"]("blue"):SetFloat(0.5)
+				element["UpSprite"]("green"):SetFloat(0.5)
+				element["Overlay"]("red"):SetFloat(0.5)
+				element["Overlay"]("blue"):SetFloat(0.5)
+				element["Overlay"]("green"):SetFloat(0.5)
+			end
+		
+			if((store:Category() ~= 4) and (element["UpSprite"]("visible"):GetInt() == 1)) then
+				element:DoStoredScript("setInvisible")
+				element["Overlay"]("visible"):SetInt(0)
+			elseif((store:Category() == 4) and (element["UpSprite"]("visible"):GetInt() == 0)) then
+				element:DoStoredScript("setVisible")
+				element["Overlay"]("visible"):SetInt(1)
+			end
+		</event>
+	</template>
+	
+	<template type="template_spritesheetbutton" name="FoodFilter">
+		<templateVar name="$upSpriteName" equals="button_rnd_base" />
+		<templateVar name="$sheetName" equals="'xml_resources/currency_sheet.xml'" />
+		<templateVar name="$spriteScale" equals="0.6*(lua_sys.screenWidth()/480.0)" />
+		<templateVar name="$layer" equals="HUD" />
+		<position relativeTo="DiamondFilter" vAnchor="VCENTER" hAnchor="RIGHT" />
+		<orientation vAnchor="VCENTER" hAnchor="LEFT" xOffset="10*game.hudScale()" yOffset="0" priorityOffset="0" />
+		<spriteSheetComponent name="Overlay">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("foodpack_01_icon")
+				component("sheetName"):SetString("xml_resources/currency_sheet.xml")
+				component("size"):SetFloat(0.3*(lua_sys.screenWidth()/480.0))
+				component("layer"):SetString("HUD")
+			</event>
+		</spriteSheetComponent>
+		<touchComponent name="Touch">
+			<event name="onTouchUp" params="component, element">
+				onTouchUp(component, element)
+				if(store:getFilter() == "food") then
+					store:setFilter("")
+					element["UpSprite"]("spriteName"):SetString("button_rnd_base")
+					element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+					element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+					element["UpSprite"]("red"):SetFloat(1.0)
+					element["UpSprite"]("blue"):SetFloat(1.0)
+					element["UpSprite"]("green"):SetFloat(1.0)
+					element["Overlay"]("red"):SetFloat(1.0)
+					element["Overlay"]("blue"):SetFloat(1.0)
+					element["Overlay"]("green"):SetFloat(1.0)
+				else
+					store:setFilter("food")
+					element["UpSprite"]("spriteName"):SetString("button_rnd_base_pink")
+					element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+					element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+					element["UpSprite"]("red"):SetFloat(0.5)
+					element["UpSprite"]("blue"):SetFloat(0.5)
+					element["UpSprite"]("green"):SetFloat(0.5)
+					element["Overlay"]("red"):SetFloat(0.5)
+					element["Overlay"]("blue"):SetFloat(0.5)
+					element["Overlay"]("green"):SetFloat(0.5)
+				end
+			</event>
+		</touchComponent>
+		<event name="onTick" params="element">
+			if((store:getFilter() ~= "food") and (element["UpSprite"]("red"):GetFloat() ~= 1.0)) then
+				element["UpSprite"]("spriteName"):SetString("button_rnd_base")
+				element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+				element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+				element["UpSprite"]("red"):SetFloat(1.0)
+				element["UpSprite"]("blue"):SetFloat(1.0)
+				element["UpSprite"]("green"):SetFloat(1.0)
+				element["Overlay"]("red"):SetFloat(1.0)
+				element["Overlay"]("blue"):SetFloat(1.0)
+				element["Overlay"]("green"):SetFloat(1.0)
+			elseif((store:getFilter() == "food") and (element["UpSprite"]("red"):GetFloat() ~= 0.5)) then
+				element["UpSprite"]("spriteName"):SetString("button_rnd_base_pink")
+				element["UpSprite"]("sheetName"):SetString("xml_resources/currency_sheet.xml")
+				element["UpSprite"]("size"):SetFloat(0.6*(lua_sys.screenWidth()/480.0))
+				element["UpSprite"]("red"):SetFloat(0.5)
+				element["UpSprite"]("blue"):SetFloat(0.5)
+				element["UpSprite"]("green"):SetFloat(0.5)
+				element["Overlay"]("red"):SetFloat(0.5)
+				element["Overlay"]("blue"):SetFloat(0.5)
+				element["Overlay"]("green"):SetFloat(0.5)
+			end
+			
+			if((store:Category() ~= 4) and (element["UpSprite"]("visible"):GetInt() == 1)) then
+				element:DoStoredScript("setInvisible")
+				element["Overlay"]("visible"):SetInt(0)
+			elseif((store:Category() == 4) and (element["UpSprite"]("visible"):GetInt() == 0)) then
+				element:DoStoredScript("setVisible")
+				element["Overlay"]("visible"):SetInt(1)
+			end
+		</event>
+	</template>
+
+	
+	<!--<element name="FiltersLabel">
+		<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+		<position relativeTo="DiamondFilter" vAnchor="TOP" hAnchor="HCENTER" />
+		<orientation vAnchor="BOTTOM" hAnchor="HCENTER" xOffset="0" yOffset="-5" priorityOffset="0" />
+		<textComponent name="Text">
+			<event name="onInit" params="component, element">
+				component("font"):Set(game.getTextFont())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("size"):SetFloat(0.35*game.hudScale())
+				component("text"):SetString("STORE_FILTERS")
+				component("layer"):SetString("HUD")
+			</event>
+		</textComponent>
+		<event name="onInit" params="element">
+			if(lua_sys.screenWidth() &gt; 480.0) then
+				element("yOffset"):SetInt(15*game.hudScale())
+			end
+		</event>
+	</element> -->
+	
+	<event name="updateResources" params="element">
+		element["CoinCounter"]["Text"]("text"):SetString(game.commaizeNumber(game.playerCoins()))
+		element["DiamondCounter"]["Text"]("text"):SetString(game.commaizeNumber(game.playerDiamonds()))
+		element["FoodCounter"]["Text"]("text"):SetString(game.commaizeNumber(game.playerFood()))
+	</event>
+	
+</menu>

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-16"?>
+<menu>
+
+	<template type="template_contextbar" name="ContextBar">
+		
+		<hudScale scale="lua_sys.screenWidth()/960.0" />
+		
+		<templateVar name="$textScale" equals="0.5" />
+		
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+		
+		<!-- Events Here -->
+		
+		<event name="onTick" params="component, element, dt">
+			if(manager:getContext() == "NURSERY_OCCUPIED") then
+				if(game.eggReadyToHatch()) then
+					manager:setButtonVisible("btn_hatch", false)
+				end
+			end
+			if(manager:getContext() == "BREEDING_OCCUPIED") then
+				if(game.isBreedingFinished()) then
+					manager:setButtonVisible("btn_finish", false)
+					manager:setButtonVisible("btn_mute", false)
+				end
+			end
+			if(manager:getContext() == "DESTRUCTABLE_OBJECT") then
+				if (game.timeLeftToDestoryObstacle() &lt; 0) then
+					manager:setButtonVisible("btn_remove", false)
+				end
+			end
+			if(manager:getContext() == "BAKERY") then
+				if (game.timeLeftToBake() &lt; 0) then
+					manager:setButtonVisible("btn_finish", false)
+				end
+			end
+			if(manager:getContext() == "BUILDING_OBJECT") then
+				if (game.timeLeftToBuild() &lt; 0) then
+					if game.canMuteStructure() == false then
+						manager:setButtonVisible("btn_move", false)
+					end
+					manager:setButtonVisible("btn_speedup", false)
+				end
+			end
+			
+		</event>
+		
+		<function name="show_options" params="element">
+			manager:setContext("OPTIONS")
+		</function>
+		
+		<function name="show_friend_options" params="element">
+			manager:setContext("FRIEND_OPTIONS")
+		</function>
+		
+		<event name="show_market" params="element">
+			game.loadStoreContext()
+		</event>
+		
+		<event name="show_friends" params="element">
+			manager:setContext("FRIENDS")
+		</event>
+		
+		<event name="show_map" params="element">
+			if game.getPopUp() ~= "island_select" then
+				manager:setContext("MAP")
+				game.pushPopUp("island_select")
+			end
+		</event>
+		
+		<function name="show_info" params="element">
+			manager:setReserveState(manager:getContext())
+			manager:setContext("MONSTER_INFO")
+		</function>
+		
+		<function name="friend_show_info" params="element">
+			manager:setReserveState(manager:getContext())
+			manager:setContext("FRIEND_MONSTER_INFO")
+		</function>
+		
+		<event name="sell_object" params="element">
+			game.popPopUp()
+            game.sellObject()
+		</event>
+		
+		<event name="sell_baking" params="element">
+			game.displayConfirmation( "SELL_WHILE_BAKING", "CONFIRMATION_SELL_WHILE_BAKING")
+		</event>
+		
+		<event name="move_oninit" params="element">
+            if game.isSelectedObjectPlaceable() == false then
+				manager:setButtonEnabled("btn_confirm", false)
+			end
+		</event>
+		
+		<event name="move_object" params="element">
+            game.moveObject()
+            manager:setContext("MOVE")
+		</event>
+		
+		<event name="flip_object" params="element">
+			game.flipObject();
+		</event>
+		
+		<event name="collect_currency" params="element">
+            game.collectFromMonster()
+		</event>
+		
+		<event name="mute_object" params="element">
+            game.muteObject(true)
+			manager:changeButton("btn_mute", "button_unmute", "CONTEXTBAR_UNMUTE_LABEL", "unmute_object")
+
+		</event>
+		
+		<event name="unmute_object" params="element">
+            game.muteObject(false)
+			manager:changeButton("btn_mute", "button_mute", "CONTEXTBAR_MUTE_LABEL", "mute_object")
+		</event>
+		
+		<event name="feed_monster" params="element">
+            if game.feedMonster() then
+                print "feed_monster"
+            end
+		</event>
+		
+		<event name="food_select" params="element">
+		</event>
+		
+		<event name="speed_up_object" params="element">
+			local diamonds = game.diamondsRequiredToComplete(game.timeLeftToBuild())
+			if diamonds > 0 then
+				game.showSpeedUpMessage("BUILD_OBJECT_SPEEDUP", "SPEED_UP_BUILD_OBJECT",game.timeLeftToBuild())
+			end
+		</event>
+		
+		<event name="upgrade_object" params="element">
+			game.upgradeObject();
+		</event>
+		
+		<event name="breed_monsters" params="element">
+			game.triggerBreedRequest()
+		</event>
+		
+		<event name="remove_object" params="element">
+			if game.isBelowRequiredLevelForObject()~=0 then
+				local txt = game.getLocalizedText("NOTIFICATION_REQUIRES_LEVEL")
+				txt = select(1, txt:gsub("XXX", game.isBelowRequiredLevelForObject()))
+				game.displayNotification(txt)
+			else
+				game.clearObstacle();
+				manager:setContext("DESTRUCTABLE_OBJECT")
+			end
+		</event>
+		
+		<event name="finish_remove_object" params="element">		
+			local diamonds = game.diamondsRequiredToComplete(game.timeLeftToDestoryObstacle())
+			if diamonds > 0 then
+				game.showSpeedUpMessage("DESTROY_OBSTACLE_SPEEDUP", "SPEED_UP_DESTROY_OBSTACLE",game.timeLeftToDestoryObstacle())
+			end
+			
+		</event>
+		
+		<event name="buy_another" params="element">
+			
+		</event>
+		
+		<event name="goals_oninit" params="element">
+			if game.getPopUp() ~= "goals" then
+				game.pushPopUp("goals")
+			end
+		</event>
+		
+		<event name="close_goals" params="element">
+			game.updateQuestBadges()
+			manager:setContext(manager:reserveState())
+			game.popPopUp()
+		</event>
+		
+		<event name="close_options" params="element">
+			manager:setContext("DEFAULT")
+			game.popPopUp()
+		</event>
+		
+		<event name="close_friend_options" params="element">
+			manager:setContext("FRIEND_DEFAULT")
+			game.popPopUp()
+		</event>
+		
+		<event name="credits_oninit" params="element">
+			if game.getPopUp() ~= "credits" then
+				game.pushPopUp("credits")
+			end
+		</event>
+		
+		<event name="close_credits" params="element">
+			game.popPopUp()
+			manager:setContext("OPTIONS")
+		</event>
+		
+		<event name="cancel_move" params="element">
+            game.moveObjectDone(false)
+            manager:setContext("DEFAULT")
+		</event>
+		
+		<event name="confirm_move" params="element">
+            game.moveObjectDone(true)
+            manager:setContext("DEFAULT")
+		</event>
+		
+		<event name="monster_context_oninit" params="element">
+            game.updateMonsterHud()
+			if(game.monsterLevel(game.selectedMonsterId()) &gt;= 15) then
+				manager:setButtonVisible("btn_feed", false)
+			end
+			
+			if(game.monsterCount() == 1) then
+					manager:setButtonEnabled("btn_sell", false)
+			end
+		</event>
+		
+		<event name="breeding_occupied_oninit" params="element">
+            game.updateStructureHud()
+		</event>
+		
+		<event name="options_oninit" params="element">
+			if game.getPopUp() ~= "options" then
+				game.pushPopUp("options")
+			end
+		</event>
+		
+		<event name="monster_info_oninit" params="element">
+			if game.getPopUp() ~= "object_info" then
+				game.pushPopUp("object_info")
+				if(game.selectedObjType() ~= 0) then
+					manager:setButtonVisible("btn_feed", false)
+					manager:setContextInfoVisible(false)
+					
+					if(game.selectedObjType() == 6 or game.selectedObjType() == 2 or game.selectedObjType() == 3 or game.selectedObjType() == 1) then
+						manager:setButtonVisible("btn_sell", false)
+					end
+					
+				else
+					if(game.monsterCount() == 1) then
+						manager:setButtonEnabled("btn_sell", false)
+					end
+					manager:setContextInfoVisible(true)
+					if(game.monsterLevel(game.selectedMonsterId()) &gt;= 15) then
+						manager:setButtonVisible("btn_feed", false)
+					end
+					
+					manager:setProgressPercent("level", game.monsterTimesFed(game.selectedMonsterId())/4.0)
+					
+					local happiness = (game.monsterHappiness(game.selectedMonsterId()).."%")
+					
+					manager:setProgressLabel("happiness", happiness)
+					manager:setProgressPercent("happiness", game.monsterHappiness(game.selectedMonsterId())/100.0)
+				end
+			end
+		</event>
+		
+		<event name="breeding_oninit" params="element">
+			if game.getPopUp() ~= "breeding" then
+				game.pushPopUp("breeding")
+			end
+		</event>
+		
+		<event name="castle_oninit" params="element">
+			game.updateStructureHud()
+			if(game.structureUpgradeCost() == 0) then
+				manager:setButtonVisible("btn_upgrade", false)
+			end
+			
+			if game.canMuteStructure() == false then
+				print "No mute button"
+				manager:setButtonVisible("btn_upgrade", false)
+				manager:changeButton("btn_mute", "button_upgrade", "CONTEXTBAR_UPGRADE_LABEL", "upgrade_object", "template_upgradecost")
+			end
+
+		</event>
+		
+		<event name="castle_no_upgrade_oninit" params="element">
+			game.updateStructureHud()
+			if game.canMuteStructure() == false then
+				print "No mute button"
+				manager:setButtonVisible("btn_mute", false)
+			end
+
+		</event>
+		
+		<event name="bakery_oninit" params="element">
+			if game.getPopUp() ~= "bakery" then
+				game.pushPopUp("bakery")
+			end
+		</event>
+		
+		<event name="default_context_oninit" params="element">
+			if(game.numIslands() == 1) then
+				manager:setButtonVisible("btn_map", false)
+			end
+		</event>
+		
+		<event name="cancel_breeding" params="element">
+			game.popPopUp()
+			manager:setContext("BREEDING_IDLE")
+		</event>
+		
+		<event name="close_bakery" params="element">
+			game.popPopUp()
+			if game.isBakeryUpgradable() then
+				manager:setContext("BAKERY_IDLE")
+			else
+				manager:setContext("BAKERY_IDLE_NO_UPGRADE")
+			end
+		</event>
+		
+		<event name="close_monster_info" params="element">
+			game.popPopUp()
+		</event>
+		
+		<event name="close_map" params="element">
+			manager:setContext(manager:reserveState())
+			game.popPopUp()
+		</event>
+		
+		<event name="hatch_monster" params="element">			
+			local diamonds = game.diamondsRequiredToComplete(game.timeLeftToHatchEgg())
+			if diamonds > 0 then
+				game.showSpeedUpMessage("HATCH_EGG_SPEEDUP", "SPEED_UP_HATCH_EGG",game.timeLeftToHatchEgg(),game.getEggGraphic(),"xml_resources/" .. game.getEggGraphic() .. ".xml")
+			end
+		</event>
+		
+		<event name="finish_breeding" params="element">
+			
+			local diamonds = game.diamondsRequiredToComplete(game.timeLeftToBreed())
+			if diamonds > 0 then
+				game.showSpeedUpMessage("FINISH_BREEDING_SPEEDUP", "SPEED_UP_BREEDING", game.timeLeftToBreed())
+			else
+				game.finishBreeding()
+			end
+		</event>
+		
+		<event name="open_bake_menu" params="element">
+			manager:setContext("BAKE_MENU")
+		</event>
+		
+		<event name="open_warp_time_menu" params="element">
+			game.setTimeWarpMode(true);
+			manager:setContext("WARP_TIME_MENU")
+		</event>
+		
+		<event name="open_breed_menu" params="element">
+			if(game.haveBreedablePair()) then
+				manager:setContext("BREED_MENU")
+			else
+				game.displayNotification("NOTIFICATION_BREEDING_ABOVE_LVL_4")
+			end
+		</event>
+		
+		<event name="bake_menu_oninit" params="element">
+			if game.getPopUp() ~= "bakery" then
+				game.pushPopUp("bakery")
+			end
+		</event>
+		
+		<event name="building_obj_oninit" params="element">
+			if(game.selectedObjType() == 3) then
+				if game.canMuteStructure() then
+					print "building_obj_oninit"
+					manager:changeButton("btn_move", "button_mute", "CONTEXTBAR_MUTE_LABEL", "mute_object")
+					game.updateStructureHud()
+				else
+					manager:setButtonVisible("btn_speedup", false)
+					manager:changeButton("btn_move", "button_finish", "CONTEXTBAR_SPEED_LABEL", "speed_up_object")
+				end
+			end
+		</event>
+		
+		<event name="finish_baking" params="element">			
+			local diamonds = game.diamondsRequiredToComplete(game.timeLeftToBake())
+			if diamonds > 0 then 
+				game.showSpeedUpMessage("FINISH_BAKING_SPEEDUP", "SPEED_UP_BAKING",game.timeLeftToBake())
+			else
+				game.finishBaking()
+			end
+		</event>
+		
+		<event name="buy_spore" params="element">
+			game.loadStoreContext(0)
+		</event>
+		
+		<event name="buy_another" params="element">
+			game.buyAnotherDecoration()
+		</event>
+		
+		<event name="friends_oninit" params="element">
+			if game.getPopUp() ~= "friends" then
+				game.pushPopUp("friends")
+			end
+		</event>
+		
+		<event name="friends_invite_oninit" params="element">
+			if game.getPopUp() ~= "friends_invite" then
+				game.pushPopUp("friends_invite")
+			end
+		</event>
+		
+		<event name="close_friends" params="element">
+			game.popPopUp()
+			manager:setContext("DEFAULT")
+		</event>
+		
+		<event name="close_friends_invite" params="element">
+			game.popPopUp()
+			manager:setContext("FRIENDS")
+		</event>
+		
+		<event name="close_warp_time" params="element">
+			manager:setContext("TIME_MACHINE")
+			game.popPopUp()
+			game.setTimeWarpMode(false);
+			game.activateObject(false);
+		</event>
+		
+		<event name="go_home" params="element">
+			game.loadWorldContext(false)
+		</event>
+		
+		<event name="warp_oninit" params="element">
+			game.pushPopUp("warp_popup")
+			game.activateObject(true)
+		</event>
+		
+		<!-- End Scripts -->
+		
+	</template>
+
+</menu>

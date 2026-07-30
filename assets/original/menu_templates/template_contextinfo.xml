@@ -1,0 +1,175 @@
+<template name="template_contextinfo">
+	
+	<defaultTemplateVar name="$luaPointer" equals="element:root():getLuaPointer()" />
+	
+	<size dependentOnElement="element:name()" dependentOnComponent="TestBar" />
+	
+	<event name="onInit" params="element">
+	
+		element("numItems"):SetInt($luaPointer:numProgressBars())
+		
+		element:DoStoredScript("populate")
+	</event>
+	
+	<event name="populate" params="element">
+		<![CDATA[
+		local previous = nil
+		local numItems = element("numItems"):GetInt()
+		
+		for i=0,numItems-1 do
+			local progressBar = menu:addTemplateElement("template_progressbar", "", element)
+			
+			progressBar:setName("progressBar"..i)
+			
+			progressBar("EmptySpriteName"):SetString($luaPointer:progressBarEmptySprite(i))
+			progressBar("FullSpriteName"):SetString($luaPointer:progressBarFullSprite(i))
+			progressBar("SheetName"):SetString($luaPointer:progressBarSheetName(i))
+			progressBar("ProgressLabel"):SetString($luaPointer:progressBarLabel(i))
+			progressBar("ProgressLabelSize"):SetFloat($luaPointer:progressBarLabelSize(i))
+			progressBar("ListenerAttribute"):SetString($luaPointer:getListenerAttributeForBar(i))
+			progressBar("AttachedTemplate"):SetString($luaPointer:getAttachedTemplateForBar(i))
+			progressBar("AttachedTemplateAlignment"):SetString($luaPointer:getAttachedTemplateAlignmentForBar(i))
+			
+			progressBar("LabelXOffset"):SetInt($luaPointer:progressBarLabelXOffset(i))
+			progressBar("LabelYOffset"):SetInt($luaPointer:progressBarLabelYOffset(i))
+			progressBar("LabelColourR"):SetFloat($luaPointer:progressBarLabelRed(i))
+			progressBar("LabelColourG"):SetFloat($luaPointer:progressBarLabelGreen(i))
+			progressBar("LabelColourB"):SetFloat($luaPointer:progressBarLabelBlue(i))
+			
+			progressBar("size"):SetFloat(1.0)
+			progressBar("layer"):SetString("ContextBar")
+			
+			if (previous == nil) then
+				progressBar:setParent(element)
+				progressBar:setOrientation(lua_sys.MenuOrientation(0, -10, 5, $luaPointer:getHAnchor(), $luaPointer:getVAnchor()))
+				progressBar:setRelativeObjectAnchors($luaPointer:getHAnchor(), $luaPointer:getVAnchor())
+			else
+				progressBar:setParent(previous)
+				progressBar:setOrientation(lua_sys.MenuOrientation(((-1)*previous("xOffset"):GetInt()), -9*game.hudScale(), 0, $luaPointer:getHAnchor(), $luaPointer:getVAnchor()))
+				progressBar:setRelativeObjectAnchors($luaPointer:getHAnchor(), $luaPointer:getInfoVAnchor())
+			end
+			
+			previous = progressBar
+			
+			progressBar:init()
+			progressBar:setPositionBroadcast(true)
+			
+			$luaPointer:setProgressElement(i, progressBar)
+			
+			if(i%2 == 1) then
+				local flourish1 = menu:addTemplateElement("template_instancespritesheet", "flourish1", progressBar)
+				
+				flourish1("SpriteName"):SetString("swirls")
+				flourish1("SheetName"):SetString("xml_resources/hud01.xml")
+				flourish1("Size"):SetFloat(0.5*game.hudScale())
+				flourish1("Layer"):SetString("ContextBar")
+				
+				flourish1:relativeTo(progressBar)
+				flourish1:setOrientation(lua_sys.MenuOrientation(0,0,1,lua_sys.HCENTER, lua_sys.VCENTER))
+				flourish1:setRelativeObjectAnchors(lua_sys.LEFT, lua_sys.BOTTOM)
+				
+				flourish1:init()
+				flourish1:setPositionBroadcast(true)
+				
+				flourish1["Sprite"]("rotation"):SetFloat(-0.3)
+				
+				-- COMMENTED OUT FOR NOW SINCE BARS ARE RIGHT-ALIGNED NOW
+				--[[local flourish2 = menu:addTemplateElement("template_instancespritesheet", "flourish2", progressBar)
+				
+				flourish2("SpriteName"):SetString("swirls")
+				flourish2("SheetName"):SetString("xml_resources/hud01.xml")
+				flourish2("Size"):SetFloat(0.5*game.hudScale())
+				flourish2("Layer"):SetString("ContextBar")
+				
+				flourish2["Sprite"]("hFlip"):SetInt(1)
+				flourish2["Sprite"]("vFlip"):SetInt(1)
+				
+				flourish2:relativeTo(progressBar)
+				flourish2:setOrientation(lua_sys.MenuOrientation(-5,-5*game.hudScale(),1,lua_sys.LEFT, lua_sys.VCENTER))
+				flourish2:setRelativeObjectAnchors(lua_sys.RIGHT, lua_sys.BOTTOM)
+				
+				flourish2:init()
+				flourish2:setPositionBroadcast(true)
+				
+				flourish2["Sprite"]("rotation"):SetFloat(-0.5)]]
+			end
+			
+		end
+		
+		local labelElement = menu:addTemplateElement("template_instancelabel", "Label", element)
+		
+		labelElement("size"):SetFloat(element("titleScale"):GetFloat())
+		if((game.isObjectSelected() == false) or ($luaPointer:getMenuLabel() == "") or (manager:getContext() == "MOVE")) then
+			labelElement("text"):SetString($luaPointer:getMenuLabel())
+		else
+			if( game.selectedObjIsMonster() and (manager:getContext() == "MONSTER")) then
+				labelElement("text"):SetString(game.getMonsterName(game.selectedMonsterId()))
+			else
+				labelElement("text"):SetString(game.objectEntityName())
+			end
+		end
+		labelElement("layer"):SetString("ContextBar")
+		
+		if(previous == nil) then
+			labelElement:setParent(element)
+			labelElement:setOrientation(lua_sys.MenuOrientation(10, 2, 2, $luaPointer:getHAnchor(), $luaPointer:getVAnchor()))
+		else
+			labelElement:setParent(previous)
+			labelElement:setOrientation(lua_sys.MenuOrientation(10, 2, 2, $luaPointer:getHAnchor(), $luaPointer:getVAnchor()))
+		end
+		
+		labelElement:setRelativeObjectAnchors($luaPointer:getHAnchor(), $luaPointer:getInfoVAnchor())
+		
+		labelElement:init()
+		labelElement:setPositionBroadcast(true)
+		]]>
+	</event>
+	
+	<event name="repopulate" params="element">
+		
+		local numItems = element("numItems"):GetInt()
+		
+		for i=0,numItems-1 do
+			if(element:GetElement("progressBar"..i) ~= nil) then
+				element:RemoveElement(element:GetElement("progressBar"..i))
+			end
+		end
+		
+		element:RemoveElement(element:GetElement("Label"))
+		
+		element("numItems"):SetInt($luaPointer:numProgressBars())
+		
+		element:DoStoredScript("populate")
+	</event>
+	
+	<event name="setVisible" params="element">
+		local numBars = element("numItems"):GetInt()
+		
+		for i=0,numBars-1 do
+			local progressBar = element:GetElement("progressBar"..i)
+			progressBar:DoStoredScript("setVisible")
+			if(i%2 == 1) then
+				progressBar["flourish1"]["Sprite"]("visible"):SetInt(1)
+			end
+		end
+		
+		element:GetElement("Label")["Text"]("visible"):SetInt(1)
+		
+	</event>
+	
+	<event name="setInvisible" params="element">
+		local numBars = element("numItems"):GetInt()
+		
+		for i=0,numBars-1 do
+			local progressBar = element:GetElement("progressBar"..i)
+			progressBar:DoStoredScript("setInvisible")
+			if(i%2 == 1) then
+				progressBar["flourish1"]["Sprite"]("visible"):SetInt(0)
+			end
+		end
+		
+		element:GetElement("Label")["Text"]("visible"):SetInt(0)
+		
+	</event>
+	
+</template>

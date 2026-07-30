@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-16"?>
+<menu>
+	<element name="BgElement">
+		<hudScale scale="lua_sys.screenWidth()/960.0" />
+		<position relativeTo="SCREEN" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priority="0" />
+		<spriteComponent name="Sprite">
+			<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priority="10" />
+			<event name="onInit" params="component, element">
+				lua_sys.playMP3("audio/music/loading_music")
+				component("spriteName"):SetString("gfx/menu/logging_in")
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</spriteComponent>
+	</element>
+</menu>

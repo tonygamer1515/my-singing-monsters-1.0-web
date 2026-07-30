@@ -1,0 +1,19 @@
+<template name="template_instancelabel">
+	
+	<hudScale scale="lua_sys.screenWidth()/960.0" />
+	
+	<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+	
+	<textComponent name="Text">
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="LEFT" />
+		<orientation vAnchor="VCENTER" hAnchor="LEFT" xOffset="0" yOffset="0" priorityOffset="0" />
+		<event name="onInit" params="component, element">
+			component("font"):Set(game.getTextFont())
+			component("size"):SetFloat(element("size"):GetFloat())
+			component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_RIGHT_ALIGNED)
+			component("text"):SetString(element("text"):GetString())
+			component("layer"):SetString(element("layer"):GetString())
+		</event>
+	</textComponent>
+	
+</template>

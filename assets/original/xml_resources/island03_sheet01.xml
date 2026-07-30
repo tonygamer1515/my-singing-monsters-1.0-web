@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:af5a75cf0bcf29f58824b59bdb64e768$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/island_overlay/island03_sheet01.png" width="1024" height="1024">
+    <sprite n="island03_balloon_blue" x="669" y="674" w="118" h="226" oX="5" oY="2" oW="130" oH="230"/>
+    <sprite n="island03_balloon_purple" x="669" y="446" w="118" h="226" oX="5" oY="2" oW="130" oH="230"/>
+    <sprite n="island03_burns" x="2" y="2" w="319" h="583"/>
+    <sprite n="island03_ear" x="439" y="570" w="228" h="400" oX="0" oY="2" oW="228" oH="402"/>
+    <sprite n="island03_edge" x="812" y="2" w="207" h="167"/>
+    <sprite n="island03_eyeclosed" x="2" y="587" w="435" h="358" oX="0" oY="50" oW="435" oH="408"/>
+    <sprite n="island03_nose" x="323" y="230" w="280" h="338" oX="2" oY="2" oW="290" oH="340"/>
+    <sprite n="island03_stumpcenter" x="323" y="2" w="487" h="226" oX="8" oY="0" oW="495" oH="230"/>
+    <sprite n="island03_stumpside" x="605" y="230" w="364" h="214" oX="0" oY="101" oW="364" oH="336"/>
+</TextureAtlas>

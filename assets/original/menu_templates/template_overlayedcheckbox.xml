@@ -1,0 +1,78 @@
+<template>
+	
+	<defaultTemplateVar name="$layer" equals="'HUD'" />
+	<defaultTemplateVar name="$scale" equals="1.0" />
+	<defaultTemplateVar name="$sfx" equals="[[audio/sfx/menu_click_small.wav]]" />
+	
+	<size dependentOnElement="element:name()" dependentOnComponent="bg" />
+	
+	<spriteSheetComponent name="bg">
+		<event name="onInit" params="component, element">
+			component("spriteName"):SetString("$bgSprite")
+			component("sheetName"):SetString("$sheetName")
+			component("size"):SetFloat($scale)
+			component("layer"):SetString("$layer")
+		</event>
+	</spriteSheetComponent>
+	
+	<spriteSheetComponent name="overlay">
+		<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+		<event name="onInit" params="component, element">
+			component("spriteName"):SetString("$overlaySprite")
+			component("sheetName"):SetString("$sheetName")
+			component("size"):SetFloat($scale)
+			component("layer"):SetString("$layer")
+			
+			if(($check == 1) and (element["bg"]("visible"):GetInt() == 1)) then
+				component("visible"):SetInt(1)
+			else
+				component("visible"):SetInt(0)
+			end
+			
+			print(element:name().." Check: "..$check)
+		</event>
+	</spriteSheetComponent>
+	
+	<touchComponent name="Touch">
+		<size dependentOnElement="element:name()" dependentOnComponent="bg" />
+		<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+		<event name="onTouchDown" params="component, element">
+			element["bg"]("red"):SetFloat(0.5)
+			element["bg"]("green"):SetFloat(0.5)
+			element["bg"]("blue"):SetFloat(0.5)
+			element["overlay"]("red"):SetFloat(0.5)
+			element["overlay"]("green"):SetFloat(0.5)
+			element["overlay"]("blue"):SetFloat(0.5)
+		</event>
+		<event name="onTouchUp" params="component, element">
+			element["bg"]("red"):SetFloat(1.0)
+			element["bg"]("green"):SetFloat(1.0)
+			element["bg"]("blue"):SetFloat(1.0)
+			element["overlay"]("red"):SetFloat(1.0)
+			element["overlay"]("green"):SetFloat(1.0)
+			element["overlay"]("blue"):SetFloat(1.0)
+			element:DoStoredScript("playSFX")
+		</event>
+		<event name="onTouchRelease" params="component, element">
+			element["bg"]("red"):SetFloat(1.0)
+			element["bg"]("green"):SetFloat(1.0)
+			element["bg"]("blue"):SetFloat(1.0)
+			element["overlay"]("red"):SetFloat(1.0)
+			element["overlay"]("green"):SetFloat(1.0)
+			element["overlay"]("blue"):SetFloat(1.0)
+		</event>
+	</touchComponent>
+	
+	<event name="hide" params="element">
+		element["bg"]("visible"):SetInt(0)
+		element["overlay"]("visible"):SetInt(0)
+		element["Touch"]("enabled"):SetInt(0)
+	</event>
+	
+	<function name="playSFX" params="element">
+		lua_sys.playSoundFx("$sfx")
+	</function>
+	
+</template>

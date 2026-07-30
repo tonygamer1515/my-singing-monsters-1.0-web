@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:157e5b3b4c6b8d242c00cb55c25daf4a$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/obstacle_tree_sheet_air.png" width="512" height="512">
+    <sprite n="obstacle_tree01_air" x="2" y="306" w="102" h="204" oX="11" oY="2" oW="122" oH="208"/>
+    <sprite n="obstacle_tree02_air" x="106" y="306" w="244" h="186" oX="23" oY="7" oW="214" oH="290" r="y"/>
+    <sprite n="obstacle_tree03_air" x="2" y="2" w="272" h="302" oX="8" oY="26" oW="282" oH="364"/>
+</TextureAtlas>

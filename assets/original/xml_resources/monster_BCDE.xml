@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:68d67a30278a00095ea1f4981ecc8025$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_BCDE.png" width="512" height="512">
+    <sprite n="BCDE_body" x="201" y="2" w="148" h="140" r="y"/>
+    <sprite n="BCDE_eye_back" x="66" y="447" w="48" h="18"/>
+    <sprite n="BCDE_eyelids_1" x="169" y="256" w="21" h="50" r="y"/>
+    <sprite n="BCDE_eyelids_2" x="2" y="458" w="21" h="50" r="y"/>
+    <sprite n="BCDE_eyelids_3" x="120" y="406" w="21" h="50" r="y"/>
+    <sprite n="BCDE_eyelids_4" x="166" y="308" w="21" h="50" r="y"/>
+    <sprite n="BCDE_head" x="2" y="2" w="197" h="136"/>
+    <sprite n="BCDE_horn_back" x="351" y="2" w="109" h="78" r="y"/>
+    <sprite n="BCDE_leaf_loose" x="251" y="325" w="20" h="25"/>
+    <sprite n="BCDE_leafbody_1" x="2" y="140" w="95" h="49"/>
+    <sprite n="BCDE_leafbody_2" x="351" y="82" w="102" h="55"/>
+    <sprite n="BCDE_leafbody_3" x="455" y="124" w="55" h="57"/>
+    <sprite n="BCDE_left_foot" x="86" y="256" w="81" h="44"/>
+    <sprite n="BCDE_left_hand_1" x="68" y="406" w="50" h="39" r="y"/>
+    <sprite n="BCDE_left_hand_2" x="25" y="419" w="39" h="48" oX="0" oY="0" oW="39" oH="50"/>
+    <sprite n="BCDE_left_hand_3" x="25" y="469" w="44" h="39" oX="0" oY="0" oW="39" oH="50" r="y"/>
+    <sprite n="BCDE_left_leg" x="189" y="325" w="60" h="58" r="y"/>
+    <sprite n="BCDE_left_lower_arm" x="2" y="373" w="64" h="44" r="y"/>
+    <sprite n="BCDE_left_upper_arm" x="438" y="183" w="71" h="51" r="y"/>
+    <sprite n="BCDE_mouth_01" x="2" y="339" w="80" h="32" oX="4" oY="3" oW="86" oH="64"/>
+    <sprite n="BCDE_mouth_02" x="2" y="255" w="82" h="36" oX="3" oY="1" oW="86" oH="64"/>
+    <sprite n="BCDE_mouth_03" x="84" y="302" w="80" h="44" oX="4" oY="0" oW="86" oH="64"/>
+    <sprite n="BCDE_mouth_04" x="193" y="208" w="84" h="54" oX="2" oY="0" oW="86" oH="64"/>
+    <sprite n="BCDE_mouth_05" x="193" y="144" w="86" h="62" oX="0" oY="0" oW="86" oH="64"/>
+    <sprite n="BCDE_mouth_06" x="438" y="236" w="70" h="60" oX="5" oY="4" oW="86" oH="64"/>
+    <sprite n="BCDE_mouth_07" x="462" y="68" w="48" h="54" oX="14" oY="6" oW="86" oH="64"/>
+    <sprite n="BCDE_mouth_08" x="150" y="360" w="30" h="56" oX="12" oY="7" oW="86" oH="64" r="y"/>
+    <sprite n="BCDE_mouth_09" x="90" y="218" w="82" h="36" oX="4" oY="0" oW="86" oH="64"/>
+    <sprite n="BCDE_mouth_10" x="2" y="293" w="80" h="44" oX="4" oY="0" oW="86" oH="64"/>
+    <sprite n="BCDE_mouth_11" x="347" y="243" w="84" h="52" oX="2" oY="1" oW="86" oH="64"/>
+    <sprite n="BCDE_mouth_12" x="350" y="181" w="86" h="60" oX="0" oY="1" oW="86" oH="64"/>
+    <sprite n="BCDE_mouth_13" x="2" y="191" w="86" h="62" oX="0" oY="0" oW="86" oH="64"/>
+    <sprite n="BCDE_pupil" x="174" y="218" w="8" h="8"/>
+    <sprite n="BCDE_right_foot" x="281" y="144" w="67" h="53"/>
+    <sprite n="BCDE_right_hand_1" x="273" y="279" w="64" h="60"/>
+    <sprite n="BCDE_right_hand_2" x="84" y="348" w="64" h="56" oX="0" oY="0" oW="64" oH="60"/>
+    <sprite n="BCDE_right_hand_3" x="462" y="2" w="48" h="64" oX="0" oY="0" oW="64" oH="60" r="y"/>
+    <sprite n="BCDE_right_leg" x="281" y="199" w="64" h="78"/>
+    <sprite n="BCDE_right_lower_arm" x="192" y="264" w="79" h="59" r="y"/>
+    <sprite n="BCDE_right_upper_arm" x="99" y="140" w="92" h="76" r="y"/>
+    <sprite n="BCDE_shadow" x="351" y="139" w="96" h="40"/>
+</TextureAtlas>

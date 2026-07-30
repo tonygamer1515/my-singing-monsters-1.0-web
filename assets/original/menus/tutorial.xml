@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-16"?>
+<menu>
+	
+	<element name="bg">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="PARENT" vAnchor="TOP" hAnchor="HCENTER" />
+		<orientation vAnchor="TOP" hAnchor="HCENTER" xOffset="0" yOffset="30*game.hudScale()" priorityOffset="2" />
+		<ninesliceComponent name="Sprite">
+			<size w="300*game.hudScale()" h="50*game.hudScale()" />
+			<event name="onInit" params="component, element">
+				component("topHeight"):SetFloat(44.0)
+				component("bottomHeight"):SetFloat(44.0)
+				component("leftWidth"):SetFloat(50.0)
+				component("rightWidth"):SetFloat(50.0)
+				
+				component("size"):SetFloat(0.5)
+				
+				component("includeBorder"):SetInt(1)
+				
+				component("spriteName"):SetString("gfx/menu/scroll_frame")
+				
+				component("layer"):SetString("HUD")
+			</event>
+		</ninesliceComponent>
+	</element>
+	
+	<element name="primaryText">
+		<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+		<position relativeTo="bg" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="-3*game.hudScale()" priorityOffset="-2" />
+		<textComponent name="Text">
+			<size w="250*game.hudScale()" />
+			<event name="onInit" params="component, element">
+	
+				component("textPadding"):SetInt(30)
+				component("autoScale"):SetInt(1)
+				component("font"):Set(game.getTutorialFont())
+				component("text"):SetString("")
+				component("size"):SetFloat(0.6*game.hudScale())
+				component("layer"):SetString("HUD")
+				
+				component("red"):SetFloat(0.0)
+				component("green"):SetFloat(0.0)
+				component("blue"):SetFloat(0.0)
+		
+				component:calculatePosition()
+				
+			</event>
+		</textComponent>
+	</element>
+	
+	<element name="secondarybg">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="PARENT" vAnchor="BOTTOM" hAnchor="RIGHT" />
+		<orientation vAnchor="BOTTOM" hAnchor="RIGHT" xOffset="0" yOffset="110*game.hudScale()" priorityOffset="2" />
+		<ninesliceComponent name="Sprite">
+			<size w="200*game.hudScale()" h="50*game.hudScale()" />
+			<event name="onInit" params="component, element">
+				component("topHeight"):SetFloat(44.0)
+				component("bottomHeight"):SetFloat(44.0)
+				component("leftWidth"):SetFloat(50.0)
+				component("rightWidth"):SetFloat(50.0)
+				
+				component("size"):SetFloat(0.5)
+				
+				component("includeBorder"):SetInt(1)
+				
+				component("spriteName"):SetString("gfx/menu/scroll_frame")
+				
+				component("layer"):SetString("HUD")
+			</event>
+		</ninesliceComponent>
+	</element>
+	
+	<element name="SecondaryText">
+		<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+		<position relativeTo="secondarybg" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="-3*game.hudScale()" priorityOffset="-2" />
+		<textComponent name="Text">
+			<size w="300*game.hudScale()" />
+			<event name="onInit" params="component, element">
+			
+				component("textPadding"):SetInt(30)
+				component("autoScale"):SetInt(1)
+				component("font"):Set(game.getTutorialFont())
+				component("text"):SetString("TUTORIAL_DRAG_TO_MOVE")
+				component("size"):SetFloat(0.6*game.hudScale())
+				component("layer"):SetString("HUD")
+				component("red"):SetFloat(0.0)
+				component("green"):SetFloat(0.0)
+				component("blue"):SetFloat(0.0)
+				component:calculatePosition()
+			</event>
+		</textComponent>
+	</element>
+	
+	<element name="Functions" params="element">
+		<event name="hide" params="element">
+			element:parent()["bg"]["Sprite"]("visible"):SetInt(0)
+			element:parent()["primaryText"]["Text"]("visible"):SetInt(0)
+		</event>
+		
+		<event name="show" params="element">
+			element:parent()["bg"]["Sprite"]("visible"):SetInt(1)
+			element:parent()["primaryText"]["Text"]("visible"):SetInt(1)
+		</event>
+		
+			<event name="hideSecondary" params="element">
+			element:parent()["secondarybg"]["Sprite"]("visible"):SetInt(0)
+			element:parent()["SecondaryText"]["Text"]("visible"):SetInt(0)
+		</event>
+		
+		<event name="showSecondary" params="element">
+			element:parent()["secondarybg"]["Sprite"]("visible"):SetInt(1)
+			element:parent()["SecondaryText"]["Text"]("visible"):SetInt(1)
+		</event>
+	</element>
+</menu>

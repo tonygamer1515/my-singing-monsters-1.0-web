@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:7d1e9da03dc74e0a543a941a7019dda7$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/breeding01.png" width="512" height="1024">
+    <sprite n="monster_level_numbers_00" x="444" y="128" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_01" x="444" y="86" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_02" x="444" y="44" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_03" x="444" y="2" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_04" x="296" y="534" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_05" x="296" y="492" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_06" x="442" y="548" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_07" x="442" y="506" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_08" x="296" y="450" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_09" x="296" y="408" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_10" x="442" y="464" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_11" x="442" y="422" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_12" x="442" y="380" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_13" x="442" y="338" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_14" x="442" y="296" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_15" x="296" y="366" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_16" x="296" y="324" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_17" x="296" y="282" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_18" x="444" y="254" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_19" x="444" y="212" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_level_numbers_20" x="444" y="170" w="46" h="40" oX="4" oY="1" oW="50" oH="50" r="y"/>
+    <sprite n="monster_portrait_square_a" x="344" y="290" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_ab" x="198" y="282" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_abc" x="100" y="282" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_abcd" x="2" y="282" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_abce" x="346" y="194" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_abd" x="346" y="98" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_abde" x="346" y="2" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_abe" x="294" y="770" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_ac" x="196" y="762" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_acd" x="98" y="762" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_acde" x="2" y="880" w="94" h="96" oX="2" oY="2" oW="100" oH="100" r="y"/>
+    <sprite n="monster_portrait_square_ace" x="2" y="782" w="94" h="96" oX="2" oY="2" oW="100" oH="100" r="y"/>
+    <sprite n="monster_portrait_square_ad" x="394" y="686" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_ade" x="296" y="674" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_ae" x="198" y="666" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_b" x="100" y="666" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_bc" x="2" y="666" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_bcd" x="394" y="590" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_bcde" x="296" y="578" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_bce" x="198" y="570" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_bd" x="100" y="570" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_bde" x="2" y="570" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_be" x="198" y="474" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_c" x="100" y="474" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_cd" x="2" y="474" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_cde" x="344" y="482" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_ce" x="198" y="378" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_d" x="100" y="378" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_de" x="2" y="378" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="monster_portrait_square_e" x="344" y="386" w="96" h="94" oX="2" oY="2" oW="100" oH="100"/>
+    <sprite n="selectable_bar_green" x="2" y="142" w="342" h="68" oX="1" oY="0" oW="346" oH="70"/>
+    <sprite n="selectable_bar_grey" x="2" y="72" w="342" h="68" oX="1" oY="0" oW="346" oH="70"/>
+    <sprite n="selectable_bar_red" x="2" y="2" w="342" h="68" oX="1" oY="0" oW="346" oH="70"/>
+    <sprite n="selectable_bar_yellow" x="2" y="212" w="342" h="68" oX="1" oY="0" oW="346" oH="70"/>
+</TextureAtlas>

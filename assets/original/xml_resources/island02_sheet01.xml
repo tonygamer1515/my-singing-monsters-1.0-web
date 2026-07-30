@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:3bb116f4ca9a07a63573438a6ba439df$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/island_overlay/island02_sheet01.png" width="1024" height="1024">
+    <sprite n="island02_burns" x="2" y="2" w="317" h="543" oX="2" oY="16" oW="319" oH="583"/>
+    <sprite n="island02_ear" x="751" y="476" w="216" h="402" oX="7" oY="0" oW="228" oH="402"/>
+    <sprite n="island02_edge" x="368" y="841" w="207" h="163" oX="0" oY="2" oW="207" oH="167"/>
+    <sprite n="island02_eyeclosed" x="2" y="547" w="364" h="435" oX="0" oY="22" oW="435" oH="408" r="y"/>
+    <sprite n="island02_nose" x="368" y="499" w="290" h="340"/>
+    <sprite n="island02_stumpcenter" x="321" y="2" w="210" h="495" oX="0" oY="0" oW="495" oH="230" r="y"/>
+    <sprite n="island02_stumpside" x="533" y="2" w="360" h="264" oX="2" oY="44" oW="364" oH="336"/>
+    <sprite n="w2_cloud" x="533" y="268" w="450" h="206" oX="0" oY="1" oW="450" oH="210"/>
+    <sprite n="w2_comet" x="2" y="984" w="110" h="22" oX="0" oY="0" oW="110" oH="24"/>
+    <sprite n="w2_snow_hamster" x="114" y="984" w="24" h="24"/>
+    <sprite n="w2_snowfall" x="577" y="841" w="172" h="178" oX="4" oY="1" oW="180" oH="180"/>
+    <sprite n="w2_sparkle" x="2" y="1008" w="11" h="11"/>
+    <sprite n="w2_waterdrop" x="15" y="1008" w="6" h="10"/>
+</TextureAtlas>

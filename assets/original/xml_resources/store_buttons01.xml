@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:2d968c7871b4b2309a222dc93f94ee42$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/menu/store_buttons01.png" width="512" height="1024">
+    <sprite n="store_button_currency" x="2" y="244" w="308" h="236" oX="0" oY="4" oW="308" oH="240"/>
+    <sprite n="store_button_decorations" x="2" y="482" w="308" h="234" oX="0" oY="3" oW="308" oH="240"/>
+    <sprite n="store_button_islands" x="2" y="2" w="308" h="240"/>
+    <sprite n="store_button_monsters" x="2" y="718" w="240" h="304" oX="2" oY="0" oW="308" oH="240" r="y"/>
+    <sprite n="store_button_structures" x="244" y="718" w="234" h="304" oX="2" oY="6" oW="308" oH="240" r="y"/>
+</TextureAtlas>

@@ -1,0 +1,297 @@
+<template type="template_breedingentry">
+	
+	<size dependentOnElement="bg" dependentOnComponent="GreySprite" />
+	
+	<element name="bg">
+		<size dependentOnElement="element:name()" dependentOnComponent="GreySprite" />
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+		<spriteSheetComponent name="GreySprite">
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("selectable_bar_grey")
+				component("sheetName"):SetString("xml_resources/breeding01.xml")
+				component("size"):SetFloat(0.525*(lua_sys.screenWidth()/480.0))
+				component("layer"):SetString("Clipping")
+			</event>
+		</spriteSheetComponent>
+		<spriteSheetComponent name="RedSprite">
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("selectable_bar_red")
+				component("sheetName"):SetString("xml_resources/breeding01.xml")
+				component("size"):SetFloat(0.525*(lua_sys.screenWidth()/480.0))
+				component("visible"):SetInt(0)
+				component("layer"):SetString("Clipping")
+			</event>
+		</spriteSheetComponent>
+		<spriteSheetComponent name="YellowSprite">
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("selectable_bar_yellow")
+				component("sheetName"):SetString("xml_resources/breeding01.xml")
+				component("size"):SetFloat(0.525*(lua_sys.screenWidth()/480.0))
+				component("visible"):SetInt(0)
+				component("layer"):SetString("Clipping")
+			</event>
+		</spriteSheetComponent>
+		<spriteSheetComponent name="GreenSprite">
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("selectable_bar_green")
+				component("sheetName"):SetString("xml_resources/breeding01.xml")
+				component("size"):SetFloat(0.525*(lua_sys.screenWidth()/480.0))
+				component("visible"):SetInt(0)
+				component("layer"):SetString("Clipping")
+			</event>
+		</spriteSheetComponent>
+	</element>
+	
+	<element name="CharacterImage">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="LEFT" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+		<spriteSheetComponent name="Sprite">
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("monster_portrait_square_"..game.getGeneStringLower(element:parent()("MonsterID"):GetInt()))
+				component("sheetName"):SetString("xml_resources/breeding01.xml")
+				component("size"):SetFloat(0.525*(lua_sys.screenWidth()/480.0))
+				component("layer"):SetString("Clipping")
+			</event>
+		</spriteSheetComponent>
+	</element>
+	
+	<element name="monsterName">
+		<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+		<position relativeTo="CharacterImage" vAnchor="VCENTER" hAnchor="RIGHT" />
+		<orientation vAnchor="VCENTER" hAnchor="LEFT" xOffset="3" yOffset="-8" priorityOffset="-1" />
+		<textComponent name="Text">
+			<event name="onInit" params="component, element">
+			
+				local name = game.getMonsterName(element:parent()("MonsterID"):GetInt())
+				
+				if(string.len(name) &gt; 9) then
+					name = (string.sub(name, 0, 8).."...")
+				end
+			
+				component("font"):Set(game.getTextFont())
+				component("size"):SetFloat(0.19*(lua_sys.screenWidth()/480.0))
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("text"):SetString(name)
+				component("layer"):SetString("Clipping")
+			</event>
+		</textComponent>
+	</element>
+	
+	<element name="monsterType">
+		<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+		<position relativeTo="CharacterImage" vAnchor="VCENTER" hAnchor="RIGHT" />
+		<orientation vAnchor="VCENTER" hAnchor="LEFT" xOffset="3*(lua_sys.screenWidth()/480.0)" yOffset="8*(lua_sys.screenHeight()/320.0)" priorityOffset="0" />
+		<textComponent name="Text">
+			<event name="onInit" params="component, element">
+				component("font"):Set(game.getTextFont())
+				component("size"):SetFloat(0.18*(lua_sys.screenWidth()/480.0))
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("text"):SetString(game.monsterType(element:parent()("MonsterID"):GetInt()))
+				component("layer"):SetString("Clipping")
+				component("red"):SetFloat(0.75)
+				component("green"):SetFloat(0.75)
+				component("blue"):SetFloat(0.75)
+			</event>
+		</textComponent>
+	</element>
+
+	<element name="levelSprite">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="monsterName" vAnchor="VCENTER" hAnchor="LEFT" />
+		<orientation vAnchor="VCENTER" hAnchor="RIGHT" xOffset="0" yOffset="0" priorityOffset="0" />
+		<spriteSheetComponent name="Sprite">
+			<event name="onInit" params="component, element">
+				local spriteString = "monster_level_numbers_"
+				local level = game.monsterLevel(element:parent()("MonsterID"):GetInt())
+				if(level &lt; 10) then
+					spriteString = (spriteString.."0")
+				end
+				
+				spriteString = (spriteString..level)
+				component("spriteName"):SetString(spriteString)
+				component("sheetName"):SetString("xml_resources/breeding01.xml")
+				component("size"):SetFloat(0.5*(lua_sys.screenWidth()/480.0))
+				component("layer"):SetString("Clipping")
+			</event>
+		</spriteSheetComponent>
+	</element>
+	
+	<touchComponent name="Touch">
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+		<event name="onTouchDown" params="component, element">
+			component("dragged"):SetInt(0)
+		</event>
+		<event name="onTouchDrag" params="component, element">
+			component("dragged"):SetInt(1)
+		</event>
+		<event name="onTouchUp" params="component, element">
+			if(component("dragged"):GetInt() == 0) then
+				if(game.monsterLevel(element("MonsterID"):GetInt()) &lt; 4) then
+					game.displayNotification("NOTIFICATION_MONSTER_UNDERLEVELED")
+				else
+					if(element("disabled"):GetInt() == 0) then
+						element["bg"]["GreySprite"]("visible"):SetInt(0)
+						element["bg"]["YellowSprite"]("visible"):SetInt(1)
+						local selectedEntry = (""..element:name())
+						element:root():GetElement(element("List"):GetString())("NewSelectedEntry"):SetString(selectedEntry)
+						element:root():GetElement(element("List"):GetString())("NewSelectedEntryID"):SetString(element("MonsterID"):GetInt())
+						element:root():GetElement(element("List"):GetString()):DoStoredScript("selectNewEntry")
+					end
+				end
+			end
+		</event>
+		<event name="onPostInit" params="component, element">
+			component:setSize(Vector2(element:GetElement("bg"):absW()*1.25, element:GetElement("bg"):absH() * 1.5))
+			component("yOffset"):SetInt(element:GetElement("bg"):absH()*(-0.25))
+		</event>
+	</touchComponent>
+	
+	<event name="onInit" params="element">
+		element("disabled"):SetInt(0)
+		element:DoStoredScript("populate")
+	</event>
+	
+	<event name="onPostInit" params="element">
+		if(game.monsterLevel(element("MonsterID"):GetInt()) &lt; 4) then
+			element:DoStoredScript("disableEntry")
+		end
+	</event>
+	
+	<event name="populate" params="element">
+		local monsterId = element("MonsterID"):GetInt()
+		local numGenes = game.numGenes(monsterId)
+		local previous = nil
+		
+		element("NumGenes"):SetInt(numGenes)
+		
+		for i=0,numGenes-1 do
+		
+			local geneItem = menu:addTemplateElement("template_elementicon", ("geneItem"..i), element)
+			
+			geneItem("SpriteName"):SetString(game.geneType(monsterId, i))
+			geneItem("SheetName"):SetString("xml_resources/hud01.xml")
+			geneItem("Size"):SetFloat(0.25*game.hudScale())
+			geneItem("Layer"):SetString("Clipping")
+			
+			if(previous == nil) then
+				geneItem:setParent(element)
+				geneItem:setOrientation(lua_sys.MenuOrientation(8, 0, -1, lua_sys.RIGHT, lua_sys.VCENTER))
+				geneItem:setRelativeObjectAnchors(lua_sys.RIGHT, lua_sys.VCENTER)
+			else
+				geneItem:setParent(previous)
+				geneItem:setOrientation(lua_sys.MenuOrientation(-2, 0, 0, lua_sys.RIGHT, lua_sys.VCENTER))
+				geneItem:setRelativeObjectAnchors(lua_sys.LEFT, lua_sys.VCENTER)
+			end
+			
+			previous = geneItem
+			
+			geneItem:init()
+			geneItem:setPositionBroadcast(true)
+			
+		end
+	</event>
+
+	<event name="setCompatibilityPoor" params="element">
+		element["bg"]["GreySprite"]("visible"):SetInt(0)
+		element["bg"]["RedSprite"]("visible"):SetInt(1)
+		element["bg"]["YellowSprite"]("visible"):SetInt(0)
+		element["bg"]["GreenSprite"]("visible"):SetInt(0)
+	</event>
+	
+	<event name="setCompatibilityNeutral" params="element">
+		element["bg"]["GreySprite"]("visible"):SetInt(0)
+		element["bg"]["RedSprite"]("visible"):SetInt(0)
+		element["bg"]["YellowSprite"]("visible"):SetInt(1)
+		element["bg"]["GreenSprite"]("visible"):SetInt(0)
+	</event>
+	
+	<event name="setCompatibilityOptimal" params="element">
+		element["bg"]["GreySprite"]("visible"):SetInt(0)
+		element["bg"]["RedSprite"]("visible"):SetInt(0)
+		element["bg"]["YellowSprite"]("visible"):SetInt(0)
+		element["bg"]["GreenSprite"]("visible"):SetInt(1)
+	</event>
+	
+	<event name="disableEntry" params="element">
+		local numGenes = game.numGenes(element("MonsterID"):GetInt())
+	
+		element["bg"]["GreySprite"]("visible"):SetInt(1)
+		element["bg"]["RedSprite"]("visible"):SetInt(0)
+		element["bg"]["YellowSprite"]("visible"):SetInt(0)
+		element["bg"]["GreenSprite"]("visible"):SetInt(0)
+		
+		element["bg"]["GreySprite"]("red"):SetFloat(0.5)
+		element["bg"]["GreySprite"]("green"):SetFloat(0.5)
+		element["bg"]["GreySprite"]("blue"):SetFloat(0.5)
+		
+		element["CharacterImage"]["Sprite"]("red"):SetFloat(0.5)
+		element["CharacterImage"]["Sprite"]("green"):SetFloat(0.5)
+		element["CharacterImage"]["Sprite"]("blue"):SetFloat(0.5)
+		
+		element["monsterName"]["Text"]("red"):SetFloat(0.5)
+		element["monsterName"]["Text"]("green"):SetFloat(0.5)
+		element["monsterName"]["Text"]("blue"):SetFloat(0.5)
+		
+		element["monsterType"]["Text"]("red"):SetFloat(0.25)
+		element["monsterType"]["Text"]("green"):SetFloat(0.25)
+		element["monsterType"]["Text"]("blue"):SetFloat(0.25)
+		
+		element["levelSprite"]["Sprite"]("red"):SetFloat(0.5)
+		element["levelSprite"]["Sprite"]("green"):SetFloat(0.5)
+		element["levelSprite"]["Sprite"]("blue"):SetFloat(0.5)
+		
+		element("disabled"):SetInt(1)
+		
+		for i=0,numGenes-1 do
+			local geneItem = element:GetElement("geneItem"..i)
+			geneItem["Sprite"]("red"):SetFloat(0.5)
+			geneItem["Sprite"]("green"):SetFloat(0.5)
+			geneItem["Sprite"]("blue"):SetFloat(0.5)
+		end
+		
+	</event>
+	
+	<event name="enableEntry" params="element">
+		local numGenes = game.numGenes(element("MonsterID"):GetInt())
+	
+		element["bg"]["GreySprite"]("visible"):SetInt(1)
+		element["bg"]["RedSprite"]("visible"):SetInt(0)
+		element["bg"]["YellowSprite"]("visible"):SetInt(0)
+		element["bg"]["GreenSprite"]("visible"):SetInt(0)
+		
+		element["bg"]["GreySprite"]("red"):SetFloat(1.0)
+		element["bg"]["GreySprite"]("green"):SetFloat(1.0)
+		element["bg"]["GreySprite"]("blue"):SetFloat(1.0)
+		
+		element["CharacterImage"]["Sprite"]("red"):SetFloat(1.0)
+		element["CharacterImage"]["Sprite"]("green"):SetFloat(1.0)
+		element["CharacterImage"]["Sprite"]("blue"):SetFloat(1.0)
+		
+		element["monsterName"]["Text"]("red"):SetFloat(1.0)
+		element["monsterName"]["Text"]("green"):SetFloat(1.0)
+		element["monsterName"]["Text"]("blue"):SetFloat(1.0)
+		
+		element["monsterType"]["Text"]("red"):SetFloat(0.5)
+		element["monsterType"]["Text"]("green"):SetFloat(0.5)
+		element["monsterType"]["Text"]("blue"):SetFloat(0.5)
+		
+		element["levelSprite"]["Sprite"]("red"):SetFloat(1.0)
+		element["levelSprite"]["Sprite"]("green"):SetFloat(1.0)
+		element["levelSprite"]["Sprite"]("blue"):SetFloat(1.0)
+		
+		element("disabled"):SetInt(0)
+		
+		for i=0,numGenes-1 do
+			local geneItem = element:GetElement("geneItem"..i)
+			geneItem["Sprite"]("red"):SetFloat(1.0)
+			geneItem["Sprite"]("green"):SetFloat(1.0)
+			geneItem["Sprite"]("blue"):SetFloat(1.0)
+		end
+		
+	</event>
+	
+	
+</template>

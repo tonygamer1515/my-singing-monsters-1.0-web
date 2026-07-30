@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:d41e497ff33d03a31e123ab91adb8a67$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/E_squatch.png" width="256" height="256">
+    <sprite n="E_body" x="2" y="2" w="57" h="115"/>
+    <sprite n="E_eyeback" x="106" y="174" w="31" h="17"/>
+    <sprite n="E_lefteye_1" x="218" y="126" w="19" h="19" oX="1" oY="2" oW="21" oH="21"/>
+    <sprite n="E_lefteye_2" x="197" y="126" w="19" h="19" oX="1" oY="1" oW="21" oH="21"/>
+    <sprite n="E_lefteye_3" x="197" y="147" w="19" h="17" oX="1" oY="2" oW="21" oH="21"/>
+    <sprite n="E_lefteye_4" x="151" y="90" w="19" h="19" oX="0" oY="1" oW="21" oH="21"/>
+    <sprite n="E_leftfingers_1" x="117" y="86" w="32" h="23"/>
+    <sprite n="E_leftfingers_2" x="61" y="2" w="21" h="24" oX="4" oY="0" oW="32" oH="23" r="y"/>
+    <sprite n="E_leftfingers_3" x="139" y="171" w="17" h="20" oX="6" oY="0" oW="32" oH="23" r="y"/>
+    <sprite n="E_leftfoot_1" x="43" y="119" w="39" h="73" oX="0" oY="5" oW="73" oH="45" r="y"/>
+    <sprite n="E_leftfoot_2" x="153" y="2" w="71" h="45" oX="0" oY="0" oW="73" oH="45"/>
+    <sprite n="E_leftleg" x="226" y="39" w="28" h="25" r="y"/>
+    <sprite n="E_leftlowerarm" x="52" y="194" w="26" h="47"/>
+    <sprite n="E_leftupperarm" x="29" y="194" w="21" h="50"/>
+    <sprite n="E_mouth_1" x="80" y="241" w="39" h="12" oX="0" oY="3" oW="39" oH="44"/>
+    <sprite n="E_mouth_10" x="172" y="90" w="39" h="30" oX="0" oY="0" oW="39" oH="44"/>
+    <sprite n="E_mouth_2" x="117" y="111" w="39" h="14" oX="0" oY="2" oW="39" oH="44"/>
+    <sprite n="E_mouth_3" x="199" y="49" w="22" h="39" oX="0" oY="0" oW="39" oH="44" r="y"/>
+    <sprite n="E_mouth_4" x="118" y="45" w="32" h="39" oX="0" oY="0" oW="39" oH="44" r="y"/>
+    <sprite n="E_mouth_5" x="125" y="127" w="39" h="42" oX="0" oY="0" oW="39" oH="44"/>
+    <sprite n="E_mouth_6" x="84" y="128" w="39" h="44"/>
+    <sprite n="E_mouth_7" x="213" y="108" w="35" h="16" oX="0" oY="0" oW="39" oH="44"/>
+    <sprite n="E_mouth_8" x="223" y="66" w="31" h="40" oX="1" oY="2" oW="39" oH="44"/>
+    <sprite n="E_mouth_9" x="153" y="49" w="44" h="39" r="y"/>
+    <sprite n="E_pupil" x="29" y="246" w="6" h="8" oX="1" oY="0" oW="8" oH="8"/>
+    <sprite n="E_righteye_1" x="95" y="66" w="20" h="20" oX="1" oY="2" oW="22" oH="22"/>
+    <sprite n="E_righteye_2" x="95" y="108" w="20" h="18" oX="1" oY="2" oW="22" oH="22"/>
+    <sprite n="E_righteye_3" x="95" y="88" w="20" h="18" oX="1" oY="2" oW="22" oH="22"/>
+    <sprite n="E_righteye_4" x="84" y="174" w="20" h="18" oX="2" oY="1" oW="22" oH="22" r="y"/>
+    <sprite n="E_rightfingers_1" x="84" y="23" w="32" h="41" r="y"/>
+    <sprite n="E_rightfingers_2" x="226" y="2" w="28" h="35" oX="0" oY="0" oW="41" oH="32" r="y"/>
+    <sprite n="E_rightfingers_3" x="118" y="23" w="33" h="20" oX="0" oY="0" oW="41" oH="32"/>
+    <sprite n="E_rightfoot_1" x="2" y="119" w="39" h="73" oX="0" oY="5" oW="73" oH="45" r="y"/>
+    <sprite n="E_rightfoot_2" x="80" y="194" w="71" h="45" oX="1" oY="0" oW="73" oH="45"/>
+    <sprite n="E_rightleg" x="166" y="122" w="29" h="26" r="y"/>
+    <sprite n="E_rightlowerarm" x="61" y="66" w="32" h="45"/>
+    <sprite n="E_rightshoulder" x="61" y="28" w="21" h="23"/>
+    <sprite n="E_rightupperarm" x="2" y="194" w="25" h="53" oX="0" oY="0" oW="25" oH="55"/>
+    <sprite n="E_shadow" x="84" y="2" w="63" h="19" oX="1" oY="15" oW="65" oH="39"/>
+</TextureAtlas>

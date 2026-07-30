@@ -1,0 +1,165 @@
+<template name="template_spritesheetbutton">
+	
+	<defaultTemplateVar name="$sheetName" equals="'xml_resources/buttons01.xml'" />
+	<defaultTemplateVar name="$upSpriteName" equals="'button_base_grey'" />
+	<defaultTemplateVar name="$downSpriteName" equals="''" />
+	<defaultTemplateVar name="$spriteHFlip" equals="0" />
+	<defaultTemplateVar name="$spriteScale" equals="1.0" />
+	<defaultTemplateVar name="$textXOffset" equals="0" />
+	<defaultTemplateVar name="$textYOffset" equals="0" />
+	<defaultTemplateVar name="$rotation" equals="0" />
+	<defaultTemplateVar name="$textRotation" equals="0" />
+	<defaultTemplateVar name="$sfx" equals="[[audio/sfx/menu_click.wav]]" />
+	<defaultTemplateVar name="$layer" equals="HUD" />
+	<defaultTemplateVar name="$rd" equals="1.0" />
+	<defaultTemplateVar name="$gr" equals="1.0" />
+	<defaultTemplateVar name="$bl" equals="1.0" />
+	<defaultTemplateVar name="$textPadding" equals="0.0" />
+	<defaultTemplateVar name="$multiLine" equals="0" />
+	<defaultTemplateVar name="$autoScaleFactor" equals="0.05" />
+	
+	<size dependentOnElement="element:name()" dependentOnComponent="UpSprite" />
+	
+	<!-- UpSprite: Sprite displayed when the user has not pressed the button. -->
+	<spriteSheetComponent name="UpSprite">
+		<event name="onInit" params="component, element">
+			component("hFlip"):SetInt($spriteHFlip)
+			component("spriteName"):Set("$upSpriteName")
+			component("sheetName"):Set("$sheetName")
+			component("size"):SetFloat($spriteScale)
+			component("rotation"):SetFloat($rotation)
+			component("layer"):SetString("$layer")
+			element("spriteScale"):SetFloat($spriteScale)
+		</event>
+	</spriteSheetComponent>
+	
+	<!-- DownSprite: Sprite displayed when a mouse-down/touch-down event has been registered on the button. -->
+	<spriteSheetComponent name="DownSprite">
+		<event name="onInit" params="component, element">
+			component("hFlip"):SetInt($spriteHFlip)
+			component("spriteName"):Set("$downSpriteName")
+			component("sheetName"):Set("$sheetName")
+			component("size"):SetFloat($spriteScale)
+			component("rotation"):SetFloat($rotation)
+			component("visible"):SetInt(0)
+			component("layer"):SetString("$layer")
+		</event>
+	</spriteSheetComponent>
+	
+	<!-- Text: Text to be displayed within the button. -->
+	<textComponent name="Text">
+		<size dependentOnElement="element:name()" dependentOnComponent="UpSprite" />
+		<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+		<event name="onInit" params="component, element">
+			component:GetVar("multiline"):SetInt($multiLine)
+			component:GetVar("textPadding"):SetInt($textPadding)
+			component:GetVar("font"):Set(game.getTextFont())
+			component:GetVar("size"):SetFloat($spriteScale)
+			component:GetVar("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+			component:GetVar("text"):SetString("$text")
+			component:GetVar("xOffset"):SetInt($textXOffset)
+			component:GetVar("yOffset"):SetInt($textYOffset)
+			component("rotation"):SetFloat($textRotation)
+			component:GetVar("autoScaleFactor"):SetFloat($autoScaleFactor)
+			component:GetVar("autoScale"):SetInt(1)
+			component:GetVar("layer"):SetString("$layer")
+		</event>
+	</textComponent>
+	
+	<touchComponent name="Touch">	
+		<size dependentOnElement="element:name()" dependentOnComponent="UpSprite" />
+		<event name="onInit" params="component, element">
+			component("singleTouch"):SetInt(1)
+		</event>
+		<event name="onTouchDown" params="component, element">
+			if( $downSpriteName ~= "" ) then
+				element:GetComponent("UpSprite"):GetVar("visible"):SetInt(0)
+				element:GetComponent("DownSprite"):GetVar("visible"):SetInt(1)
+				menu:SetElementComponentVarFloat(element:name(), "Text", "red", $rd)
+				menu:SetElementComponentVarFloat(element:name(), "Text", "green", $gr)
+				menu:SetElementComponentVarFloat(element:name(), "Text", "blue", $bl)
+			else
+				element["UpSprite"]("red"):SetFloat(0.5)
+				element["UpSprite"]("green"):SetFloat(0.5)
+				element["UpSprite"]("blue"):SetFloat(0.5)
+			end
+		</event>
+		<event name="onTouchUp" params="component, element">
+			if( $downSpriteName ~= "" ) then
+				element:GetComponent("UpSprite"):GetVar("visible"):SetInt(1)
+				element:GetComponent("DownSprite"):GetVar("visible"):SetInt(0)
+				menu:SetElementComponentVarFloat(element:name(), "Text", "red", 1.0)
+				menu:SetElementComponentVarFloat(element:name(), "Text", "green", 1.0)
+				menu:SetElementComponentVarFloat(element:name(), "Text", "blue", 1.0)
+			else
+				element["UpSprite"]("red"):SetFloat(1.0)
+				element["UpSprite"]("green"):SetFloat(1.0)
+				element["UpSprite"]("blue"):SetFloat(1.0)
+			end
+			element:DoStoredScript("playSFX")
+		</event>
+		<event name="onTouchRelease" params="component, element">
+			if( $downSpriteName ~= "" ) then
+				element:GetComponent("UpSprite"):GetVar("visible"):SetInt(1)
+				element:GetComponent("DownSprite"):GetVar("visible"):SetInt(0)
+				menu:SetElementComponentVarFloat(element:name(), "Text", "red", 1.0)
+				menu:SetElementComponentVarFloat(element:name(), "Text", "green", 1.0)
+				menu:SetElementComponentVarFloat(element:name(), "Text", "blue", 1.0)
+			else
+				element["UpSprite"]("red"):SetFloat(1.0)
+				element["UpSprite"]("green"):SetFloat(1.0)
+				element["UpSprite"]("blue"):SetFloat(1.0)
+			end
+		</event>			
+	</touchComponent>
+	
+	<event name="onInit" params="element">
+		<![CDATA[
+			element:setPositionBroadcast(true)
+			element("locked"):SetInt(0) -- Used so I can disable after a touch
+		]]>
+	</event>
+	
+	<!-- playSFX: Triggers the specified sound to play. -->
+	<function name="playSFX" params="element">
+		lua_sys.playSoundFx("$sfx")
+	</function>
+	
+	<function name="setVisible" params="element">
+		element["UpSprite"]("visible"):SetInt(1)
+		element["Text"]("visible"):SetInt(1)
+		element["Touch"]("enabled"):SetInt(1)
+	</function>
+	
+	<function name="setInvisible" params="element">
+		element["UpSprite"]("visible"):SetInt(0)
+		element["DownSprite"]("visible"):SetInt(0)
+		element["Text"]("visible"):SetInt(0)
+		element["Touch"]("enabled"):SetInt(0)
+	</function>
+	
+	<function name="enable" params="element">
+		if($downSpriteName ~= "") then
+			element["UpSprite"]("visible"):SetInt(1)
+			element["DownSprite"]("visible"):SetInt(0)
+		else
+			element["UpSprite"]("red"):SetFloat(1.0)
+			element["UpSprite"]("green"):SetFloat(1.0)
+			element["UpSprite"]("blue"):SetFloat(1.0)
+		end
+		element["Touch"]("enabled"):SetInt(1)
+	</function>
+	
+	<function name="disable" params="element">
+		if($downSpriteName ~= "") then
+			element["UpSprite"]("visible"):SetInt(0)
+			element["DownSprite"]("visible"):SetInt(1)
+		else
+			element["UpSprite"]("red"):SetFloat(0.5)
+			element["UpSprite"]("green"):SetFloat(0.5)
+			element["UpSprite"]("blue"):SetFloat(0.5)
+		end
+		element["Touch"]("enabled"):SetInt(0)
+	</function>
+</template>

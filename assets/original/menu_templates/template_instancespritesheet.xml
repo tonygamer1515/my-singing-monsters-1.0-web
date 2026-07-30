@@ -1,0 +1,14 @@
+<template name="template_instancespritesheet">
+	
+	<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+	
+	<spriteSheetComponent name="Sprite">
+		<event name="onInit" params="component, element">
+			component("spriteName"):SetString(element("SpriteName"):GetString())
+			component("sheetName"):SetString(element("SheetName"):GetString())
+			component("size"):SetFloat(element("Size"):GetFloat())
+			component("layer"):SetString(element("Layer"):GetString())
+		</event>
+	</spriteSheetComponent>
+	
+</template>

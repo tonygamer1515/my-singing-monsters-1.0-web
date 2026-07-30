@@ -1,0 +1,62 @@
+<template>
+	<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+	<animSpriteComponent name="Sprite">
+		<event name="onInit" params="component, element">
+			component:GetVar("spriteName"):Set("$checkedAnimSprite")
+			component:GetVar("frame"):SetInt($check)
+		</event>
+	</animSpriteComponent>
+
+	<textComponent name="Text">
+		<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priority="-1" />
+		<event name="onInit" params="component, element">
+			component:GetVar("font"):Set("$font")
+			component:GetVar("alignment"):SetInt(8)
+			
+			if $check == 0 then
+				component:GetVar("text"):Set("$text2")
+			else
+				component:GetVar("text"):Set("$text1")
+			end
+			
+			component:GetVar("size"):SetFloat($scale)
+		</event>
+	</textComponent>
+	<touchComponent name="Touch">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<event name="onTouchDown" params="component, element">
+			menu:SetElementComponentVarFloat(element:name(), "Text", "red", $rd)
+			menu:SetElementComponentVarFloat(element:name(), "Text", "green", $gr)
+			menu:SetElementComponentVarFloat(element:name(), "Text", "blue", $bl)
+		</event>
+		<event name="onTouchUp" params="component, element">
+			checked = $check
+			if element:GetVar("checked"):GetInt() == 1 then
+				element:GetVar("checked"):SetInt(0)
+				element:GetComponent("Sprite"):GetVar("frame"):SetInt(0)
+				element:GetComponent("Text"):GetVar("text"):Set("$text2")
+			else 
+				element:GetVar("checked"):SetInt(1)
+				element:GetComponent("Sprite"):GetVar("frame"):SetInt(1)
+				element:GetComponent("Text"):GetVar("text"):Set("$text1")
+			end
+			menu:SetElementComponentVarFloat(element:name(), "Text", "red", 1.0)
+			menu:SetElementComponentVarFloat(element:name(), "Text", "green", 1.0)
+			menu:SetElementComponentVarFloat(element:name(), "Text", "blue", 1.0)	
+		</event>
+		<event name="onTouchRelease" params="component, element">
+			menu:SetElementComponentVarFloat(element:name(), "Text", "red", 1.0)
+			menu:SetElementComponentVarFloat(element:name(), "Text", "green", 1.0)
+			menu:SetElementComponentVarFloat(element:name(), "Text", "blue", 1.0)
+		</event>
+	</touchComponent>
+	<soundComponent name="Sound">
+		<event name="onInit" params="component, element">
+			component:GetVar("soundName"):Set("$sfx")
+		</event>
+	</soundComponent>
+	<event name="onInit" params="element">
+		element:GetVar("checked"):SetInt($check)
+	</event>
+</template>

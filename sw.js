@@ -1,0 +1,5 @@
+const CACHE='msm-1.0-port-v1';
+const CORE=['./','index.html','styles.css','game.js','manifest.webmanifest','assets/images/app-icon.png','assets/data/sprites.json','assets/original/gfx/sky01.png','assets/original/gfx/island_overlay/island01_grass.png','assets/original/gfx/structures/structure_castle01.png','assets/original/gfx/structures/structure_nursery.png'];
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==location.origin||event.request.url.endsWith('.ipa'))return;event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{if(response.ok)caches.open(CACHE).then(cache=>cache.put(event.request,response.clone()));return response}))) });

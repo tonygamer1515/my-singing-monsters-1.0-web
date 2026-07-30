@@ -1,0 +1,127 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	color: #FFFFFF;
+	background-color: #222222;
+	font-size: 20px; /* Base Font size */
+}
+
+/*** Base Styles ***/
+ul {
+	border: solid #cbcbcb 2px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #bfc9d4;
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+li {
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: solid #bfbdbd 1px;
+	border-top: solid #ffffff 1px;
+}
+
+li.title {
+	font-size: 1.2em;
+	background-color: #2a598a;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	font-weight: bold;
+	border-bottom: none;
+	border-top: none;
+
+	background-image: linear-gradient(bottom, rgb(7,72,192) 30%, rgb(28,159,199) 83%);
+	background-image: -o-linear-gradient(bottom, rgb(7,72,192) 30%, rgb(28,159,199) 83%);
+	background-image: -moz-linear-gradient(bottom, rgb(7,72,192) 30%, rgb(28,159,199) 83%);
+	background-image: -webkit-linear-gradient(bottom, rgb(7,72,192) 30%, rgb(28,159,199) 83%);
+	background-image: -ms-linear-gradient(bottom, rgb(7,72,192) 30%, rgb(28,159,199) 83%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.3, rgb(7,72,192)),
+		color-stop(0.83, rgb(28,159,199))
+	);
+}
+
+li.info {
+	font-weight: bold;
+	color: #000000;
+	background-color: #fff799;
+	border-top: none;
+	font-size: .65em;
+}
+
+li.last {
+	border-bottom: none;
+}
+
+li label {
+	font-weight: bold;
+	color: #000000;
+	font-size: .6em;
+}
+
+li p {
+	padding: 0px;
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #2a598a;
+	font-weight: bold;
+}
+
+a.secondary {
+	color: #7b8898
+}
+
+li input {
+	width: 90%;
+	border: solid thin #7b8898;
+	padding: 3px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: .75em;
+}
+
+#wrapper {
+	margin:auto;
+	width: 300px;
+}
+
+
+/*** iPad styling ***/ 
+@media only screen and (min-device-width: 768px) and (max-device-width: 3024px) {
+	body {
+		background-color: white;
+		font-size: 28px;
+	}
+
+	ul {
+		width: 500px;
+	}
+}
+
+/*** iPhone styling ***/
+@media only screen and (max-device-width: 767px) {
+	body {
+		font-size: 28px;
+	}
+
+	ul {
+		width: 300px;
+	}
+}
+

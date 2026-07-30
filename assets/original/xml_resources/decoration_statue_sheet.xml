@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:fd72059964ee863e292ff65104b4f1b5$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/decoration_statue_sheet.png" width="512" height="512">
+    <sprite n="fossil01A" x="322" y="1" w="160" h="87" oX="2" oY="0" oW="164" oH="89"/>
+    <sprite n="fossil01B" x="322" y="89" w="113" h="94" oX="1" oY="0" oW="119" oH="94"/>
+    <sprite n="fountain" x="1" y="1" w="320" h="282" oX="1" oY="1" oW="324" oH="284"/>
+    <sprite n="ruins01" x="130" y="284" w="164" h="202"/>
+    <sprite n="statue" x="1" y="284" w="128" h="224"/>
+    <sprite n="statue02" x="413" y="184" w="98" h="240" oX="0" oY="0" oW="100" oH="240"/>
+    <sprite n="statue03" x="322" y="184" w="90" h="265"/>
+</TextureAtlas>

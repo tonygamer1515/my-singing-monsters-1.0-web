@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:d2888a0421ab0c55093ead2765ec71b6$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/island_overlay/island01_sheet01.png" width="1024" height="1024">
+    <sprite n="island01_burns" x="2" y="2" w="319" h="577" oX="0" oY="3" oW="319" oH="583"/>
+    <sprite n="island01_ear" x="604" y="2" w="402" h="228" r="y"/>
+    <sprite n="island01_edge" x="604" y="854" w="201" h="165" oX="2" oY="2" oW="207" oH="167"/>
+    <sprite n="island01_eyeclosed" x="2" y="581" w="392" h="403" oX="25" oY="15" oW="435" oH="408" r="y"/>
+    <sprite n="island01_nose" x="537" y="232" w="340" h="290" r="y"/>
+    <sprite n="island01_stumpcenter" x="323" y="2" w="212" h="491" oX="2" oY="8" oW="495" oH="230" r="y"/>
+    <sprite n="island01_stumpside" x="604" y="524" w="360" h="328" oX="4" oY="8" oW="364" oH="336"/>
+    <sprite n="w1_cloud" x="396" y="554" w="206" h="450" oX="0" oY="1" oW="450" oH="210" r="y"/>
+    <sprite n="w1_leaves_1" x="368" y="495" w="53" h="57" r="y"/>
+    <sprite n="w1_leaves_2" x="423" y="495" w="47" h="52"/>
+    <sprite n="w1_plant_bird_01" x="75" y="986" w="48" h="22" oX="0" oY="5" oW="48" oH="28"/>
+    <sprite n="w1_plant_bird_02" x="2" y="986" w="28" h="36" oX="6" oY="0" oW="48" oH="28" r="y"/>
+    <sprite n="w1_plant_bird_03" x="191" y="986" w="48" h="20" oX="0" oY="7" oW="48" oH="28"/>
+    <sprite n="w1_plant_bird_04" x="125" y="986" w="42" h="22" oX="3" oY="6" oW="48" oH="28"/>
+    <sprite n="w1_plant_bird_05" x="169" y="986" w="20" h="22" oX="10" oY="7" oW="48" oH="28" r="y"/>
+    <sprite n="w1_vine_1" x="32" y="986" w="41" h="23"/>
+    <sprite n="w1_vine_2" x="323" y="495" w="43" h="70" r="y"/>
+</TextureAtlas>

@@ -1,0 +1,101 @@
+<template name="template_storecategorybutton">
+
+	<hudScale scale="lua_sys.screenWidth()/960.0" />
+	
+	<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+
+	<!-- <defaultTemplateVar name="$sheetName" equals="xml_resources/barbutton_gfx.xml" />
+	<defaultTemplateVar name="$upSpriteName" equals="btn_base.png" />
+	<defaultTemplateVar name="$downSpriteName" equals="btn_base_down.png" /> -->
+	
+	<spriteSheetComponent name="Sprite">
+		<event name="onInit" params="component, element">
+			component("spriteName"):SetString(element("SpriteName"):GetString())
+			component("sheetName"):SetString(element("SheetName"):GetString())
+			component("size"):SetFloat(element("SpriteSize"):GetFloat())
+			component("layer"):SetString("HUD")
+		</event>
+	</spriteSheetComponent>
+	
+	<!-- <spriteSheetComponent name="DownSprite">
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="1" />
+		<event name="onInit" params="component, element">
+			if(element("DownSpriteName"):GetString() ~= nil) then
+				component("spriteName"):SetString(element("DownSpriteName"):GetString())
+				component("sheetName"):SetString(element("SheetName"):GetString())
+				component("visible"):SetInt(0)
+				component("layer"):SetString("HUD")
+			end
+		</event>
+	</spriteSheetComponent> -->
+
+	<!-- <spriteSheetComponent name="ButtonImage">
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+		<event name="onInit" params="component, element">
+			component("spriteName"):SetString(element("ButtonImageName"):GetString())
+			component("sheetName"):SetString(element("SheetName"):GetString())
+			component("layer"):SetString("HUD")
+		</event>
+	</spriteSheetComponent> -->
+	
+	<textComponent name="ButtonLabel">
+		<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="HCENTER" hAnchor="HCENTER" xOffset="0" yOffset="-25" priorityOffset="-2" />
+		<event name="onInit" params="component, element">
+			component("font"):Set(game.getTextFont())
+			component("size"):SetFloat(element("TextScale"):GetFloat())
+			component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+			component("text"):SetString(element("ButtonLabelText"):GetString())
+			component("layer"):SetString("HUD")
+			
+		</event>
+	</textComponent>
+	
+	<touchComponent name="Touch">
+		<size dependentOnElement="element:name()" dependentOnComponent="UpSprite" />
+		<event name="onTouchDown" params="component, element">
+			element["Sprite"]("red"):SetFloat(0.75)
+			element["Sprite"]("green"):SetFloat(0.75)
+			element["Sprite"]("blue"):SetFloat(0.75)
+		</event>
+		<event name="onTouchUp" params="component, element">
+			element["Sprite"]("red"):SetFloat(1.0)
+			element["Sprite"]("green"):SetFloat(1.0)
+			element["Sprite"]("blue"):SetFloat(1.0)
+			
+			store:SelectCategory(element("CategoryNum"):GetInt())
+		</event>
+		<event name="onTouchRelease" params="component, element">
+			element["Sprite"]("red"):SetFloat(1.0)
+			element["Sprite"]("green"):SetFloat(1.0)
+			element["Sprite"]("blue"):SetFloat(1.0)
+		</event>
+	</touchComponent>
+	
+	<!--<event name="onInit" params="element">
+		if(element("OnInitFunction"):GetString() ~= nil) then
+			element:parent():DoStoredScript(element("OnInitFunction"):GetString())
+		end
+	</event>-->
+
+	<event name="SetInvisible" params="element">
+		element["Sprite"]("visible"):SetInt(0)
+		element["ButtonLabel"]("visible"):SetInt(0)
+		element["Touch"]("enabled"):SetInt(0)
+	</event>
+	
+	<event name="SetVisible" params="element">
+		element["Sprite"]("visible"):SetInt(1)
+		element["ButtonLabel"]("visible"):SetInt(1)
+		element["Touch"]("enabled"):SetInt(1)
+	</event>
+	
+	<event name="Refresh" params="element">
+		element["Sprite"]("spriteName"):SetString(element("SpriteName"):GetString())
+		element["Sprite"]("sheetName"):SetString(element("SheetName"):GetString())
+		element["ButtonLabel"]("text"):SetString(element("ButtonLabelText"):GetString())
+	</event>
+	
+</template>

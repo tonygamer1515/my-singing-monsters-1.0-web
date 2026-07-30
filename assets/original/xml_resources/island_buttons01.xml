@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:34c58c5a5901e3b568f711e1a942c105$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/menu/island_buttons01.png" width="1024" height="256">
+    <sprite n="islands_button_isl01" x="598" y="2" w="288" h="206" oX="10" oY="5" oW="304" oH="228"/>
+    <sprite n="islands_button_isl02" x="302" y="2" w="294" h="212" oX="4" oY="0" oW="304" oH="228"/>
+    <sprite n="islands_button_isl03" x="2" y="2" w="298" h="222" oX="0" oY="0" oW="304" oH="228"/>
+</TextureAtlas>

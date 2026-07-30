@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:05b7eb6f2991719cf2c0255f6a97039c$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/structure_castle03_sheet.png" width="512" height="512">
+    <sprite n="structure_castle03_base" x="118" y="2" w="352" h="300" oX="0" oY="1" oW="352" oH="302"/>
+    <sprite n="structure_castle03_center" x="118" y="304" w="291" h="202" r="y"/>
+    <sprite n="structure_castle03_shroom_left" x="411" y="304" w="85" h="183"/>
+    <sprite n="structure_castle03_shroom_right" x="2" y="2" w="114" h="359" oX="0" oY="1" oW="116" oH="361"/>
+</TextureAtlas>

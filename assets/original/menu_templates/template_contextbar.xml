@@ -1,0 +1,94 @@
+<template name="template_contextbar">
+
+	<defaultTemplateVar name="$luaPointer" equals="element:root():getLuaPointer()" />
+	<defaultTemplateVar name="$textScale" equals="1.0" />
+
+	<size w="lua_sys.screenWidth()" h="lua_sys.screenHeight()" />
+	
+	<event name="onInit" params="element">
+		
+		element:DoStoredScript("populate")		
+		
+	</event>
+	
+	<event name="populate" params="element">
+		element("numItems"):SetInt($luaPointer:numCurrentItems())
+		local numItems = element("numItems"):GetInt()
+		local rootItem = nil
+		local previous = nil
+		
+		for i=0, numItems-1 do
+			local emptyItem = menu:addTemplateElement("template_barbutton", "", element)
+			emptyItem("SheetName"):SetString($luaPointer:getSheetName())
+			emptyItem("UpSpriteName"):SetString($luaPointer:getUpSprite())
+			emptyItem("DownSpriteName"):SetString($luaPointer:getDownSprite())
+			
+			emptyItem("ButtonImageName"):SetString($luaPointer:getImageForButton(i))
+			emptyItem("ButtonLabelText"):SetCharString($luaPointer:getLabelForButton(i))
+			emptyItem("ButtonScale"):SetFloat($luaPointer:getScaleForButton(i))
+			emptyItem("ButtonPadding"):SetInt($luaPointer:getPaddingForButton(i))
+			emptyItem("AttachedTemplate"):SetString($luaPointer:getAttachedTemplateForButton(i))
+			emptyItem("FunctionName"):SetString($luaPointer:getFunctionForButton(i))
+			emptyItem("OnInitFunction"):SetString($luaPointer:getOnInitForButton(i))
+			
+			emptyItem("UseDownSprite"):SetInt($luaPointer:useDownSprite())
+			emptyItem("TextScale"):SetFloat($textScale)
+			
+			emptyItem:setName("barItem"..i)
+			emptyItem:setParent(element)
+			emptyItem:setRelativeObjectAnchors($luaPointer:getHAnchor(), $luaPointer:getVAnchor())
+			
+			if (previous == nil) then
+			
+				emptyItem:setOrientation(lua_sys.MenuOrientation(-200, -200, 4, $luaPointer:getHAnchor(), $luaPointer:getVAnchor()))
+				rootItem = emptyItem
+			
+			else
+			
+				emptyItem:setOrientation(lua_sys.MenuOrientation(previous("xOffset"):GetInt(), previous("yOffset"):GetInt(), 4, $luaPointer:getHAnchor(), $luaPointer:getVAnchor()))
+				
+			end
+			
+			previous = emptyItem
+			
+			emptyItem:init()
+			emptyItem:setPositionBroadcast(true)
+			
+			$luaPointer:setBarElement(i, emptyItem)
+			
+		end
+		
+		if(rootItem ~= nil) then
+		
+			local contextInfo = menu:addTemplateElement("template_contextinfo", "InfoElement", element)
+			
+			contextInfo("titleScale"):SetFloat(0.6)
+			
+			contextInfo:setOrientation(lua_sys.MenuOrientation(-600, -600, 2, $luaPointer:getHAnchor(), $luaPointer:getVAnchor()))
+			contextInfo:setRelativeObjectAnchors($luaPointer:getHAnchor(), $luaPointer:getVAnchor())
+
+			contextInfo:init()
+			contextInfo:setPositionBroadcast(true)
+			
+		end
+		
+		element:DoStoredScript(manager:getOnInitFunction())
+
+	</event>
+	
+	<event name="repopulate" params="element">
+		
+		for i=0,element("numItems"):GetInt()-1 do
+			element:RemoveElement(element:GetElement("barItem"..i))
+		end
+		
+		if(element:GetElement("InfoElement") ~= nil) then
+			element:RemoveElement(element:GetElement("InfoElement"))
+		end
+		
+		element:DoStoredScript("populate")
+		
+	</event>
+	
+
+</template>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:a460f8972bd5ce923b3ce7f80daa6a95$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_ABDE_sheet.png" width="512" height="256">
+    <sprite n="ABDE_beard" x="198" y="213" w="47" h="41"/>
+    <sprite n="ABDE_beatglow_blue" x="443" y="2" w="20" h="40" r="y"/>
+    <sprite n="ABDE_beatglow_green" x="437" y="49" w="20" h="40" r="y"/>
+    <sprite n="ABDE_beatglow_red" x="156" y="231" w="40" h="20"/>
+    <sprite n="ABDE_beatglow_yellow" x="114" y="231" w="40" h="20"/>
+    <sprite n="ABDE_body" x="160" y="2" w="82" h="106"/>
+    <sprite n="ABDE_cube01" x="323" y="109" w="42" h="52"/>
+    <sprite n="ABDE_cube02" x="240" y="168" w="52" h="43" r="y"/>
+    <sprite n="ABDE_cube03" x="340" y="2" w="43" h="51"/>
+    <sprite n="ABDE_cube04" x="244" y="59" w="39" h="49"/>
+    <sprite n="ABDE_cube05" x="385" y="2" w="36" h="46"/>
+    <sprite n="ABDE_cube06" x="294" y="2" w="44" h="53"/>
+    <sprite n="ABDE_cube07" x="244" y="2" w="48" h="55"/>
+    <sprite n="ABDE_cube08" x="274" y="110" w="47" h="54"/>
+    <sprite n="ABDE_cube09" x="294" y="166" w="45" h="52"/>
+    <sprite n="ABDE_cube10" x="326" y="57" w="40" h="50"/>
+    <sprite n="ABDE_cube11" x="285" y="59" w="39" h="48"/>
+    <sprite n="ABDE_eyeback" x="160" y="213" w="34" h="16" oX="1" oY="1" oW="36" oH="18"/>
+    <sprite n="ABDE_eyelids_01" x="474" y="68" w="36" h="20" oX="1" oY="0" oW="38" oH="22"/>
+    <sprite n="ABDE_eyelids_02" x="474" y="46" w="36" h="20" oX="1" oY="0" oW="38" oH="22"/>
+    <sprite n="ABDE_eyelids_03" x="474" y="24" w="36" h="20" oX="1" oY="0" oW="38" oH="22"/>
+    <sprite n="ABDE_eyelids_04" x="474" y="2" w="36" h="20" oX="1" oY="0" oW="38" oH="22"/>
+    <sprite n="ABDE_head" x="160" y="110" w="78" h="101"/>
+    <sprite n="ABDE_head_speaker" x="294" y="220" w="36" h="31" r="y"/>
+    <sprite n="ABDE_left_hand_1" x="431" y="97" w="41" h="41" oX="0" oY="0" oW="47" oH="41"/>
+    <sprite n="ABDE_left_hand_2" x="401" y="205" w="41" h="45" oX="0" oY="0" oW="47" oH="41" r="y"/>
+    <sprite n="ABDE_left_hand_3" x="247" y="213" w="45" h="41" oX="0" oY="0" oW="47" oH="41"/>
+    <sprite n="ABDE_left_hand_4" x="352" y="215" w="47" h="39" oX="0" oY="0" oW="47" oH="41"/>
+    <sprite n="ABDE_left_lowerarm" x="240" y="110" w="32" h="56" r="y"/>
+    <sprite n="ABDE_left_upperarm" x="2" y="231" w="43" h="22" r="y"/>
+    <sprite n="ABDE_mouth_1" x="411" y="97" w="18" h="45" r="y"/>
+    <sprite n="ABDE_mouth_2" x="423" y="2" w="18" h="45" r="y"/>
+    <sprite n="ABDE_mouth_3" x="332" y="220" w="18" h="31" oX="8" oY="0" oW="45" oH="18" r="y"/>
+    <sprite n="ABDE_pupil" x="379" y="205" w="6" h="6" oX="1" oY="1" oW="8" oH="8"/>
+    <sprite n="ABDE_right_hand_1" x="417" y="144" w="38" h="44" oX="0" oY="0" oW="50" oH="38" r="y"/>
+    <sprite n="ABDE_right_hand_2" x="368" y="55" w="38" h="46" oX="0" oY="0" oW="50" oH="38" r="y"/>
+    <sprite n="ABDE_right_hand_3" x="379" y="157" w="36" h="46" oX="1" oY="0" oW="50" oH="38" r="y"/>
+    <sprite n="ABDE_right_hand_4" x="341" y="163" w="36" h="50" oX="0" oY="0" oW="50" oH="38" r="y"/>
+    <sprite n="ABDE_right_lowerarm" x="408" y="50" w="27" h="45" r="y"/>
+    <sprite n="ABDE_right_upperarm" x="47" y="231" w="44" h="21" r="y"/>
+    <sprite n="ABDE_speaker_base" x="2" y="2" w="156" h="227" r="y"/>
+    <sprite n="ABDE_speaker_big" x="367" y="109" w="42" h="46"/>
+    <sprite n="ABDE_speaker_small" x="93" y="231" w="19" h="21"/>
+</TextureAtlas>

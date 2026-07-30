@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:d8f99301e0ded6092a5322b752b96c26$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_BCD_sheet.png" width="512" height="256">
+    <sprite n="BCD_body" x="2" y="2" w="87" h="111"/>
+    <sprite n="BCD_eyeback" x="91" y="77" w="20" h="34" r="y"/>
+    <sprite n="BCD_left_arm" x="231" y="62" w="20" h="26"/>
+    <sprite n="BCD_left_eyelid1" x="169" y="177" w="14" h="8" oX="4" oY="0" oW="18" oH="18"/>
+    <sprite n="BCD_left_eyelid2" x="273" y="79" w="18" h="18"/>
+    <sprite n="BCD_left_eyelid3" x="259" y="99" w="18" h="18"/>
+    <sprite n="BCD_left_eyelid4" x="253" y="79" w="18" h="18"/>
+    <sprite n="BCD_left_foot" x="185" y="76" w="22" h="28"/>
+    <sprite n="BCD_left_hand" x="113" y="77" w="20" h="30" r="y"/>
+    <sprite n="BCD_left_leg" x="198" y="62" w="25" h="11"/>
+    <sprite n="BCD_mouth1" x="40" y="115" w="68" h="73" oX="1" oY="0" oW="72" oH="73"/>
+    <sprite n="BCD_mouth2" x="69" y="190" w="65" h="64" oX="2" oY="5" oW="72" oH="73" r="y"/>
+    <sprite n="BCD_mouth3" x="181" y="187" w="57" h="58" oX="3" oY="10" oW="72" oH="73" r="y"/>
+    <sprite n="BCD_mouth4" x="243" y="2" w="48" h="49" oX="7" oY="16" oW="72" oH="73"/>
+    <sprite n="BCD_mouth5" x="141" y="2" w="55" h="72" oX="0" oY="14" oW="72" oH="73" r="y"/>
+    <sprite n="BCD_pupil" x="185" y="177" w="8" h="8"/>
+    <sprite n="BCD_right_arm" x="162" y="76" w="21" h="29"/>
+    <sprite n="BCD_right_eyelid1" x="150" y="177" w="17" h="8" oX="0" oY="0" oW="17" oH="18"/>
+    <sprite n="BCD_right_eyelid2" x="259" y="139" w="17" h="18"/>
+    <sprite n="BCD_right_eyelid3" x="259" y="119" w="17" h="18"/>
+    <sprite n="BCD_right_eyelid4" x="279" y="53" w="17" h="18"/>
+    <sprite n="BCD_right_foot" x="135" y="77" w="25" h="29" r="y"/>
+    <sprite n="BCD_right_hand" x="253" y="53" w="24" h="24"/>
+    <sprite n="BCD_right_leg" x="209" y="75" w="20" h="28" r="y"/>
+    <sprite n="BCD_shadow" x="204" y="164" w="56" h="20" oX="1" oY="0" oW="58" oH="20"/>
+    <sprite n="BCD_tongue01" x="2" y="196" w="65" h="58" oX="17" oY="8" oW="83" oH="82"/>
+    <sprite n="BCD_tongue02" x="91" y="2" w="48" h="73" oX="9" oY="18" oW="83" oH="82" r="y"/>
+    <sprite n="BCD_tongue03" x="2" y="115" w="36" h="79" oX="3" oY="28" oW="83" oH="82" r="y"/>
+    <sprite n="BCD_tongue04" x="150" y="108" w="52" h="67" oX="15" oY="30" oW="83" oH="82" r="y"/>
+    <sprite n="BCD_tongue05" x="110" y="113" w="38" h="73" oX="9" oY="18" oW="83" oH="82" r="y"/>
+    <sprite n="BCD_tongue06" x="136" y="188" w="43" h="60" oX="39" oY="0" oW="83" oH="82"/>
+    <sprite n="BCD_tongue07" x="198" y="2" w="43" h="58" oX="39" oY="2" oW="83" oH="82"/>
+    <sprite n="BCD_tongue08" x="204" y="106" w="53" h="56" oX="29" oY="5" oW="83" oH="82"/>
+</TextureAtlas>

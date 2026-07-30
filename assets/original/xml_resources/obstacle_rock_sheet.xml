@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:f8f3413b9c63cf57a9012fdb53fcce0e$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/obstacle_rock_sheet.png" width="256" height="512">
+    <sprite n="obstacle_rock01" x="154" y="212" w="78" h="66"/>
+    <sprite n="obstacle_rock02" x="2" y="212" w="150" h="140"/>
+    <sprite n="obstacle_rock03" x="2" y="2" w="228" h="208" r="y"/>
+</TextureAtlas>

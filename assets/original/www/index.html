@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="css/theme_default.css"/>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/controls.js"></script>
+
+	<title></title>
+</head>
+<body onload="showDefault()">
+<!--<div id="wrapper">-->
+	
+<ul id="main">
+	<li class="title">Welcome</li>
+	<li class="info">Select a login method</li>
+	<a href="button=gamecenter"><li>Game Center</li></a>
+	<a href="button=facebook"><li>Facebook</li></a>
+	<a href="#" onclick="showEmailLogin()"><li class="last">Email</li></a>
+</ul>
+</br>
+</br>
+
+<ul id="email_login">
+	<li class="title">e-mail Login</li>
+	
+	<li>
+	<p>
+	<label for="email">Please enter your e-mail address.</label>
+	<input id="email" type="text"/>
+	</p><p>
+	<label for="email">Enter your Password</label>
+	<input id="password" type="password"/>
+	</p>
+	</li>
+	<a class="primary" href="button=login"><li>login</li></a>
+	<a class="secondary" href="#" onclick="showEmailRegistration()"><li>new user?</li></a>
+	<a class="secondary" href="button=forgotpassword"><li>forgot password?</li></a>
+	<a class="secondary" href="#" onclick="showMain()"><li class="last">back</li></a>
+</ul>
+
+</br>
+</br>
+
+<ul id="email_registration">
+	<li class="title">e-mail Registration</li>
+	
+	<li>
+	<p>
+	<label for="email">Please enter your e-mail address.</label>
+	<input id="email" type="text"/>
+	</p><p>
+	<label for="email">Choose a password</label>
+	<input id="password" type="password"/>
+	</p><p>
+	<label for="email">Confirm your password</label>
+	<input id="password" type="password"/>
+	</p>
+	</li>
+	<a class="primary" href="button=register"><li>Submit</li></a>
+	<a class="secondary" href="#" onclick="showEmailLogin()"><li class="last">Back</li></a>
+</ul>
+
+<!--</div>-->
+
+
+</body>
+</html>

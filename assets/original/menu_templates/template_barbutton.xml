@@ -1,0 +1,216 @@
+<template name="template_barbutton">
+
+	<hudScale scale="game.hudScale()" />
+	
+	<size dependentOnElement="element:name()" dependentOnComponent="UpSprite" />
+
+	<!-- <defaultTemplateVar name="$sheetName" equals="xml_resources/barbutton_gfx.xml" />
+	<defaultTemplateVar name="$upSpriteName" equals="btn_base.png" />
+	<defaultTemplateVar name="$downSpriteName" equals="btn_base_down.png" /> -->
+	
+	<spriteSheetComponent name="UpSprite">
+		<event name="onInit" params="component, element">
+			component("spriteName"):SetString(element("UpSpriteName"):GetString())
+			component("sheetName"):SetString(element("SheetName"):GetString())
+			component("size"):SetFloat(0.5*element("ButtonScale"):GetFloat())
+			component("layer"):SetString("ContextBar")
+		</event>
+	</spriteSheetComponent>
+	
+	<spriteSheetComponent name="DownSprite">
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="1" />
+		<event name="onInit" params="component, element">
+			if(element("DownSpriteName"):GetString() ~= nil) then
+				component("spriteName"):SetString(element("DownSpriteName"):GetString())
+				component("sheetName"):SetString(element("SheetName"):GetString())
+				component("size"):SetFloat(0.5*element("ButtonScale"):GetFloat())
+				component("visible"):SetInt(0)
+				component("layer"):SetString("ContextBar")
+			end
+		</event>
+	</spriteSheetComponent>
+
+	<spriteSheetComponent name="ButtonImage">
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+		<event name="onInit" params="component, element">
+			component("spriteName"):SetString(element("ButtonImageName"):GetString())
+			component("sheetName"):SetString(element("SheetName"):GetString())
+			component("size"):SetFloat(0.5*element("ButtonScale"):GetFloat())
+			component("layer"):SetString("ContextBar")
+		</event>
+	</spriteSheetComponent>
+	
+	<textComponent name="ButtonLabel">
+		<position relativeTo="PARENT" vAnchor="BOTTOM" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-2" />
+		<size w="60*game.hudScale()" />
+		<event name="onInit" params="component, element">
+			component("autoScale"):SetInt(1)
+			component("multiline"):SetInt(0)
+			component("font"):Set(game.getTitleFont())
+			component("size"):SetFloat(0.4 * element("TextScale"):GetFloat())
+			component:GetVar("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+			component("text"):SetString(element("ButtonLabelText"):GetString())
+			component("layer"):SetString("ContextBar")
+			
+			
+		</event>
+	</textComponent>
+	
+	<touchComponent name="Touch">
+		<size dependentOnElement="element:name()" dependentOnComponent="UpSprite" />
+		<event name="onTouchDown" params="component, element">
+			if(element("UseDownSprite"):GetInt() == 1) then
+				element["UpSprite"]("visible"):SetInt(0)
+				element["DownSprite"]("visible"):SetInt(1)
+			else
+				element["UpSprite"]("red"):SetFloat(0.75)
+				element["UpSprite"]("green"):SetFloat(0.75)
+				element["UpSprite"]("blue"):SetFloat(0.75)
+				
+				element["ButtonImage"]("red"):SetFloat(0.75)
+				element["ButtonImage"]("green"):SetFloat(0.75)
+				element["ButtonImage"]("blue"):SetFloat(0.75)
+			end
+		</event>
+		<event name="onTouchUp" params="component, element">
+			if(element("UseDownSprite"):GetInt() == 1) then
+				element["UpSprite"]("visible"):SetInt(1)
+				element["DownSprite"]("visible"):SetInt(0)
+			else
+				element["UpSprite"]("red"):SetFloat(1.0)
+				element["UpSprite"]("green"):SetFloat(1.0)
+				element["UpSprite"]("blue"):SetFloat(1.0)
+				
+				element["ButtonImage"]("red"):SetFloat(1.0)
+				element["ButtonImage"]("green"):SetFloat(1.0)
+				element["ButtonImage"]("blue"):SetFloat(1.0)
+			end
+			element:DoStoredScript("playSFX")
+			
+			if( manager:isIdle() == true ) then
+				element:parent():DoStoredScript(element("FunctionName"):GetString())
+			end
+		</event>
+		<event name="onTouchRelease" params="component, element">
+			if(element("UseDownSprite"):GetInt() == 1) then
+				element["UpSprite"]("visible"):SetInt(1)
+				element["DownSprite"]("visible"):SetInt(0)
+			else
+				element["UpSprite"]("red"):SetFloat(1.0)
+				element["UpSprite"]("green"):SetFloat(1.0)
+				element["UpSprite"]("blue"):SetFloat(1.0)
+				
+				element["ButtonImage"]("red"):SetFloat(1.0)
+				element["ButtonImage"]("green"):SetFloat(1.0)
+				element["ButtonImage"]("blue"):SetFloat(1.0)
+			end
+		</event>
+	</touchComponent>
+	
+	<event name="onInit" params="element">
+		if(element("OnInitFunction"):GetString() ~= nil) then
+			element:parent():DoStoredScript(element("OnInitFunction"):GetString())
+		end
+		
+		if(element("AttachedTemplate"):GetString() ~= "") then
+			local attachedTemplate = menu:addTemplateElement(element("AttachedTemplate"):GetString(), "attachedTemplate", element)
+			
+			attachedTemplate:setParent(element)
+			attachedTemplate:setOrientation(lua_sys.MenuOrientation(0, 2*game.hudScale(), -3, lua_sys.HCENTER, lua_sys.VCENTER))
+			attachedTemplate:setRelativeObjectAnchors(lua_sys.HCENTER, lua_sys.TOP)
+			
+			attachedTemplate:init()
+			attachedTemplate:setPositionBroadcast(true)
+		end
+		
+	</event>
+
+	<event name="DisableButton" params="element">
+		element["UpSprite"]("red"):SetFloat(0.5)
+		element["UpSprite"]("green"):SetFloat(0.5)
+		element["UpSprite"]("blue"):SetFloat(0.5)
+		element["DownSprite"]("red"):SetFloat(0.5)
+		element["DownSprite"]("green"):SetFloat(0.5)
+		element["DownSprite"]("blue"):SetFloat(0.5)
+		element["ButtonImage"]("red"):SetFloat(0.5)
+		element["ButtonImage"]("green"):SetFloat(0.5)
+		element["ButtonImage"]("blue"):SetFloat(0.5)
+		element["ButtonLabel"]("red"):SetFloat(0.5)
+		element["ButtonLabel"]("green"):SetFloat(0.5)
+		element["ButtonLabel"]("blue"):SetFloat(0.5)
+		element["Touch"]("enabled"):SetInt(0)
+		
+		local attachedTemplate = menu:GetElement("attachedTemplate")
+		
+		if(attachedTemplate ~= nil) then
+			attachedTemplate:DoStoredScript("SetDisabled")
+		end
+	</event>
+	
+	<event name="EnableButton" params="element">
+		element["UpSprite"]("red"):SetFloat(1.0)
+		element["UpSprite"]("green"):SetFloat(1.0)
+		element["UpSprite"]("blue"):SetFloat(1.0)
+		element["DownSprite"]("red"):SetFloat(1.0)
+		element["DownSprite"]("green"):SetFloat(1.0)
+		element["DownSprite"]("blue"):SetFloat(1.0)
+		element["ButtonImage"]("red"):SetFloat(1.0)
+		element["ButtonImage"]("green"):SetFloat(1.0)
+		element["ButtonImage"]("blue"):SetFloat(1.0)
+		element["ButtonLabel"]("red"):SetFloat(1.0)
+		element["ButtonLabel"]("green"):SetFloat(1.0)
+		element["ButtonLabel"]("blue"):SetFloat(1.0)
+		element["Touch"]("enabled"):SetInt(1)
+		
+		local attachedTemplate = menu:GetElement("attachedTemplate")
+		
+		if(attachedTemplate ~= nil) then
+			attachedTemplate:DoStoredScript("SetEnabled")
+		end
+	</event>
+	
+	<event name="SetInvisible" params="element">
+		element["UpSprite"]("visible"):SetInt(0)
+		element["DownSprite"]("visible"):SetInt(0)
+		element["ButtonLabel"]("visible"):SetInt(0)
+		element["ButtonImage"]("visible"):SetInt(0)
+		element["Touch"]("enabled"):SetInt(0)
+		
+		local attachedTemplate = element:GetElement("attachedTemplate")
+		
+		if(attachedTemplate ~= nil) then
+			attachedTemplate:DoStoredScript("SetInvisible")
+		end
+	</event>
+	
+	<event name="SetVisible" params="element">
+		element["UpSprite"]("visible"):SetInt(1)
+		element["ButtonLabel"]("visible"):SetInt(1)
+		element["ButtonImage"]("visible"):SetInt(1)
+		element["Touch"]("enabled"):SetInt(1)
+		
+		local attachedTemplate = element:GetElement("attachedTemplate")
+		
+		if(attachedTemplate ~= nil) then
+			attachedTemplate:DoStoredScript("SetVisible")
+		end
+	</event>
+	
+	<event name="Refresh" params="element">
+		element["UpSprite"]("spriteName"):SetString(element("UpSpriteName"):GetString())
+		element["DownSprite"]("spriteName"):SetString(element("DownSpriteName"):GetString())
+		element["UpSprite"]("sheetName"):SetString(element("SheetName"):GetString())
+		element["DownSprite"]("sheetName"):SetString(element("SheetName"):GetString())
+		element["ButtonImage"]("spriteName"):SetString(element("ButtonImageName"):GetString())
+		element["ButtonImage"]("sheetName"):SetString(element("SheetName"):GetString())
+		element["ButtonLabel"]("text"):SetString(element("ButtonLabelText"):GetString())
+	</event>
+	
+	<event name="playSFX" params="element">
+		lua_sys.playSoundFx("audio/sfx/menu_click.wav")
+	</event>
+	
+</template>

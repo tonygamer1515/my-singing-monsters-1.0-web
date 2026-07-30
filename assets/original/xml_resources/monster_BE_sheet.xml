@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:b15da9c404813af638306e2fe884cb22$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_BE_sheet.png" width="128" height="256">
+    <sprite n="BE_body" x="2" y="2" w="68" h="52" oX="2" oY="0" oW="56" oH="70" r="y"/>
+    <sprite n="BE_branch" x="32" y="142" w="28" h="18" oX="0" oY="1" oW="28" oH="20"/>
+    <sprite n="BE_eyeballs" x="2" y="56" w="32" h="30"/>
+    <sprite n="BE_eyelids_almost_shut" x="36" y="56" w="32" h="26" oX="0" oY="0" oW="34" oH="28"/>
+    <sprite n="BE_eyelids_closing" x="34" y="114" w="30" h="26" oX="2" oY="1" oW="34" oH="28"/>
+    <sprite n="BE_eyelids_open" x="2" y="88" w="30" h="26" oX="2" oY="1" oW="34" oH="28"/>
+    <sprite n="BE_eyelids_shut" x="68" y="104" w="30" h="26" oX="2" oY="0" oW="34" oH="28"/>
+    <sprite n="BE_foot01" x="72" y="36" w="36" h="24" oX="3" oY="3" oW="40" oH="28"/>
+    <sprite n="BE_leaf" x="66" y="132" w="28" h="18" oX="1" oY="0" oW="30" oH="20"/>
+    <sprite n="BE_leg_bending" x="70" y="62" w="32" h="10" oX="1" oY="0" oW="16" oH="32" r="y"/>
+    <sprite n="BE_leg_bent" x="2" y="152" w="28" h="12" oX="2" oY="2" oW="16" oH="32" r="y"/>
+    <sprite n="BE_leg_straight" x="2" y="116" w="30" h="6" oX="2" oY="0" oW="16" oH="32" r="y"/>
+    <sprite n="BE_mouth_closing" x="36" y="84" w="30" h="28" oX="0" oY="0" oW="30" oH="30" r="y"/>
+    <sprite n="BE_mouth_eee" x="70" y="74" w="30" h="28" oX="0" oY="0" oW="30" oH="30" r="y"/>
+    <sprite n="BE_mouth_mmm" x="100" y="122" w="26" h="30" oX="1" oY="0" oW="30" oH="30"/>
+    <sprite n="BE_mouth_ooo" x="104" y="64" w="20" h="24" oX="3" oY="5" oW="30" oH="30" r="y"/>
+    <sprite n="BE_mouth_open" x="2" y="124" w="28" h="26" oX="2" oY="0" oW="30" oH="30" r="y"/>
+    <sprite n="BE_mouth_shut" x="102" y="90" w="24" h="30" oX="3" oY="0" oW="30" oH="30"/>
+    <sprite n="BE_pupils" x="110" y="36" w="16" h="26" oX="0" oY="1" oW="28" oH="18" r="y"/>
+    <sprite n="BE_shadow" x="72" y="2" w="52" h="32" oX="4" oY="1" oW="62" oH="34"/>
+    <sprite n="BE_stick" x="62" y="152" w="26" h="12" oX="0" oY="0" oW="12" oH="28" r="y"/>
+</TextureAtlas>

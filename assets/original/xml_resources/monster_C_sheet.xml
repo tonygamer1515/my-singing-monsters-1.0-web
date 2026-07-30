@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:de2f7664d9942d997b4c866dc36b053a$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_C_sheet.png" width="256" height="256">
+    <sprite n="C_body" x="124" y="1" w="96" h="90" r="y"/>
+    <sprite n="C_eyeback" x="1" y="194" w="27" h="54" r="y"/>
+    <sprite n="C_eyelid1" x="90" y="116" w="33" h="59" r="y"/>
+    <sprite n="C_eyelid2" x="124" y="92" w="59" h="33"/>
+    <sprite n="C_eyelid3" x="90" y="56" w="33" h="59" r="y"/>
+    <sprite n="C_eyelid4" x="221" y="61" w="33" h="59" r="y"/>
+    <sprite n="C_eyelid5" x="221" y="1" w="33" h="59" r="y"/>
+    <sprite n="C_jaw" x="1" y="56" w="88" h="51"/>
+    <sprite n="C_left_finger1" x="200" y="144" w="42" h="16" oX="0" oY="0" oW="30" oH="42" r="y"/>
+    <sprite n="C_left_finger2" x="71" y="108" w="18" h="42" oX="2" oY="0" oW="30" oH="42"/>
+    <sprite n="C_left_finger3" x="1" y="152" w="22" h="40" oX="2" oY="1" oW="30" oH="42"/>
+    <sprite n="C_left_finger4" x="29" y="180" w="38" h="28" oX="2" oY="4" oW="30" oH="42" r="y"/>
+    <sprite n="C_left_foot" x="29" y="209" w="53" h="44" r="y"/>
+    <sprite n="C_left_palm" x="124" y="126" w="48" h="24" r="y"/>
+    <sprite n="C_left_shoulder" x="173" y="131" w="26" h="22" r="y"/>
+    <sprite n="C_pupil" x="167" y="154" w="15" h="15"/>
+    <sprite n="C_right_finger1" x="124" y="151" w="42" h="16" oX="12" oY="0" oW="28" oH="42" r="y"/>
+    <sprite n="C_right_finger2" x="71" y="151" w="16" h="42" oX="10" oY="0" oW="28" oH="42"/>
+    <sprite n="C_right_finger3" x="211" y="121" w="42" h="22" oX="4" oY="0" oW="28" oH="42" r="y"/>
+    <sprite n="C_right_finger4" x="184" y="92" w="26" h="38" oX="0" oY="4" oW="28" oH="42"/>
+    <sprite n="C_right_foot" x="1" y="108" w="69" h="43"/>
+    <sprite n="C_right_palm" x="24" y="152" w="45" h="27" r="y"/>
+    <sprite n="C_shadow" x="1" y="1" w="122" h="54"/>
+</TextureAtlas>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-16"?>
+<menu>
+	<element name="FadedBG">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="SCREEN" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priority="6" />
+		
+		<spriteComponent name="Sprite">
+			<event name="onInit" params="component, element">
+				<![CDATA[
+					component("spriteName"):SetString("__BUILTIN__WHITE_TEXTURE")
+					component("size"):SetFloat(256.0)
+					component("red"):SetFloat(0.0)
+					component("green"):SetFloat(0.0)
+					component("blue"):SetFloat(0.0)
+					component("alpha"):SetFloat(0.0)
+					component("layer"):SetString("FrontPopUps")
+				]]>
+			</event>
+		</spriteComponent>
+		<touchComponent name="Touch">
+			<size dependentOnElement="element:name()" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-2" />
+		</touchComponent>
+	</element>
+	
+	<template type="template_fancywindow" name="bg">
+		<templateVar name="$layer" equals="FrontPopUps" />
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="(-1)*lua_sys.screenWidth()" yOffset="-30*game.hudScale()" priorityOffset="3" />
+	</template>
+	
+	<element name="Title">
+		<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+		<position relativeTo="bg" vAnchor="TOP" hAnchor="HCENTER" />
+		<orientation vAnchor="TOP" hAnchor="HCENTER" xOffset="0" yOffset="10*game.hudScale()" priorityOffset="-2" />
+		<textComponent name="Text">
+			<size w="340*game.hudScale()" />
+			<position relativeTo="element:name()" vAnchor="TOP" hAnchor="HCENTER" />
+			<orientation vAnchor="TOP" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+			<event name="onInit" params="component, element">
+				<![CDATA[
+				component("textPadding"):SetInt(30)
+				component("autoScale"):SetInt(1)
+				component("font"):Set(game.getTextFont())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+				component("text"):SetString("")
+				component("size"):SetFloat(0.5*game.hudScale())
+				component("layer"):SetString("FrontPopUps")
+				component("red"):SetFloat(0.43)
+				component("green"):SetFloat(1.0)
+				component("blue"):SetFloat(0.25)
+				--component:calculatePosition()
+				]]>
+			</event>
+		</textComponent>
+	</element>
+	
+	<element name="NewLevelText">
+		<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+		<position relativeTo="bg" vAnchor="TOP" hAnchor="LEFT" />
+		<orientation vAnchor="TOP" hAnchor="LEFT" xOffset="90*game.hudScale()" yOffset="60*game.hudScale()" priorityOffset="-2" />
+		<textComponent name="Text">
+			<size w="250*game.hudScale()" />
+			<position relativeTo="element:name()" vAnchor="TOP" hAnchor="LEFT" />
+			<orientation vAnchor="TOP" hAnchor="LEFT" xOffset="0" yOffset="0" priorityOffset="0" />
+			<event name="onInit" params="component, element">
+			
+				component("textPadding"):SetInt(30)
+				component("multiline"):SetInt(0)
+				component("autoScale"):SetInt(1)
+				component("size"):SetFloat(0.35*game.hudScale())
+				component("font"):Set(game.getTextFont())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("text"):SetString("LEVEL_UP_SUBTITLE")
+				component("layer"):SetString("FrontPopUps")
+				component:calculatePosition()
+			</event>
+		</textComponent>
+	</element>
+	
+	<element name="UnlockecItemsText">
+		<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+		<position relativeTo="bg" vAnchor="VCENTER" hAnchor="LEFT" />
+		<orientation vAnchor="TOP" hAnchor="LEFT" xOffset="90*game.hudScale()" yOffset="-20*game.hudScale()" priorityOffset="-2" />
+		<textComponent name="Text">
+			<size w="200*game.hudScale()" />
+			<position relativeTo="element:name()" vAnchor="TOP" hAnchor="LEFT" />
+			<orientation vAnchor="TOP" hAnchor="LEFT" xOffset="0" yOffset="0" priorityOffset="0" />
+			<event name="onInit" params="component, element">
+			
+				local text = ""
+			
+				component("textPadding"):SetInt(30)
+				component("autoScale"):SetInt(1)
+				component("font"):Set(game.getTextFont())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("text"):SetString(text)
+				component("size"):SetFloat(0.25*game.hudScale())
+				component("layer"):SetString("FrontPopUps")
+				component:calculatePosition()
+			</event>
+		</textComponent>
+	</element>
+	
+	
+	
+	<element name="Monster">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="bg" vAnchor="BOTTOM" hAnchor="LEFT" />
+		<orientation vAnchor="BOTTOM" hAnchor="LEFT" xOffset="-15*game.hudScale()" yOffset="10*game.hudScale()" priority="-1" />
+		<spriteComponent name="Sprite">
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("gfx/menu/level_up_character01")
+				component("layer"):SetString("Tutorial")
+				component("size"):SetFloat(0.65*game.hudScale())
+				component("hFlip"):SetInt(1)
+			</event>
+		</spriteComponent>
+	</element>
+	
+	<template type="template_spritesheetbutton" name="OkayButton">
+		<templateVar name="$upSpriteName" equals="button_continue_green" />
+		<!--<templateVar name="$text" equals="CONTINUE" />
+		<templateVar name="$textPadding" equals="12.5" />
+		<templateVar name="$textYOffset" equals="-2*game.hudScale()" />-->
+		<templateVar name="$layer" equals="Tutorial" />
+		<position relativeTo="bg" vAnchor="BOTTOM" hAnchor="HCENTER" />
+		<orientation vAnchor="TOP" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+		<touchComponent name="Touch">
+			<event name="onTouchUp" params="component, element">
+				onTouchUp(component, element)
+				element:parent()("transitionState"):SetInt(2)
+			</event>
+		</touchComponent>
+		<event name="onPostInit" params="element">
+			element["UpSprite"]("size"):SetFloat(0.5*game.hudScale())
+		</event>
+	</template>
+	
+	<element name="ContinueLabel">
+		<position relativeTo="OkayButton" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-2" />
+		<textComponent name="Text">
+			<size dependentOnElement="OkayButton" dependentOnComponent="UpSprite" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+			<event name="onInit" params="component, element">
+				component("autoScale"):SetInt(1)
+				component("font"):Set(game.getTextFont())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+				component("text"):SetString("CONTINUE")
+				component("size"):SetFloat(0.25*game.hudScale())
+				component("layer"):SetString("Tutorial")
+			</event>
+		</textComponent>
+	</element>
+	
+	<event name="onInit" params="element">
+		collectgarbage("stop")
+	</event>
+	
+	<event name="onPostInit" params="element">
+		element("transitionState"):SetInt(1)
+		element("transitionTime"):SetFloat(0.0)
+		lua_sys.playSoundFx("audio/sfx/menu_slide.wav")
+	</event>
+	
+	<event name="onTick" params="element, dt">
+		<![CDATA[
+		if(dt < 0.25) then
+			local transitionState = element("transitionState"):GetInt()
+			local transitionTime = element("transitionTime"):GetFloat()
+			
+			if( transitionState ~= 0) then
+				element:DoStoredScript("TickTransition")
+				
+				if(transitionState == 1) then
+					transitionTime = (transitionTime + dt*3)
+				elseif(transitionState == 2) then
+					transitionTime = (transitionTime - dt*3)
+				end
+				
+				transitionTime = clamp(transitionTime, 0.0, 1.0)
+				
+				element("transitionTime"):SetFloat(transitionTime)
+				
+				if(transitionTime >= 1.0) then
+					collectgarbage("collect")
+					collectgarbage("restart")
+					element("transitionState"):SetInt(0)
+					element("transitionTime"):SetFloat(1.0)
+					element:DoStoredScript("TickTransition")
+				elseif(transitionTime <= 0.0) then
+					collectgarbage("collect")
+					collectgarbage("restart")
+					element:root():popPopUp()
+				else
+					collectgarbage("step", 10)
+				end
+			end
+		end
+		]]>
+	</event>
+	
+	<event name="TickTransition" params="element">
+		local transitionTime = element("transitionTime"):GetFloat()
+		
+		local frame = element:GetElement("bg")
+		
+		frame("xOffset"):SetFloat(lua_sys.screenWidth()*(0.5) + (-0.5)*lua_sys.screenWidth()*(1/transitionTime))
+		element["FadedBG"]["Sprite"]("alpha"):SetFloat(transitionTime*0.5)
+	</event>
+	
+	<event name="queuePop" params="element">
+		collectgarbage("stop")
+		element("transitionState"):SetInt(2)
+	</event>
+	
+</menu>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:f9e17779c3b2a0d8fb5c9a32488c2bab$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_A_sheet.png" width="512" height="256">
+    <sprite n="A_body" x="254" y="2" w="63" h="66"/>
+    <sprite n="A_eyeback" x="319" y="50" w="46" h="18" oX="2" oY="4" oW="50" oH="24"/>
+    <sprite n="A_eyelids_1" x="322" y="120" w="20" h="48" oX="0" oY="2" oW="50" oH="24" r="y"/>
+    <sprite n="A_eyelids_2" x="310" y="70" w="20" h="48" oX="0" oY="2" oW="50" oH="24" r="y"/>
+    <sprite n="A_eyelids_3" x="300" y="136" w="20" h="48" oX="0" oY="2" oW="50" oH="24" r="y"/>
+    <sprite n="A_eyelids_4" x="278" y="136" w="20" h="48" oX="0" oY="2" oW="50" oH="24" r="y"/>
+    <sprite n="A_head" x="2" y="97" w="63" h="84" r="y"/>
+    <sprite n="A_left_foot" x="384" y="2" w="26" h="37"/>
+    <sprite n="A_mouth_01" x="340" y="2" w="19" h="44" oX="1" oY="0" oW="46" oH="25" r="y"/>
+    <sprite n="A_mouth_02" x="319" y="2" w="19" h="46" oX="0" oY="0" oW="46" oH="25" r="y"/>
+    <sprite n="A_mouth_03" x="361" y="2" w="21" h="42" oX="2" oY="0" oW="46" oH="25" r="y"/>
+    <sprite n="A_mouth_04" x="278" y="186" w="38" h="25" oX="3" oY="0" oW="46" oH="25"/>
+    <sprite n="A_mouth_05" x="318" y="186" w="30" h="25" oX="7" oY="0" oW="46" oH="25"/>
+    <sprite n="A_mouth_06" x="367" y="147" w="23" h="24" oX="11" oY="0" oW="46" oH="25" r="y"/>
+    <sprite n="A_mouth_07" x="367" y="46" w="23" h="22" oX="12" oY="0" oW="46" oH="25" r="y"/>
+    <sprite n="A_mouth_08" x="350" y="181" w="23" h="24" oX="11" oY="0" oW="46" oH="25" r="y"/>
+    <sprite n="A_mouth_09" x="344" y="147" w="21" h="32" oX="7" oY="0" oW="46" oH="25" r="y"/>
+    <sprite n="A_pupil" x="47" y="87" w="6" h="6" oX="1" oY="1" oW="8" oH="8"/>
+    <sprite n="A_right_foot" x="344" y="111" w="29" h="34"/>
+    <sprite n="A_shadow" x="2" y="2" w="43" h="93" r="y"/>
+    <sprite n="A_tailfeather_01" x="218" y="2" w="34" h="70" oX="0" oY="0" oW="70" oH="42" r="y"/>
+    <sprite n="A_tailfeather_02" x="236" y="145" w="40" h="66" oX="4" oY="0" oW="70" oH="42" r="y"/>
+    <sprite n="A_tailfeather_03" x="266" y="70" w="42" h="64" oX="6" oY="0" oW="70" oH="42" r="y"/>
+    <sprite n="A_tailfeather_04" x="189" y="79" w="34" h="70" oX="0" oY="0" oW="70" oH="42" r="y"/>
+    <sprite n="A_topfeather_1" x="276" y="213" w="38" h="41" r="y"/>
+    <sprite n="A_topfeather_2" x="332" y="70" w="38" h="39" oX="1" oY="0" oW="41" oH="38" r="y"/>
+    <sprite n="A_topfeather_3" x="316" y="213" w="38" h="39" oX="1" oY="0" oW="41" oH="38" r="y"/>
+    <sprite n="A_topfeather_4" x="236" y="213" w="38" h="41" r="y"/>
+    <sprite n="A_wing_01" x="2" y="183" w="63" h="71" oX="11" oY="18" oW="83" oH="125" r="y"/>
+    <sprite n="A_wing_02" x="67" y="87" w="67" h="81" oX="16" oY="0" oW="83" oH="125"/>
+    <sprite n="A_wing_03" x="165" y="164" w="69" h="73" oX="14" oY="9" oW="83" oH="125"/>
+    <sprite n="A_wing_04" x="108" y="2" w="43" h="81" oX="2" oY="45" oW="83" oH="125" r="y"/>
+    <sprite n="A_wing_05" x="153" y="2" w="63" h="75" oX="8" oY="45" oW="83" oH="125" r="y"/>
+    <sprite n="A_wing_06" x="67" y="170" w="39" h="79" oX="44" oY="46" oW="83" oH="125"/>
+    <sprite n="A_wing_07" x="136" y="85" w="51" h="77" oX="32" oY="45" oW="83" oH="125"/>
+    <sprite n="A_wing_08" x="108" y="170" w="55" h="77" oX="6" oY="43" oW="83" oH="125" r="y"/>
+    <sprite n="A_wing_09" x="47" y="2" w="59" h="83" oX="0" oY="26" oW="83" oH="125" r="y"/>
+    <sprite n="A_wing_fold" x="225" y="74" w="39" h="69" oX="2" oY="0" oW="41" oH="69"/>
+</TextureAtlas>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:2d417297da47d51222b9e499e534b6d0$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_AD_sheet.png" width="256" height="512">
+    <sprite n="AD_body" x="80" y="152" w="75" h="58"/>
+    <sprite n="AD_keyboard_a" x="156" y="217" w="49" h="35"/>
+    <sprite n="AD_keyboard_aflat" x="170" y="389" w="26" h="20"/>
+    <sprite n="AD_keyboard_b" x="74" y="241" w="53" h="32"/>
+    <sprite n="AD_keyboard_bflat" x="138" y="373" w="30" h="18"/>
+    <sprite n="AD_keyboard_c1" x="149" y="254" w="54" h="27"/>
+    <sprite n="AD_keyboard_c2" x="74" y="212" w="54" h="27"/>
+    <sprite n="AD_keyboard_d" x="2" y="234" w="53" h="32"/>
+    <sprite n="AD_keyboard_dflat" x="215" y="78" w="34" h="17"/>
+    <sprite n="AD_keyboard_e" x="157" y="180" w="49" h="35"/>
+    <sprite n="AD_keyboard_eflat" x="138" y="353" w="30" h="18"/>
+    <sprite n="AD_keyboard_f" x="215" y="40" w="39" h="36"/>
+    <sprite n="AD_keyboard_g" x="215" y="2" w="39" h="36"/>
+    <sprite n="AD_keyboard_gflat" x="130" y="212" w="24" h="22"/>
+    <sprite n="AD_left_eyeback" x="57" y="234" w="15" h="15"/>
+    <sprite n="AD_left_eyelid_1" x="235" y="364" w="17" h="17"/>
+    <sprite n="AD_left_eyelid_2" x="235" y="345" w="17" h="17"/>
+    <sprite n="AD_left_eyelid_3" x="235" y="326" w="17" h="17"/>
+    <sprite n="AD_left_eyelid_4" x="235" y="307" w="17" h="17"/>
+    <sprite n="AD_left_head" x="2" y="148" w="76" h="46"/>
+    <sprite n="AD_left_neck_1" x="104" y="312" w="32" h="68"/>
+    <sprite n="AD_left_neck_2" x="70" y="275" w="32" h="68"/>
+    <sprite n="AD_left_neck_3" x="36" y="268" w="32" h="68"/>
+    <sprite n="AD_left_neck_4" x="2" y="268" w="32" h="68"/>
+    <sprite n="AD_left_neck_5" x="201" y="307" w="32" h="68"/>
+    <sprite n="AD_left_neckruff" x="201" y="377" w="29" h="28"/>
+    <sprite n="AD_left_wing" x="129" y="274" w="17" h="36"/>
+    <sprite n="AD_poolbase" x="2" y="2" w="211" h="106"/>
+    <sprite n="AD_pupil" x="243" y="167" w="8" h="8"/>
+    <sprite n="AD_right_eyeback" x="157" y="152" w="15" h="15"/>
+    <sprite n="AD_right_eyelid_1" x="182" y="340" w="17" h="17"/>
+    <sprite n="AD_right_eyelid_2" x="182" y="321" w="17" h="17"/>
+    <sprite n="AD_right_eyelid_3" x="182" y="302" w="17" h="17"/>
+    <sprite n="AD_right_eyelid_4" x="182" y="283" w="17" h="17"/>
+    <sprite n="AD_right_head" x="2" y="110" w="89" h="36"/>
+    <sprite n="AD_right_neck_1" x="148" y="283" w="32" h="68"/>
+    <sprite n="AD_right_neck_2" x="207" y="237" w="32" h="68"/>
+    <sprite n="AD_right_neck_3" x="209" y="167" w="32" h="68"/>
+    <sprite n="AD_right_neck_4" x="175" y="110" w="32" h="68"/>
+    <sprite n="AD_right_neck_5" x="215" y="97" w="32" h="68"/>
+    <sprite n="AD_right_neckruff" x="170" y="359" w="29" h="28"/>
+    <sprite n="AD_right_wing" x="130" y="236" w="17" h="36"/>
+    <sprite n="AD_ripple" x="93" y="110" w="80" h="40"/>
+    <sprite n="AD_tail" x="2" y="196" w="70" h="36"/>
+</TextureAtlas>

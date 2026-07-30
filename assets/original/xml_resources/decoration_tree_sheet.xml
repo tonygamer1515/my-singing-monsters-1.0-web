@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:a75b848c7de3a32bc66f1302d0a75b18$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/decoration_tree_sheet.png" width="512" height="1024">
+    <sprite n="fallentree2" x="344" y="456" w="139" h="183" oX="1" oY="0" oW="185" oH="139" r="y"/>
+    <sprite n="sign01" x="335" y="823" w="118" h="156" oX="1" oY="1" oW="120" oH="160"/>
+    <sprite n="sign02" x="373" y="2" w="120" h="230"/>
+    <sprite n="tree02" x="2" y="289" w="178" h="250"/>
+    <sprite n="tree03" x="2" y="779" w="178" h="228" oX="0" oY="19" oW="178" oH="250"/>
+    <sprite n="tree04" x="182" y="289" w="160" h="223" oX="21" oY="0" oW="184" oH="227"/>
+    <sprite n="tree05" x="191" y="2" w="180" h="234" oX="2" oY="0" oW="184" oH="234"/>
+    <sprite n="tree06" x="2" y="541" w="178" h="236" oX="4" oY="2" oW="186" oH="240"/>
+    <sprite n="tree07" x="2" y="2" w="187" h="285"/>
+    <sprite n="tree09" x="182" y="738" w="151" h="206" oX="5" oY="11" oW="165" oH="222"/>
+    <sprite n="tree10" x="338" y="641" w="163" h="180" oX="0" oY="33" oW="165" oH="222"/>
+    <sprite n="tree11" x="344" y="238" w="166" h="216" oX="6" oY="18" oW="180" oH="234"/>
+    <sprite n="tree12" x="182" y="514" w="154" h="222"/>
+</TextureAtlas>

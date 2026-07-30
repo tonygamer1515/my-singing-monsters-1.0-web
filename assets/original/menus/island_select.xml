@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-16"?>
+<menu>
+	<element name="FadedBG">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="SCREEN" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="10" />
+		
+		<spriteComponent name="Sprite">
+			<event name="onInit" params="component, element">
+				<![CDATA[
+					component("spriteName"):SetString("__BUILTIN__WHITE_TEXTURE")
+					component("size"):SetFloat(256.0)
+					component("red"):SetFloat(0.0)
+					component("green"):SetFloat(0.0)
+					component("blue"):SetFloat(0.0)
+					component("alpha"):SetFloat(0.5)
+					component("layer"):SetString("MidPopUps")
+				]]>
+			</event>
+		</spriteComponent>
+		<touchComponent name="Touch">
+			<size dependentOnElement="element:name()" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+		</touchComponent>
+	</element>
+	
+	<element name="TitleFrame">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="Island1Button" vAnchor="TOP" hAnchor="HCENTER" />
+		<orientation vAnchor="BOTTOM" hAnchor="HCENTER" xOffset="0" yOffset="2*(lua_sys.screenHeight()/320.0)" priorityOffset="0" />
+		<ninesliceComponent name="Sprite">
+			<size w="240*(lua_sys.screenWidth()/480.0)" h="(40 + 10*(lua_sys.screenHeight()/320.0))" />
+			<event name="onInit" params="component, element">
+				component("topHeight"):SetFloat(40.0)
+				component("bottomHeight"):SetFloat(40.0)
+				component("leftWidth"):SetFloat(50.0)
+				component("rightWidth"):SetFloat(50.0)
+				
+				component("size"):SetFloat(0.5)
+				
+				component("includeBorder"):SetInt(1)
+				
+				component("spriteName"):SetString("gfx/menu/GreyTitleFrame")
+				
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</ninesliceComponent>
+		<textComponent name="Text">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element" >
+				component("font"):Set("font_Cooper_70")
+				component("size"):SetFloat(0.4*(lua_sys.screenWidth()/480.0))
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("text"):SetString("SELECT_AN_ISLAND")
+				component("red"):SetFloat(0.43)
+				component("green"):SetFloat(0.98)
+				component("blue"):SetFloat(0.02)
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</textComponent>
+	</element>
+	
+	<element name="Island1Button">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="-50*(lua_sys.screenHeight()/320.0)" priorityOffset="2" />
+		<ninesliceComponent name="Sprite">
+			<size w="150*(lua_sys.screenWidth()/480.0)" h="100*(lua_sys.screenHeight()/320.0)" />
+			<event name="onInit" params="component, element">
+				component("topHeight"):SetFloat(50.0)
+				component("bottomHeight"):SetFloat(50.0)
+				component("leftWidth"):SetFloat(50.0)
+				component("rightWidth"):SetFloat(50.0)
+				
+				component("size"):SetFloat(0.5)
+				
+				component("includeBorder"):SetInt(1)
+				
+				component("spriteName"):SetString("gfx/menu/Black9SFrame50")
+				
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</ninesliceComponent>
+		<!--<textComponent name="Text">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("font"):Set(game.getTextFont())
+				component("size"):SetFloat(0.27*game.hudScale())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("text"):SetString("Island 1")
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</textComponent>-->
+		<spriteSheetComponent name="Overlay">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="-7*(lua_sys.screenHeight()/320.0)" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("islands_button_isl01")
+				component("sheetName"):SetString("xml_resources/island_buttons01.xml")
+				component("size"):SetFloat(0.45*lua_sys.screenWidth()/480.0)
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</spriteSheetComponent>
+		<textComponent name="Text">
+			<position relativeTo="element:name()" vAnchor="BOTTOM" hAnchor="HCENTER" />
+			<orientation vAnchor="BOTTOM" hAnchor="HCENTER" xOffset="0" yOffset="5*(lua_sys.screenHeight()/320.0)" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("multiline"):SetInt(0)
+				component("font"):Set(game.getTextFont())
+				component("size"):SetFloat(0.22*(lua_sys.screenWidth()/480.0))
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("text"):SetString("ISLAND_1")
+				component("autoScale"):SetInt(1)
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</textComponent>
+		<touchComponent name="Touch">
+			<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+			<event name="onTouchDown" params="component, element">
+				element["Sprite"]("red"):SetFloat(0.5)
+				element["Sprite"]("green"):SetFloat(0.5)
+				element["Sprite"]("blue"):SetFloat(0.5)
+				element["Overlay"]("red"):SetFloat(0.5)
+				element["Overlay"]("green"):SetFloat(0.5)
+				element["Overlay"]("blue"):SetFloat(0.5)
+			</event>
+			<event name="onTouchUp" params="component, element">
+				element["Sprite"]("red"):SetFloat(1.0)
+				element["Sprite"]("green"):SetFloat(1.0)
+				element["Sprite"]("blue"):SetFloat(1.0)
+				element["Overlay"]("red"):SetFloat(1.0)
+				element["Overlay"]("green"):SetFloat(1.0)
+				element["Overlay"]("blue"):SetFloat(1.0)
+				
+				element:parent():DoStoredScript("playSfx")
+				
+				if(game.numIslands() > 0 ) then
+					game.setCurrentIsland(0)
+					for i=1, 3 do
+						element[("Island"..i.."Button")]["Touch"]("enabled"):SetInt(0)
+					end
+				end
+			</event>
+			<event name="onTouchRelease" params="component, element">
+				element["Sprite"]("red"):SetFloat(1.0)
+				element["Sprite"]("green"):SetFloat(1.0)
+				element["Sprite"]("blue"):SetFloat(1.0)
+				element["Overlay"]("red"):SetFloat(1.0)
+				element["Overlay"]("green"):SetFloat(1.0)
+				element["Overlay"]("blue"):SetFloat(1.0)
+			</event>
+		</touchComponent>
+	</element>
+	
+	<element name="Island2Button">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="Island1Button" vAnchor="BOTTOM" hAnchor="LEFT" />
+		<orientation vAnchor="VCENTER" hAnchor="RIGHT" xOffset="0" yOffset="0" priorityOffset="0" />
+		<ninesliceComponent name="Sprite">
+			<size w="150*(lua_sys.screenWidth()/480.0)" h="100*(lua_sys.screenHeight()/320.0)" />
+			<event name="onInit" params="component, element">
+				component("topHeight"):SetFloat(50.0)
+				component("bottomHeight"):SetFloat(50.0)
+				component("leftWidth"):SetFloat(50.0)
+				component("rightWidth"):SetFloat(50.0)
+				
+				component("size"):SetFloat(0.5)
+				
+				component("includeBorder"):SetInt(1)
+				
+				component("spriteName"):SetString("gfx/menu/Black9SFrame50")
+				
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</ninesliceComponent>
+		<!--<textComponent name="Text">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("font"):Set(game.getTextFont())
+				component("size"):SetFloat(0.27*game.hudScale())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("text"):SetString("Island 2")
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</textComponent>-->
+		<spriteSheetComponent name="Overlay">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="-7*(lua_sys.screenHeight()/320.0)" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("islands_button_isl02")
+				component("sheetName"):SetString("xml_resources/island_buttons01.xml")
+				component("size"):SetFloat(0.45*(lua_sys.screenWidth()/480.0))
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</spriteSheetComponent>
+		<textComponent name="Text">
+			<position relativeTo="element:name()" vAnchor="BOTTOM" hAnchor="HCENTER" />
+			<orientation vAnchor="BOTTOM" hAnchor="HCENTER" xOffset="0" yOffset="5*(lua_sys.screenHeight()/320.0)" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("multiline"):SetInt(0)
+				component("font"):Set(game.getTextFont())
+				component("size"):SetFloat(0.22*(lua_sys.screenWidth()/480.0))
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("text"):SetString("ISLAND_2")
+				component("autoScale"):SetInt(1)
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</textComponent>
+		<touchComponent name="Touch">
+			<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+			<event name="onTouchDown" params="component, element">
+				element["Sprite"]("red"):SetFloat(0.5)
+				element["Sprite"]("green"):SetFloat(0.5)
+				element["Sprite"]("blue"):SetFloat(0.5)
+				element["Overlay"]("red"):SetFloat(0.5)
+				element["Overlay"]("green"):SetFloat(0.5)
+				element["Overlay"]("blue"):SetFloat(0.5)
+			</event>
+			<event name="onTouchUp" params="component, element">
+				element["Sprite"]("red"):SetFloat(1.0)
+				element["Sprite"]("green"):SetFloat(1.0)
+				element["Sprite"]("blue"):SetFloat(1.0)
+				element["Overlay"]("red"):SetFloat(1.0)
+				element["Overlay"]("green"):SetFloat(1.0)
+				element["Overlay"]("blue"):SetFloat(1.0)
+				element:parent():DoStoredScript("playSfx")
+				
+				if(game.numIslands() > 1 ) then
+					game.setCurrentIsland(1)
+					for i=1, 3 do
+						element[("Island"..i.."Button")]["Touch"]("enabled"):SetInt(0)
+					end
+				end
+			</event>
+			<event name="onTouchRelease" params="component, element">
+				element["Sprite"]("red"):SetFloat(1.0)
+				element["Sprite"]("green"):SetFloat(1.0)
+				element["Sprite"]("blue"):SetFloat(1.0)
+				element["Overlay"]("red"):SetFloat(1.0)
+				element["Overlay"]("green"):SetFloat(1.0)
+				element["Overlay"]("blue"):SetFloat(1.0)
+			</event>
+		</touchComponent>
+	</element>
+	
+	<element name="Island3Button">
+		<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+		<position relativeTo="Island1Button" vAnchor="BOTTOM" hAnchor="RIGHT" />
+		<orientation vAnchor="VCENTER" hAnchor="LEFT" xOffset="0" yOffset="0" priorityOffset="0" />
+		<ninesliceComponent name="Sprite">
+			<size w="150*(lua_sys.screenWidth()/480.0)" h="100*(lua_sys.screenHeight()/320.0)" />
+			<event name="onInit" params="component, element">
+				component("topHeight"):SetFloat(50.0)
+				component("bottomHeight"):SetFloat(50.0)
+				component("leftWidth"):SetFloat(50.0)
+				component("rightWidth"):SetFloat(50.0)
+				
+				component("size"):SetFloat(0.5)
+				
+				component("red"):SetFloat(0.5)
+				component("green"):SetFloat(0.5)
+				component("blue"):SetFloat(0.5)
+				
+				component("includeBorder"):SetInt(1)
+				
+				component("spriteName"):SetString("gfx/menu/Black9SFrame50")
+				
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</ninesliceComponent>
+		<!--<textComponent name="Text">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("font"):Set(game.getTextFont())
+				component("size"):SetFloat(0.27*game.hudScale())
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("text"):SetString("Island 3")
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</textComponent>-->
+		<spriteSheetComponent name="Overlay">
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="-7*(lua_sys.screenHeight()/320.0)" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("islands_button_isl03")
+				component("sheetName"):SetString("xml_resources/island_buttons01.xml")
+				component("size"):SetFloat(0.45*(lua_sys.screenWidth()/480.0))
+				
+				component("red"):SetFloat(0.25)
+				component("green"):SetFloat(0.25)
+				component("blue"):SetFloat(0.25)
+				
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</spriteSheetComponent>
+		<textComponent name="Text">
+			<position relativeTo="element:name()" vAnchor="BOTTOM" hAnchor="HCENTER" />
+			<orientation vAnchor="BOTTOM" hAnchor="HCENTER" xOffset="0" yOffset="5*(lua_sys.screenHeight()/320.0)" priorityOffset="-1" />
+			<event name="onInit" params="component, element">
+				component("multiline"):SetInt(0)
+				component("font"):Set(game.getTextFont())
+				component("size"):SetFloat(0.22*(lua_sys.screenWidth()/480.0))
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+				component("text"):SetString("COMING_SOON")
+				component("autoScale"):SetInt(1)
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</textComponent>
+		<spriteSheetComponent name="CoinSprite">
+			<position relativeTo="PARENT" component="Text" vAnchor="VCENTER" hAnchor="LEFT" />
+			<orientation vAnchor="VCENTER" hAnchor="RIGHT" xOffset="0" yOffset="0" priorityOffset="0" />
+			<event name="onInit" params="component, element">
+				component("spriteName"):SetString("coin")
+				component("sheetName"):SetString("xml_resources/hud01.xml")
+				component("size"):SetFloat(0.25*(lua_sys.screenWidth()/480.0))
+				component("visible"):SetInt(0)
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</spriteSheetComponent>
+		<touchComponent name="Touch">
+			<size dependentOnElement="element:name()" dependentOnComponent="Sprite" />
+			<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="HCENTER" />
+			<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+			<event name="onInit" params="component, element">
+				component("enabled"):SetInt(0)
+			</event>
+			<event name="onTouchDown" params="component, element">
+				element["Sprite"]("red"):SetFloat(0.5)
+				element["Sprite"]("green"):SetFloat(0.5)
+				element["Sprite"]("blue"):SetFloat(0.5)
+				element["Overlay"]("red"):SetFloat(0.5)
+				element["Overlay"]("green"):SetFloat(0.5)
+				element["Overlay"]("blue"):SetFloat(0.5)
+			</event>
+			<event name="onTouchUp" params="component, element">
+				element["Sprite"]("red"):SetFloat(1.0)
+				element["Sprite"]("green"):SetFloat(1.0)
+				element["Sprite"]("blue"):SetFloat(1.0)
+				element["Overlay"]("red"):SetFloat(1.0)
+				element["Overlay"]("green"):SetFloat(1.0)
+				element["Overlay"]("blue"):SetFloat(1.0)
+				element:parent():DoStoredScript("playSfx")
+				if(game.numIslands() > 2 ) then
+					game.setCurrentIsland(2)
+					for i=1, 3 do
+						element[("Island"..i.."Button")]["Touch"]("enabled"):SetInt(0)
+					end
+				else
+				
+					local text = game.getLocalizedText("CONFIRMATION_BUY_ISLAND")
+					text = select(1, text:gsub("XXX", game.commaizeNumber(game.islandCost(3))))
+					game.displayConfirmation("BUY_ISLAND", text)
+				end
+			</event>
+			<event name="onTouchRelease" params="component, element">
+				element["Sprite"]("red"):SetFloat(1.0)
+				element["Sprite"]("green"):SetFloat(1.0)
+				element["Sprite"]("blue"):SetFloat(1.0)
+				element["Overlay"]("red"):SetFloat(1.0)
+				element["Overlay"]("green"):SetFloat(1.0)
+				element["Overlay"]("blue"):SetFloat(1.0)
+			</event>
+		</touchComponent>
+	</element>
+	
+	<element name="LocationLabel">
+		<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+		<position relativeTo="SCREEN" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priority="0" />
+		<textComponent name="Text">
+			<size w="100*(lua_sys.screenWidth()/480.0)" h="50*(lua_sys.screenHeight()/320.0)" />
+			<event name="onInit" params="component, element">
+				component("multiline"):SetInt(1)
+				component("font"):Set(game.getTextFont())
+				component("size"):SetFloat(0.45*(lua_sys.screenWidth()/480.0))
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_HCENTER_ALIGNED)
+				component("red"):SetFloat(1.0)
+				component("green"):SetFloat(0.91)
+				component("blue"):SetFloat(0.09)
+				component("text"):SetString("YOU_ARE_HERE")
+				component("autoScale"):SetInt(1)
+				component("visible"):SetInt(0)
+				component("layer"):SetString("MidPopUps")
+			</event>
+		</textComponent>
+	</element>
+	
+	<event name="onPostInit" params="element">
+		<![CDATA[
+		local numIslands = game.numIslands()
+		
+		for i=1, 2 do
+			local islandButton = element:GetElement("Island"..i.."Button")
+			
+			if(i == game.currentIsland()) then
+				--[[islandButton["Overlay"]("alpha"):SetFloat(0.5)
+				islandButton["Text"]("alpha"):SetFloat(0.5)
+				islandButton["Sprite"]("red"):SetFloat(0.5)
+				islandButton["Sprite"]("green"):SetFloat(0.5)
+				islandButton["Sprite"]("blue"):SetFloat(0.5)]]
+				islandButton["Touch"]("enabled"):SetInt(0)
+				
+				local locationLabel = element:GetElement("LocationLabel")
+				
+				locationLabel:relativeTo(islandButton)
+				locationLabel:setOrientation(lua_sys.MenuOrientation(0,0,-2,lua_sys.HCENTER, lua_sys.VCENTER))
+				locationLabel:setRelativeObjectAnchors(lua_sys.HCENTER, lua_sys.VCENTER)
+				locationLabel["Text"]("visible"):SetInt(1)
+				
+				print("label priority: "..locationLabel:getRelativePriority())
+			elseif(i <= numIslands) and (i ~= game.currentIsland())then
+				islandButton["Sprite"]("alpha"):SetFloat(1.0)
+				islandButton["Overlay"]("alpha"):SetFloat(1.0)
+				islandButton["Touch"]("enabled"):SetInt(1)
+				islandButton["Text"]("alpha"):SetFloat(1.0)
+			
+			else
+				if(i == numIslands+1) then
+					islandButton["Text"]("red"):SetFloat(1.0)
+					islandButton["Text"]("green"):SetFloat(0.9)
+					islandButton["Text"]("blue"):SetFloat(0.09)
+					islandButton["Text"]("text"):SetString(game.commaizeNumber(game.islandCost(i)))
+					islandButton["Text"]("xOffset"):SetInt(islandButton:GetComponent("CoinSprite"):absW()/4)
+					islandButton["CoinSprite"]("visible"):SetInt(1)
+					--islandButton["Overlay"]("alpha"):SetFloat(0.5)
+					element[("Island"..i.."Remix")]:DoStoredScript("setInvisible")
+				else
+					islandButton["Text"]("alpha"):SetFloat(0.5)
+					islandButton["Text"]("text"):SetString("LOCKED")
+					--islandButton["Overlay"]("alpha"):SetFloat(0.5)
+					islandButton["Sprite"]("alpha"):SetFloat(0.5)
+					islandButton["Touch"]("enabled"):SetInt(0)
+				end
+			end
+		end
+		]]>
+	</event>
+	
+	<template type="template_spritesheetbutton" name="Island1Remix">
+		<templateVar name="$upSpriteName" equals="button_continue_green" />
+		<templateVar name="$text" equals="GET_REMIX" />
+		<templateVar name="$textPadding" equals="12.5" />
+		<templateVar name="$textYOffset" equals="-2*game.hudScale()" />
+		<templateVar name="$spriteScale" equals="0.5*game.hudScale()" />
+		<templateVar name="$layer" equals="MidPopUps" />
+		<position relativeTo="Island1Button" vAnchor="BOTTOM" hAnchor="HCENTER" />
+		<orientation vAnchor="TOP" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+		<touchComponent name="Touch">
+			<event name="onTouchUp" params="component, element">
+				onTouchUp(component, element)
+				game.ShowWebView(game.getIslandRemixUrl(1))
+			</event>
+		</touchComponent>
+		<event name="onPostInit" params="element">
+			if(game.getIslandRemixUrl(1) == "") then
+				element:DoStoredScript("setInvisible")
+			end
+		</event>
+	</template>
+	
+	<template type="template_spritesheetbutton" name="Island2Remix">
+		<templateVar name="$upSpriteName" equals="button_continue_green" />
+		<templateVar name="$text" equals="GET_REMIX" />
+		<templateVar name="$textPadding" equals="12.5" />
+		<templateVar name="$textYOffset" equals="-2*game.hudScale()" />
+		<templateVar name="$spriteScale" equals="0.5*game.hudScale()" />
+		<templateVar name="$layer" equals="MidPopUps" />
+		<position relativeTo="Island2Button" vAnchor="BOTTOM" hAnchor="HCENTER" />
+		<orientation vAnchor="TOP" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+		<touchComponent name="Touch">
+			<event name="onTouchUp" params="component, element">
+				onTouchUp(component, element)
+				game.ShowWebView(game.getIslandRemixUrl(2))
+			</event>
+		</touchComponent>
+		<event name="onPostInit" params="element">
+			if(game.getIslandRemixUrl(2) == "") then
+				element:DoStoredScript("setInvisible")
+			end
+		</event>
+	</template>
+	
+	<!--<template type="template_spritesheetbutton" name="Island3Remix">
+		<templateVar name="$upSpriteName" equals="button_continue_green" />
+		<templateVar name="$text" equals="GET_REMIX" />
+		<templateVar name="$textPadding" equals="12.5" />
+		<templateVar name="$textYOffset" equals="-2*game.hudScale()" />
+		<templateVar name="$spriteScale" equals="0.5*game.hudScale()" />
+		<templateVar name="$layer" equals="MidPopUps" />
+		<position relativeTo="Island3Button" vAnchor="BOTTOM" hAnchor="HCENTER" />
+		<orientation vAnchor="TOP" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+		<touchComponent name="Touch">
+			<event name="onTouchUp" params="component, element">
+				onTouchUp(component, element)
+				game.ShowWebView(game.getIslandRemixUrl(3))
+			</event>
+		</touchComponent>
+		<event name="onPostInit" params="element">
+			if(game.getIslandRemixUrl(3) == "") then
+				element:DoStoredScript("setInvisible")
+			end
+		</event>
+	</template>-->
+	
+	<event name="queuePop" params="element">
+		element:root():popPopUp()
+	</event>
+	
+	<function name="playSfx" params="element">
+		lua_sys.playSoundFx("audio/sfx/menu_click_small.wav")
+	</function>
+	
+</menu>

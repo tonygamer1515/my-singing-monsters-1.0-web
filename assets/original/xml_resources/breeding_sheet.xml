@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:c3ebd1bebc9394b81bd3dbe2746af3e3$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/structure_breeding.png" width="512" height="512">
+    <sprite n="air_puff_01" x="486" y="2" w="20" h="25" oX="0" oY="15" oW="71" oH="52" r="y"/>
+    <sprite n="air_puff_02" x="389" y="104" w="39" h="28" oX="0" oY="12" oW="71" oH="52"/>
+    <sprite n="air_puff_03" x="342" y="90" w="45" h="28" oX="1" oY="12" oW="71" oH="52"/>
+    <sprite n="air_puff_04" x="342" y="56" w="51" h="32" oX="1" oY="9" oW="71" oH="52"/>
+    <sprite n="air_puff_05" x="304" y="444" w="36" h="53" oX="1" oY="6" oW="71" oH="52" r="y"/>
+    <sprite n="air_puff_06" x="264" y="444" w="38" h="59" oX="0" oY="4" oW="71" oH="52" r="y"/>
+    <sprite n="air_puff_07" x="220" y="444" w="42" h="59" oX="2" oY="3" oW="71" oH="52" r="y"/>
+    <sprite n="air_puff_08" x="62" y="444" w="44" h="61" oX="4" oY="2" oW="71" oH="52" r="y"/>
+    <sprite n="air_puff_09" x="415" y="54" w="67" h="48" oX="1" oY="0" oW="71" oH="52"/>
+    <sprite n="air_puff_10" x="415" y="2" w="69" h="50" oX="2" oY="0" oW="71" oH="52"/>
+    <sprite n="air_puff_11" x="342" y="2" w="71" h="52"/>
+    <sprite n="glass_bowl" x="108" y="444" w="110" h="60"/>
+    <sprite n="heart" x="2" y="444" w="58" h="66" oX="0" oY="0" oW="60" oH="66"/>
+    <sprite n="pink_bubble" x="486" y="29" w="18" h="18"/>
+    <sprite n="structure_body" x="2" y="2" w="320" h="440"/>
+</TextureAtlas>

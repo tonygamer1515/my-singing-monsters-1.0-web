@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:0db47ca0eb5e90b0c9d12bc62c20cfcd$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_BCE_sheet.png" width="256" height="256">
+    <sprite n="BCE_body_A" x="2" y="144" w="43" h="62"/>
+    <sprite n="BCE_body_B" x="105" y="193" w="48" h="55"/>
+    <sprite n="BCE_body_C" x="2" y="2" w="64" h="73"/>
+    <sprite n="BCE_eyeback" x="76" y="193" w="12" h="12"/>
+    <sprite n="BCE_gong" x="2" y="77" w="43" h="65" oX="1" oY="0" oW="45" oH="65"/>
+    <sprite n="BCE_head_bottom" x="61" y="77" w="31" h="56" r="y"/>
+    <sprite n="BCE_head_sprout" x="132" y="2" w="26" h="28"/>
+    <sprite n="BCE_head_top" x="61" y="135" w="28" h="56" r="y"/>
+    <sprite n="BCE_left_foot" x="2" y="208" w="33" h="46" r="y"/>
+    <sprite n="BCE_left_hand" x="91" y="2" w="21" h="39" r="y"/>
+    <sprite n="BCE_left_lowerarm" x="47" y="136" w="12" h="57" r="y"/>
+    <sprite n="BCE_left_lowerleg" x="94" y="77" w="24" h="34"/>
+    <sprite n="BCE_left_thumb" x="116" y="43" w="8" h="25" r="y"/>
+    <sprite n="BCE_left_upperarm" x="91" y="135" w="13" h="56"/>
+    <sprite n="BCE_left_upperleg" x="98" y="43" w="16" h="31"/>
+    <sprite n="BCE_neck_A" x="68" y="43" w="28" h="32" r="y"/>
+    <sprite n="BCE_neck_B" x="47" y="195" w="27" h="10" r="y"/>
+    <sprite n="BCE_pupil" x="120" y="70" w="6" h="6"/>
+    <sprite n="BCE_right_foot" x="37" y="208" w="26" h="42" r="y"/>
+    <sprite n="BCE_right_hand" x="68" y="2" w="21" h="39" r="y"/>
+    <sprite n="BCE_right_lowerarm" x="47" y="77" w="12" h="57" r="y"/>
+    <sprite n="BCE_right_lowerleg" x="94" y="113" w="34" h="18" r="y"/>
+    <sprite n="BCE_right_thumb" x="114" y="33" w="25" h="8"/>
+    <sprite n="BCE_right_upperarm" x="90" y="193" w="13" h="56"/>
+    <sprite n="BCE_right_upperleg" x="114" y="2" w="16" h="29"/>
+    <sprite n="BCE_shadow" x="65" y="207" w="21" h="41" r="y"/>
+</TextureAtlas>

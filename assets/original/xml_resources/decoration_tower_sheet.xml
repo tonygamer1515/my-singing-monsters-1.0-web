@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:d57a4406dd26a938a86d8df7635361cc$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/decoration_tower_sheet.png" width="512" height="512">
+    <sprite n="fence01" x="2" y="360" w="152" h="143" oX="0" oY="1" oW="145" oH="154" r="y"/>
+    <sprite n="flag01" x="254" y="164" w="219" h="95" oX="2" oY="0" oW="99" oH="219" r="y"/>
+    <sprite n="pumpkins" x="138" y="164" w="114" h="176" r="y"/>
+    <sprite n="watchtower" x="156" y="342" w="260" h="156" r="y"/>
+    <sprite n="watchtower02" x="156" y="2" w="324" h="160" r="y"/>
+    <sprite n="watchtower03" x="2" y="2" w="134" h="356"/>
+</TextureAtlas>

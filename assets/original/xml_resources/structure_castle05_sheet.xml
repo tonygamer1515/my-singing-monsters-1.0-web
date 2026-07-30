@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:52e8644493edfef6b7211a22023de3a1$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/structures/structure_castle05_sheet.png" width="512" height="512">
+    <sprite n="structure_castle05_base" x="2" y="2" w="345" h="267" oX="1" oY="3" oW="347" oH="275"/>
+    <sprite n="structure_castle05_branch01" x="441" y="225" w="67" h="60" oX="2" oY="2" oW="69" oH="62"/>
+    <sprite n="structure_castle05_center" x="349" y="2" w="152" h="221" oX="5" oY="12" oW="160" oH="233"/>
+    <sprite n="structure_castle05_tower01" x="349" y="225" w="90" h="247" oX="3" oY="4" oW="94" oH="251"/>
+    <sprite n="structure_castle05_tower02" x="2" y="271" w="88" h="224" oX="2" oY="0" oW="90" oH="226"/>
+    <sprite n="structure_castle05_tower03" x="203" y="271" w="98" h="205" oX="2" oY="4" oW="102" oH="211"/>
+    <sprite n="structure_castle05_tower04" x="92" y="271" w="109" h="216" oX="3" oY="5" oW="113" oH="222"/>
+</TextureAtlas>

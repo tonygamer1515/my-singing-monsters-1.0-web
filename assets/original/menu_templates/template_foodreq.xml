@@ -1,0 +1,50 @@
+<template name="template_foodreq">
+	
+	<hudScale scale="game.hudScale()" />
+	
+	<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+	
+	<textComponent name="Text">
+		<event name="onInit" params="component, element">
+			element("cost"):SetInt(game.objectFoodRequired())
+		
+			component("font"):Set(game.getTitleFont())
+			component("size"):SetFloat(0.3)
+			component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_LEFT_ALIGNED)
+			component("text"):SetString("-"..game.commaizeNumber(element("cost"):GetInt()))
+			
+			component("red"):SetFloat(1.0)
+			component("green"):SetFloat(0.67)
+			component("blue"):SetFloat(0.96)
+			
+			component("layer"):SetString("ContextBar")
+		</event>
+		<event name="onTick" params="component, element, dt">
+			if((manager:isIdle() == true) and (element("cost"):GetInt() ~= game.objectFoodRequired())) then
+				element("cost"):SetInt(game.objectFoodRequired())
+				component("text"):SetString("-"..game.commaizeNumber(element("cost"):GetInt()))
+			end
+		</event>
+	</textComponent>
+	
+	<event name="SetEnabled" params="element">
+		element["Text"]("red"):SetFloat(element["Text"]("red"):GetFloat() * 2.0)
+		element["Text"]("green"):SetFloat(element["Text"]("green"):GetFloat() * 2.0)
+		element["Text"]("blue"):SetFloat(element["Text"]("blue"):GetFloat() * 2.0)
+	</event>
+	
+	<event name="SetDisabled" params="element">
+		element["Text"]("red"):SetFloat(element["Text"]("red"):GetFloat() * 0.5)
+		element["Text"]("green"):SetFloat(element["Text"]("green"):GetFloat() * 0.5)
+		element["Text"]("blue"):SetFloat(element["Text"]("blue"):GetFloat() * 0.5)
+	</event>
+	
+	<event name="SetVisible" params="element">
+		element["Text"]("visible"):SetInt(1)
+	</event>
+	
+	<event name="SetInvisible" params="element">
+		element["Text"]("visible"):SetInt(0)
+	</event>
+	
+</template>

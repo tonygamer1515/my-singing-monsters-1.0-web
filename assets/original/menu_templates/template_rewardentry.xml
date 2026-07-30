@@ -1,0 +1,56 @@
+<template type="template_rewardentry">
+	
+	<size dependentOnElement="element:name()" dependentOnComponent="Text" />
+	
+	<textComponent name="Text">
+		<event name="onInit" params="component, element">
+			<![CDATA[
+				local rewardIds = { RewardCoins="coin", RewardDiamonds="diamond", RewardXp="xp", RewardFood="food" }
+				local type = rewardIds[ element( "RewardId" ):GetString() ]
+				
+				component("font"):Set(game.getTextFont())
+				component("size"):SetFloat(0.19*(lua_sys.screenWidth()/480.0))
+				component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_RIGHT_ALIGNED)
+				component("text"):SetString( "" .. element( "RewardAmount" ):GetString() )
+				component("layer"):SetString("Clipping")
+				
+				if(type == "coin") then
+					component("red"):SetFloat(1.0)
+					component("green"):SetFloat(0.9)
+					component("blue"):SetFloat(0.09)
+				elseif(type == "diamond") then
+					component("red"):SetFloat(0.27)
+					component("green"):SetFloat(0.86)
+					component("blue"):SetFloat(0.6)
+				elseif(type == "food") then
+					component("red"):SetFloat(1.0)
+					component("green"):SetFloat(0.67)
+					component("blue"):SetFloat(0.96)
+				elseif(type == "xp") then
+					component("red"):SetFloat(0.31)
+					component("green"):SetFloat(0.94)
+					component("blue"):SetFloat(0.26)
+				end
+			]]>
+		</event>
+	</textComponent>
+	
+	<spriteSheetComponent name="Sprite">
+		<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="LEFT" />
+		<orientation vAnchor="VCENTER" hAnchor="RIGHT" xOffset="0" yOffset="0" priorityOffset="0" />
+		<event name="onInit" params="component, element">
+			<![CDATA[
+				local rewardIds = { RewardCoins="coin", RewardDiamonds="diamond", RewardXp="xp", RewardFood="food" }
+				local type = rewardIds[ element( "RewardId" ):GetString() ]
+			
+				component("spriteName"):SetString(type)
+				component("sheetName"):SetString("xml_resources/hud01.xml")
+				
+				component("size"):SetFloat(0.19*(lua_sys.screenWidth()/480.0))
+				
+				component("layer"):SetString("Clipping")
+			]]>
+		</event>
+	</spriteSheetComponent>
+	
+</template>

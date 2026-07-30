@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-16"?>
+<menu>
+
+	<template type="template_contextbar" name="ContextBar">
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="0" />
+		
+		<!-- Events Here -->
+		
+		<function name="go_to_default" params="element">
+			local luaPointer = element:root():getLuaPointer()
+			tcb:setContext("DEFAULT")
+		</function>
+		
+		<function name="go_to_second" params="element">
+			local luaPointer = element:root():getLuaPointer()
+			tcb:setContext("SECOND")
+		</function>
+		
+		<!-- End Scripts -->
+		
+	</template>
+
+</menu>

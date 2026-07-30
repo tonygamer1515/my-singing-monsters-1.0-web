@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:ede2f5b79ce9237cb38b4683d0d2dff8$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="gfx/monsters/monster_AC_sheet.png" width="256" height="512">
+    <sprite n="AC_body" x="142" y="2" w="82" h="76"/>
+    <sprite n="AC_eyeback" x="226" y="41" w="28" h="29" r="y"/>
+    <sprite n="AC_eyelid_1" x="36" y="332" w="32" h="34" oX="0" oY="1" oW="36" oH="34" r="y"/>
+    <sprite n="AC_eyelid_2" x="2" y="368" w="32" h="34" oX="0" oY="1" oW="36" oH="34" r="y"/>
+    <sprite n="AC_eyelid_3" x="2" y="332" w="32" h="34" oX="0" oY="1" oW="36" oH="34" r="y"/>
+    <sprite n="AC_eyelid_4" x="220" y="188" w="34" h="32" oX="0" oY="1" oW="36" oH="34"/>
+    <sprite n="AC_eyelid_5" x="220" y="154" w="34" h="32" oX="0" oY="1" oW="36" oH="34"/>
+    <sprite n="AC_left_fin" x="200" y="294" w="38" h="31" r="y"/>
+    <sprite n="AC_mouth_01" x="2" y="405" w="36" h="76" oX="0" oY="0" oW="76" oH="38" r="y"/>
+    <sprite n="AC_mouth_02" x="142" y="80" w="76" h="38"/>
+    <sprite n="AC_mouth_03" x="200" y="327" w="36" h="76" oX="0" oY="1" oW="76" oH="38" r="y"/>
+    <sprite n="AC_mouth_04" x="122" y="294" w="76" h="36" oX="0" oY="1" oW="76" oH="38"/>
+    <sprite n="AC_mouth_05" x="2" y="268" w="76" h="36" oX="0" oY="2" oW="76" oH="38"/>
+    <sprite n="AC_mouth_06" x="142" y="158" w="76" h="36" oX="0" oY="1" oW="76" oH="38"/>
+    <sprite n="AC_mouth_07" x="142" y="120" w="76" h="36" oX="0" oY="1" oW="76" oH="38"/>
+    <sprite n="AC_prop_1" x="2" y="144" w="138" h="50" oX="15" oY="14" oW="168" oH="80"/>
+    <sprite n="AC_prop_2" x="126" y="222" w="120" h="70" oX="24" oY="5" oW="168" oH="80"/>
+    <sprite n="AC_prop_3" x="2" y="74" w="138" h="68" oX="15" oY="6" oW="168" oH="80"/>
+    <sprite n="AC_prop_4" x="2" y="2" w="138" h="70" oX="15" oY="5" oW="168" oH="80"/>
+    <sprite n="AC_prop_5" x="2" y="196" w="122" h="70" oX="22" oY="5" oW="168" oH="80"/>
+    <sprite n="AC_propshaft" x="240" y="308" w="8" h="25"/>
+    <sprite n="AC_pupil" x="240" y="294" w="12" h="12"/>
+    <sprite n="AC_right_fin" x="80" y="268" w="40" h="36" r="y"/>
+    <sprite n="AC_shadow" x="150" y="196" w="44" h="23" oX="1" oY="0" oW="46" oH="23"/>
+    <sprite n="AC_tail_1" x="220" y="107" w="34" h="45" r="y"/>
+    <sprite n="AC_tail_2" x="226" y="72" w="27" h="33" r="y"/>
+    <sprite n="AC_tail_3" x="126" y="196" w="22" h="24" r="y"/>
+    <sprite n="AC_tail_4" x="196" y="196" w="20" h="16"/>
+    <sprite n="AC_tail_5" x="226" y="2" w="28" h="37" r="y"/>
+</TextureAtlas>

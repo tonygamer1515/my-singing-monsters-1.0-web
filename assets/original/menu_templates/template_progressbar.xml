@@ -1,0 +1,110 @@
+<template name="template_progressbar">
+	
+	<hudScale scale="lua_sys.screenWidth()/960" />
+	
+	<size dependentOnElement="element:name()" dependentOnComponent="EmptySprite" />
+	
+	<spriteSheetComponent name="EmptySprite">
+		<event name="onInit" params="component, element">
+			component("spriteName"):SetString(element("EmptySpriteName"):GetString())
+			component("sheetName"):SetString(element("SheetName"):GetString())
+			component("size"):SetFloat(element("size"):GetFloat())
+			component("layer"):SetString(element("layer"):GetString())
+			element:setPositionBroadcast(true)
+		</event>
+	</spriteSheetComponent>
+	
+	<spriteSheetComponent name="FullSprite">
+		<position relativeTo="element:name()" component="EmptySprite" vAnchor="VCENTER" hAnchor="HCENTER" />
+		<orientation vAnchor="VCENTER" hAnchor="HCENTER" xOffset="0" yOffset="0" priorityOffset="-1" />
+		<event name="onInit" params="component, element">
+			component("spriteName"):SetString(element("FullSpriteName"):GetString())
+			component("sheetName"):SetString(element("SheetName"):GetString())
+			component("size"):SetFloat(element("size"):GetFloat())
+			component("layer"):SetString(element("layer"):GetString())
+			if(component("isSourceRotated"):GetInt() == 1) then
+				element("FullMaskW"):SetFloat(component("maskHeight"):GetFloat())
+				element("FullMaskH"):SetFloat(component("maskWidth"):GetFloat())
+			else
+				element("FullMaskW"):SetFloat(component("maskWidth"):GetFloat())
+				element("FullMaskH"):SetFloat(component("maskHeight"):GetFloat())
+			end
+		</event>
+	</spriteSheetComponent>
+	
+	<!--<spriteSheetComponent name="Symbol">
+		<position relativeTo="PARENT" vAnchor="VCENTER" hAnchor="RIGHT" />
+		<orientation vAnchor="VCENTER" hAnchor="RIGHT" xOffset="-10" yOffset="0" priorityOffset="1" />
+		<event name="onInit" params="component, element">
+			if(element("Symbol"):GetString() ~= "") then
+				component("spriteName"):SetString(element("Symbol"):GetString())
+				component("sheetName"):SetString(element("SheetName"):GetString())
+				component("layer"):SetString(element("layer"):GetString())
+				component("size"):SetFloat(0.6)
+			else
+				if(element["EmptySprite"]("isSourceRotated"):GetInt() == 1) then
+					component:setSize(Vector2(0, element["EmptySprite"]("maskWidth"):GetFloat()*(lua_sys.screenWidth()/1024.0)))
+				else
+					component:setSize(Vector2(0, element["EmptySprite"]("maskHeight"):GetFloat()*(lua_sys.screenWidth()/1024.0)))
+				end
+			end
+		</event>
+	</spriteSheetComponent>-->
+	
+	<textComponent name="Label">
+		<position relativeTo="element:name()" vAnchor="VCENTER" hAnchor="RIGHT" />
+		<orientation vAnchor="VCENTER" hAnchor="RIGHT" xOffset="0" yOffset="0" priorityOffset="-2" />
+		<event name="onInit" params="component, element">
+			component("red"):SetFloat(element("LabelColourR"):GetFloat())
+			component("green"):SetFloat(element("LabelColourG"):GetFloat())
+			component("blue"):SetFloat(element("LabelColourB"):GetFloat())
+			component("font"):Set(game.getTitleFont())
+			component("size"):SetFloat(element("ProgressLabelSize"):GetFloat())
+			component("alignment"):SetInt(lua_sys.MenuTextComponent_TEXT_RIGHT_ALIGNED)
+			component("text"):SetString(game.getLocalizedText(element("ProgressLabel"):GetString()))
+			component("layer"):SetString(element("layer"):GetString())
+			component("xOffset"):SetInt(element("LabelXOffset"):GetInt())
+			component("yOffset"):SetInt(element("LabelYOffset"):GetInt())
+		</event>
+	</textComponent>
+	
+	<event name="onInit" params="element">
+		if(element("AttachedTemplate"):GetString() ~= "") then
+			local attachedTemplate = menu:addTemplateElement(element("AttachedTemplate"):GetString(), "attachedTemplate", element)
+			
+			if(element("AttachedTemplateAlignment"):GetString() == "right") then
+				attachedTemplate:setOrientation(lua_sys.MenuOrientation(0, 0, -2, lua_sys.RIGHT, lua_sys.VCENTER))
+				attachedTemplate:setRelativeObjectAnchors(lua_sys.RIGHT, lua_sys.VCENTER)
+			elseif(element("AttachedTemplateAlignment"):GetString() == "center") then
+				attachedTemplate:setOrientation(lua_sys.MenuOrientation(0, 0, -2, lua_sys.HCENTER, lua_sys.VCENTER))
+				attachedTemplate:setRelativeObjectAnchors(lua_sys.HCENTER, lua_sys.VCENTER)
+			else
+				attachedTemplate:setOrientation(lua_sys.MenuOrientation(0, 0, -2, lua_sys.LEFT, lua_sys.VCENTER))
+				attachedTemplate:setRelativeObjectAnchors(lua_sys.LEFT, lua_sys.VCENTER)
+			end
+			
+			attachedTemplate:setPositionBroadcast(true)
+			attachedTemplate:init()
+			
+		end
+	</event>
+	
+	<event name="setVisible" params="element">
+		element["EmptySprite"]("visible"):SetInt(1)
+		element["FullSprite"]("visible"):SetInt(1)
+		element["Label"]("visible"):SetInt(1)
+		if(element("AttachedTemplate"):GetString() ~= "") then
+			element:GetElement("attachedTemplate"):DoStoredScript("setVisible")
+		end
+	</event>
+	
+	<event name="setInvisible" params="element">
+		element["EmptySprite"]("visible"):SetInt(0)
+		element["FullSprite"]("visible"):SetInt(0)
+		element["Label"]("visible"):SetInt(0)
+		if(element("AttachedTemplate"):GetString() ~= "") then
+			element:GetElement("attachedTemplate"):DoStoredScript("setInvisible")
+		end
+	</event>
+	
+</template>
